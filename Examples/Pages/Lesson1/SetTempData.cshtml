@@ -1,0 +1,19 @@
+@page
+@model Examples.Pages.Lesson1.SetTempData
+
+@{
+    Layout = null;
+}
+
+<h1>Kies je lievelingsgetal</h1>
+<ul>
+    @foreach (var getal in Enumerable.Range(1, 10))
+    {
+        <li>
+            <form method="post">
+                @getal
+                <button type="submit" name="lievelingsgetal" value="HalloWorld@getal">Selecteer</button>
+            </form>
+        </li>
+    }
+</ul>

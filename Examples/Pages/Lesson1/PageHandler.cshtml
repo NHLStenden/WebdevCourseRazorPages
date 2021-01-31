@@ -1,0 +1,33 @@
+@page
+@model Examples.Pages.Lesson1.PageHandler
+
+@{
+    Layout = null;
+}
+
+@Model.Counter
+
+
+@* https://www.learnrazorpages.com/razor-pages/handler-methods *@
+@* Take a look at the generated HTML (__RequestVerificationToken)  *@
+
+<h1>Multiple forms, asp-page-handler on the form tag</h1>
+<form method="post" asp-page-handler="Increment">
+    <input type="hidden" name="count" value="@Model.Counter" >
+    <button type="submit">+</button>
+</form>
+
+<form method="post" asp-page-handler="Decrement">
+    <input type="hidden" name="count" value="@Model.Counter" >
+    <button type="submit">-</button>
+</form>
+<hr>
+<h1>Single form, asp-page-handler on the button tag</h1>
+<form method="post" >
+    <input type="hidden" name="count" value="@Model.Counter" >
+    <button type="submit" asp-page-handler="Increment">+</button>
+    <button type="submit" asp-page-handler="Decrement">-</button>
+</form>
+<hr>
+<a asp-page-handler="Increment" asp-route-count="@Model.Counter">+</a>
+<a asp-page-handler="Decrement" asp-route-count="@Model.Counter">-</a>

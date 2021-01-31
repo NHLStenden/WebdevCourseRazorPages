@@ -1,0 +1,24 @@
+@page
+@model Examples.Pages.Lesson1.HiddenFormFields
+
+@{
+    Layout = null;
+}
+
+@if (Request.Method == "POST")
+{
+    <p>productId: @Request.Form["productId"]</p>
+    <p>action: @Request.Form["action"]</p>
+}
+
+<hr/>
+    <p>productId: @Model.ProductId</p>
+    <p>action: @Model.ProductId</p>
+
+<hr/>
+
+<form method="post">
+    <input type="hidden" name="productId" value="434343">
+    <input type="hidden" name="action" value="addItemToShoppingCard">
+    <button type="submit">Add Product to Shopping Cart</button>
+</form>

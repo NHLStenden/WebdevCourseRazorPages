@@ -1,0 +1,14 @@
+@page
+@model Examples.Pages.Lesson1.GetRequest
+
+@{
+    Layout = null;
+}
+
+<h1>Hello @Model.Name</h1>
+<form method="get">
+    <input name="naam" type="text">
+    <button type="submit">Verzenden</button>
+</form>
+<hr>
+<a href="?naam=Lops">Lops</a>

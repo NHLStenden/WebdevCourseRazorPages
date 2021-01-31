@@ -1,0 +1,246 @@
+@page "{category?}"
+@model Examples.Pages.Lesson4.Index
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+<!-- https://stackoverflow.com/questions/46820771/asp-net-core-2-0-razor-pages-ajax-post -->
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@functions{
+    string GetAntiXsrfRequestToken()
+    {
+        return Xsrf.GetAndStoreTokens(HttpContext).RequestToken;
+    }
+}
+
+@* <div class="row"> *@
+@*     @await Component.InvokeAsync("CategoryInfoComponent4", Request.RouteValues["category"]) *@
+@* </div> *@
+
+<div class="row" id="categoryNavContainer">
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h1>Product Page Lesson 4</h1>
+    </div>
+</div>
+
+
+<div id="product-container">
+    <div id="productTemplateTarget">Loading Products</div>
+</div>
+
+<form method="post" id="addNewProduct">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Product.Name"  class="form-control" placeholder="Enter product name">
+        <span class="invalid-feedback" asp-validation-for="Product.Name"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input asp-for="Product.Description" class="form-control" placeholder="Enter product description">
+        <span class="invalid-feedback" asp-validation-for="Product.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input asp-for="Product.Price" class="form-control" placeholder="Enter product price">
+        <span class="invalid-feedback" asp-validation-for="Product.Price"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Sale Price</label>
+        <input asp-for="Product.SalePrice" class="form-control" placeholder="Enter sale price">
+        <span class="invalid-feedback" asp-validation-for="Product.SalePrice"></span>
+    </div>
+
+    <div class="form-group">
+        <select asp-for="Product.CategoryId" class="form-control">
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.CategoryId">@category.Name</option>
+            }
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit"><i class="fa fa-plus-circle"></i>&nbsp;Add Product</button>
+</form>
+
+
+
+<!-- Trick to  automatically generate anti-forgery tokens -->
+<!-- https://www.talkingdotnet.com/handle-ajax-requests-in-asp-net-core-razor-pages/ -->
+@* <form method="post"> *@
+@* *@
+@* </form> *@
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+    <script src="~/lib/jquery.unobtrusive-ajax.js"></script>
+
+    <script>
+    var settings = {
+        validClass: "is-valid",
+        errorClass: "is-invalid"
+    };
+    $.validator.setDefaults(settings);
+    $.validator.unobtrusive.options = settings;
+    </script>
+
+    <!--  https://gist.github.com/Dammmien/5f0bff8643cb931da7e9495f782aad0a -->
+    <script id="productPartial" type="text/template">
+        <div class="col-md-4 product-card-col">
+            <div class="card mb-3">
+                <div class="card-header">
+                    {{name}}
+                </div>
+
+                <img class="card-img-top" src="https://picsum.photos/id/{{productId}}/200/200" alt="{{name}}">
+                <div class="card-body">
+                    {{#salePrice}}
+                        <h2 class="card-subtitle text-info">{{salePrice}} <del>{{price}}</del></h2>
+                    {{/salePrice}}
+
+                    {{^salePrice}}
+                        <h2 class="card-subtitle text-info">{{price}}</h2>
+                    {{/salePrice}}
+                    <p class="card-text">{{description}}</p>
+                    <div class="btn-group" role="group" aria-label="product modification buttons">
+                        <button class="btn btn-primary btn-product-delete" data-product-id="{{productId}}">Delete</button>
+                        <a asp-page="./Edit" asp-route-id="{{productId}}" class="btn btn-primary">Edit</a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{category.name}}</small>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="productContainerTemplate" type="text/template">
+        <div class="row" id="product-container-row">
+            {{#products}}
+                {{> productDetail}}
+            {{/products}}
+        </div>
+    </script>
+
+    <script src="/js/mustache.js"></script>
+
+    <script>
+        //als je vanuit de server validatie wilt toevoegen!
+        //https://stackoverflow.com/questions/7380278/manually-set-unobtrusive-validation-error-on-a-textbox/50931158#50931158
+        //om de een of andere reden werkt de validatie niet heel fijn
+        //mijn tip: misschien zelf helemaal de validatie uitprogrammeren met jquery validation
+        //ik krijg er geen vinger achter, wel zonder unobtrusive!
+        function forceError(element, errorMessage) {
+            $(element).rules("add", {
+                forcibleerror: true,
+                messages: {
+                    forcibleerror: function () { return errorMessage; }
+                }
+            });
+            var isForced = false;
+            if (errorMessage) {
+                isForced = true;
+            }
+            $(element)[0].dataset.isForced = isForced;
+            $(element).valid();
+        }
+        $.validator.addMethod("forcibleerror", function (value, element) {
+            return $(element)[0].dataset.isForced !== "true";
+        });
+
+
+        function loadCategoryNavigationPartial() {
+            $('#categoryNavContainer').load('/Lesson4/Index?handler=CategoryNavigationPartial');
+        }
+
+        function loadProducts(category) {
+            var data = {};
+            if (category !== undefined && category != null) {
+                data.category = category;
+            }
+            $.getJSON('/Lesson4/Index?handler=LoadProducts', data, function (products) {
+                // http://coenraets.org/blog/2011/12/tutorial-html-templates-with-mustache-js/
+                var template = $('#productContainerTemplate').html();
+                var productDetailTemplate = $("#productPartial").html();
+                var partials = {"productDetail": productDetailTemplate};
+                //notice: {products: products}
+                var html = Mustache.to_html(template, {products: products}, partials);
+
+                $('#productTemplateTarget').html(html);
+            });
+        }
+
+        $(document).ready(function () {
+            loadCategoryNavigationPartial();
+            loadProducts();
+
+            //https://www.learnrazorpages.com/razor-pages/ajax/form-post
+            $("#addNewProduct").submit(function (event) {
+                event.preventDefault();
+                if($(this).valid()) {
+                   alert('the form is valid');
+
+                    $.post('/Lesson4/Index?handler=Create', $("#addNewProduct").serialize(), function (product) {
+                       var productDetailTemplate = $("#productPartial").html();
+                       var html = Mustache.to_html(productDetailTemplate, product);
+
+                       $('#product-container-row').append(html);
+
+                       loadCategoryNavigationPartial();
+                    }).fail(function (error) {
+                       var key = Object.keys(error.responseJSON)[0];
+                       forceError($('[name="'+key + '"]').first(), error.responseJSON[key]);
+
+                       alert("Error in addNewProduct: " +error.responseJSON );
+                    });
+                }
+            });
+
+
+            $("#product-container").on("click", ".btn-product-delete", function () {
+                var $this = $(this);
+                var productId = parseInt($this.data("product-id"));
+
+                $.ajax({
+                    url: '/Lesson4/Index?handler=Delete',
+                    //https://stackoverflow.com/questions/46820771/asp-net-core-2-0-razor-pages-ajax-post
+                    headers: {
+                        "RequestVerificationToken": '@GetAntiXsrfRequestToken()'
+                    },
+                    // https://www.talkingdotnet.com/handle-ajax-requests-in-asp-net-core-razor-pages/ -->
+                    // beforeSend: function (xhr) {
+                    //     xhr.setRequestHeader("XSRF-TOKEN",
+                    //         $('input:hidden[name="__RequestVerificationToken"]').val());
+                    // },
+                    method: 'POST',
+                    // contentType: "application/json; charset=utf-8",
+                    // dataType: "json",
+                    data: {productId: productId},
+                }).done(function (result) {
+                    if (result) {
+                       $this.closest('.product-card-col').remove();
+                    }
+                    loadCategoryNavigationPartial();
+                }).fail(function (error) {
+                    alert('error: ' +error);
+                });
+            });
+        });
+    </script>
+
+
+    <!-- used by viewComponent CategoryInfoComponent -->
+    <script>
+        $(document).ready(function () {
+           $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+}

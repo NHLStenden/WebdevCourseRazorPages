@@ -1,0 +1,15 @@
+@page
+@model Examples.Pages.Lesson1.IncrementCounter
+
+@{
+    Layout = null;
+}
+
+@Model.Counter
+
+<a href="?count=@Model.Counter">Increment</a>
+
+<form>
+    <input type="hidden" name="count" value="@Model.Counter">
+    <button type="submit">Increment</button>
+</form>

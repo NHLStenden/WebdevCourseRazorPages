@@ -1,0 +1,31 @@
+@page
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Configuration
+@using Microsoft.Extensions.Hosting
+@model Examples.Pages.Utils.DisplayConfiguration
+
+@inject IWebHostEnvironment env
+
+
+<h1>Enviroment: @(env.IsDevelopment() ? "Development" :
+                    env.IsProduction() ? "Production" :
+                        env.IsStaging() ? "Staging" :
+                            "Geen idee omgeving")</h1>
+
+
+
+<hr>
+<ul>
+@if (!Model.HostEnvironment.IsProduction())
+{
+    <h1>Het tonen van onderstaande gegevens in een Productieomgeving is een potentieel beveilingsrisico!!</h1>
+    @foreach (var x in Model.Configuration.AsEnumerable())
+    {
+        <li>@x.Key -- @x.Value</li>
+    }
+}
+else
+{
+    <h1>Om in productie setting te zien, zet de if in commentaar (of haal weg)</h1>
+}
+</ul>

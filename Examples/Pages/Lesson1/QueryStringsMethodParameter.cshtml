@@ -1,0 +1,37 @@
+@page
+@model Examples.Pages.Lesson1.QueryStringsMethodParameter
+
+@{
+    Layout = null;
+}
+
+<h1>QueryString: @Request.QueryString</h1>
+
+<h1>Firstname: @Model.Firstname</h1>
+<h2>MiddleNames:</h2>
+<ul>
+    @foreach (var middleName in @Model.MiddleNames)
+    {
+        <li>@middleName</li>
+    }
+</ul>
+<h1>Lastname: @Model.Lastname</h1>
+<hr>
+
+<h2>With a form</h2>
+<form method="get">
+    Voornaam: <input name="firstname"><br>
+    Extra naam: <input name="middleNames"><br>
+    Extra naam: <input name="middleNames"><br>
+    Extra naam: <input name="middleNames"><br>
+    Extra naam: <input name="middleNames"><br>
+    Achternaam: <input name="lastname"><br>
+    <button type="submit">Submit</button>
+</form>
+<hr>
+<h2>With a link</h2>
+<a href="?firstname=Joris&middleNames=Daniel&middleNames=Jacob&lastname=Lops">QueryString</a>
+
+<h1>Kijk eens naar de url (adresbalk), kan je de structuur ontdekken?</h1>
+<h2>Wat gebeurt er als een spatie staat in een inputbox?</h2>
+<h2>Wat gebeurt er met meerdere waarden voor dezelfde key (middleNames)?</h2>

@@ -1,0 +1,99 @@
+@page
+@model Examples.Pages.IndexModel
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+<style>
+    .gutter.gutter-horizontal {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+        background-repeat: no-repeat;
+        background-position-y: center;
+    }
+</style>
+
+@functions
+{
+    private void MakeTree(List<IndexModel.BootstrapTreeNode> nodes)
+    {
+        @foreach (var node in nodes)
+        {
+            if (node.Nodes != null && node.Nodes.Any())
+            {
+                <li class="treeview-animated-items">
+                    <a class="closed">
+                        <i class="fas fa-angle-right"></i>
+                        <span>
+                            <i class="far fa-folder-open ic-w mx-1"></i>
+                             @node.Text
+
+                             @node.Methods
+                        </span>
+                    </a>
+                    <ul class="nested">
+                        @{
+                            MakeTree(node.Nodes);
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <div class="treeview-animated-element page" id="@node.Id"
+                         data-page-url="@node.Url"
+                         data-page-source="@node.PageSource"
+                         data-page-model-source="@node.PageModelSource">
+                        <i class="far fa-file-code ic-w mr-1"></i>@node.Text
+                            @if (node.Methods != null)
+                            {
+                                @foreach (var method in node.Methods)
+                                {
+                                    <span class="badge badge-secondary">@method</span>
+                                }
+                            }
+                    </div>
+                </li>
+            }
+        }
+    }
+}
+
+
+<div class="row">
+    <!-- Start your project here-->
+
+    <div class="col-3">
+        <div class="treeview-animated border">
+            <h6 class="pt-3 pl-3">Examples</h6>
+            <hr>
+            <ul class="treeview-animated-list mb-3">
+                @{
+                    MakeTree(Model.RouteNodesForTree);
+                }
+            </ul>
+        </div>
+    </div>
+    <partial name="_ExampleWindow"/>
+</div>
+
+
+
+@section Scripts {
+    @* <script src="lib/jquery/dist/jquery.js"></script> *@
+    <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" crossorigin="anonymous" integrity="sha256-Q9hnBpgBFstzZOr+OKFOWZWfcF5nFXO8Qz48Nmndo6U="></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/theme-monokai.js" crossorigin="anonymous"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/csharp.js" crossorigin="anonymous"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/razor.js" crossorigin="anonymous"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/html.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+
+    <script src="js/loadCodeWindows2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mainContentContainer").hide();
+        });
+    </script>
+}

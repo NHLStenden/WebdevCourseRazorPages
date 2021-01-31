@@ -1,0 +1,29 @@
+@model Examples.Pages.Lesson4.ViewModels.CategoryInfoViewModel
+
+
+<ul class="nav nav-pills justify-content-center" id="categoryNavMenu">
+    @foreach (var categoryInfo in Model.CategoryInfos)
+    {
+        <li class="nav-item">
+            <a onclick="updateMenuAndLoadProducts(this, '@(categoryInfo.Name)');"
+               class="nav-link"
+               data-toggle="tooltip"
+               title="Min Price: @categoryInfo.MinPrice, Max Price: @categoryInfo.MaxPrice, Avg Price: @categoryInfo.AvgPrice"
+            >@categoryInfo.Name <span class="badge badge-primary badge-pill">@categoryInfo.ProductCount</span></a>
+        </li>
+    }
+</ul>
+
+<script>
+function updateMenuAndLoadProducts(element, categoryName) {
+    if($(element).hasClass("active")) {
+        categoryName = null;
+        $(element).removeClass("active");
+    } else {
+        $("#categoryNavMenu .nav-link").removeClass("active");
+        $(element).addClass('active');
+    }
+
+    loadProducts(categoryName);
+}
+</script>

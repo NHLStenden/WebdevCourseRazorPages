@@ -1,0 +1,13 @@
+@page
+@model Examples.Pages.Lesson1.Cookies
+
+@{
+    Layout = null;
+}
+
+<h1>Counter: @Model.Counter</h1>
+<form method="get">
+    <button name="action" value="increment" type="submit">Increment ++</button>
+    <button name="action" value="decrement" type="submit">Decrement --</button>
+    <button name="action" value="reset" type="submit">Reset Cookie</button>
+</form>

@@ -1,0 +1,27 @@
+@model Examples.Pages.Lesson4.ViewModels.CategoryInfoViewModel
+
+<ul class="nav nav-pills justify-content-center">
+    @foreach (var categoryInfo in Model.CategoryInfos)
+    {
+        <li class="nav-item">
+            <a asp-route-category="@categoryInfo.Name"
+               class="nav-link @(string.CompareOrdinal(Model.CategoryNameFilter, categoryInfo.Name)==0?"active": "")"
+               data-toggle="tooltip"
+               title="Min Price: @categoryInfo.MinPrice, Max Price: @categoryInfo.MaxPrice, Avg Price: @categoryInfo.AvgPrice"
+            >@categoryInfo.Name <span class="badge badge-primary badge-pill">@categoryInfo.ProductCount</span></a>
+        </li>
+    }
+</ul>
+
+
+
+<!-- Section not supported in ViewComponents, see Index.cshtml :-( -->
+@* @section Scripts *@
+@* { *@
+@*         <script> *@
+@*         $(document).ready(function () { *@
+@*           $('[data-toggle="tooltip"]').tooltip() *@
+@*           alert('tooltips'); *@
+@*         }); *@
+@*         </script> *@
+@* } *@

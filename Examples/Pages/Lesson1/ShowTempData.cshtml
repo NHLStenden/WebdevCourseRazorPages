@@ -1,0 +1,20 @@
+@page
+@model Examples.Pages.Lesson1.ShowTempData
+
+@{
+    Layout = null;
+}
+
+
+@if (!string.IsNullOrWhiteSpace((string?) TempData["Lievelingsgetal"]))
+{
+    <h1>Je lievelingsgetal is: @TempData["Lievelingsgetal"]</h1>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Lievelingsgetal))
+{
+    <!-- De techniek met een proprety heeft mijn voorkeur -->
+    <h1>Je lievelingsgetal is: @Model.Lievelingsgetal</h1>
+}
+
+

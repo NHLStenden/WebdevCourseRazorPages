@@ -1,0 +1,15 @@
+@page
+@model Examples.Pages.Lesson1.PageCentricExample
+
+@{
+    Layout = null;
+}
+
+<h1>Display Todo Items</h1>
+
+<ul>
+@foreach (var todoItem in Model.Todos)
+{
+    <li>@todoItem.Name -- @todoItem.Completed -- @todoItem.TodoId</li>
+}
+</ul>

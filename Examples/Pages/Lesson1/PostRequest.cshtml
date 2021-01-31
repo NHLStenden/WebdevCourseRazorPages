@@ -1,0 +1,13 @@
+@page
+@model Examples.Pages.Lesson1.PostRequest
+
+@{
+    Layout = null;
+}
+
+<h1>Hello @Model.Name</h1>
+<form method="post">
+    @* het name attribute is belangrijk, dit wordt gebruikt om bij de waarde te kunnen, b.v. Request.Form["naam"] *@
+    <input type="text" name="naam">
+    <button type="submit">Verzenden</button>
+</form>

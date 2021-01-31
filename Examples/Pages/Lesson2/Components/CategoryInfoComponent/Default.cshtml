@@ -1,0 +1,14 @@
+@model List<Examples.Pages.Lesson2.ViewComponents.CategorySummary>
+
+<ul class="list-group">
+@foreach (var categorySummary in Model)
+{
+    <li class="list-group-item">
+        @categorySummary.CategoryName
+        <span class="badge badge-primary badge-pill">@categorySummary.NumberOfProducts</span>
+    </li>
+}
+</ul>
+
+
+

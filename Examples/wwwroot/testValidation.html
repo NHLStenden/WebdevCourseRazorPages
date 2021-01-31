@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" action="testValidation.html">
+        <label>UserName
+            <input type="text" name="username" id="username" >
+        </label>
+
+        <label>Email
+            <input type="email" name="email">
+        </label>
+
+        <label>Password
+            <input type="password" id="password" name="password" >
+        </label>
+
+        <label>Confirm Password
+            <input type="password" name="confirmPassword" >
+        </label>
+        <button id="submit" type="submit">Login</button>
+    </form>
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script>
+        var validator = null;
+        $(document).ready(function () {
+            // $("#submit").click(function (event) {
+            //    event.preventDefault();
+            // });
+
+               validator = $("form").validate({
+                   debug: true,
+                   rules: {
+                       username: {
+                           required: true,
+                           minlength: 4
+                       },
+                       email: {
+                           required: true,
+                           email: true
+                       },
+                       password: {
+                           required: true,
+                           minlength: 3
+                       },
+                       confirmPassword: {
+                           required: true,
+                           equalTo: "#password"
+                       }
+                   },
+                   messages: {
+                       username: {
+                           required: "Name is required",
+                           minLength: "Please enter four digits"
+                       }
+                   }
+               });
+        });
+    </script>
+</body>
+</html>

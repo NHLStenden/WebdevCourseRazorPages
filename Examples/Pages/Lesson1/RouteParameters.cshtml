@@ -1,0 +1,15 @@
+@page "{action?}/{count:int?}"
+@model Examples.Pages.Lesson1.RouteParameters
+
+@{
+    Layout = null;
+}
+
+@Model.Count
+
+<form asp-route-action="increment" asp-route-count="@Model.Count" method="get">
+    <button type="submit">+</button>
+</form>
+<hr>
+<a asp-route-action="decrement" asp-route-count="@Model.Count">decrement</a>
+

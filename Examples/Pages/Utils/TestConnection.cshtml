@@ -1,0 +1,25 @@
+@page
+@model Examples.Pages.Utils.TestConnection
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+
+    <form method="get">
+        <input asp-for="ConnectionString" size="150" >
+        <button type="submit">Verbinden</button>
+    </form>
+
+    @Model.Message
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+@page
+@model Examples.Pages.Lesson1.SessionStoreObject
+
+@{
+    Layout = null;
+}
+
+<form method="get">
+    <button name="action" value="increment">++</button>
+    <button name="action" value="decrement">--</button>
+    <button name="action" value="reset">x</button>
+    <br>
+    <button name="action" value="removeSession">Delete Session</button>
+</form>
+<hr>
+@Model.ActionCounter.CalculateResult()
+<hr>
+@if (Model.ActionCounter.Actions.Count > 0)
+{
+    <ul>
+    @foreach (var action in Model.ActionCounter.Actions)
+    {
+        <li>@action</li>
+    }
+    </ul>
+}

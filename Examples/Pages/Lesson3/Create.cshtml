@@ -1,0 +1,68 @@
+@page
+@model Examples.Pages.Lesson3.Create
+
+@{
+    Layout = "_Layout";
+}
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+    var settings = {
+        validClass: "is-valid",
+        errorClass: "is-invalid"
+    };
+    $.validator.setDefaults(settings);
+    $.validator.unobtrusive.options = settings;
+    </script>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Product.Name" class="form-control" placeholder="Enter product name">
+        <span class="invalid-feedback" asp-validation-for="Product.Name"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input asp-for="Product.Description" class="form-control" placeholder="Enter product description">
+        <span class="invalid-feedback" asp-validation-for="Product.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input asp-for="Product.Price" class="form-control" placeholder="Enter product price">
+        <span class="invalid-feedback" asp-validation-for="Product.Price"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Sale Price</label>
+        <input asp-for="Product.SalePrice" class="form-control" placeholder="Enter sale price">
+        <span class="invalid-feedback" asp-validation-for="Product.SalePrice"></span>
+    </div>
+
+     <div class="form-group">
+         <label asp-for="Product.CategoryId"></label>
+         <select class="form-control"
+                 asp-for="Product.CategoryId"
+                 asp-items="Model.Categories.Select(x => new SelectListItem() {
+                     Text = x.Name,
+                     Value = x.CategoryId.ToString()})">
+         </select>
+         <span class="invalid-feedback" asp-validation-for="Product.CategoryId"></span>
+     </div>
+
+@*     <div class="form-group"> *@
+@*         <select asp-for="Product.CategoryId" class="form-control"> *@
+@*             @foreach (var category in Model.Categories) *@
+@*             { *@
+@*                 <option value="@category.CategoryId">@category.Name</option> *@
+@*             } *@
+@*         </select> *@
+@*     </div> *@
+
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>

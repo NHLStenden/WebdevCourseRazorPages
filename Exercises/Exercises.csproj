@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Carter" Version="5.2.0" />
+      <PackageReference Include="Dapper" Version="2.0.78" />
+      <PackageReference Include="MySql.Data" Version="8.0.23" />
+      <PackageReference Include="MySqlConnector" Version="1.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\Lesson3\ViewModels" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+@page
+@model Examples.Pages.DisplayExamples2
+
+@{
+    ViewData["No Nav"] = true;
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <!-- Start your project here-->
+
+    <partial name="_ExampleWindow"/>
+</div>
+
+@section Scripts {
+    @* <script src="lib/jquery/dist/jquery.js"></script> *@
+    <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" crossorigin="anonymous" integrity="sha256-Q9hnBpgBFstzZOr+OKFOWZWfcF5nFXO8Qz48Nmndo6U="></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/theme-monokai.js" crossorigin="anonymous"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/csharp.js" crossorigin="anonymous"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/razor.js" crossorigin="anonymous"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/html.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+
+    <script src="js/loadCodeWindows2.js"></script>
+}

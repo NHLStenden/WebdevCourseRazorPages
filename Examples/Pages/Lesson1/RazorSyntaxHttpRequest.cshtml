@@ -1,0 +1,50 @@
+@page
+
+@{
+    Layout = null;
+}
+
+@{
+    IEnumerable<string> names = new List<string>() {"Joris", "Martin", "Jos"};
+
+    string filter = Request.Query["filter"];
+    bool filterHasValue = !string.IsNullOrWhiteSpace(filter);
+    if (filterHasValue)
+    {
+        names = names.Where(x => x.Contains(filter));
+    }
+}
+
+@if (filterHasValue)
+{
+    <h1>Filtered by: @filter</h1>
+}
+else
+{
+    <h1>Filtered by: None </h1>
+}
+
+
+<ul>
+@foreach (var name in names)
+{
+    <li>@name</li>
+}
+</ul>
+
+<hr>
+Other Request Info:
+<ul>
+    <li>Method: @Request.Method</li>
+    <li>QueryString: @Request.QueryString</li>
+    <li>Path: @Request.Path</li>
+    <li>IsHttps: @Request.IsHttps</li>
+    <li>Headers:
+        <ul>
+            @foreach (var header in Request.Headers)
+            {
+                <li>@header.Key: @header.Value</li>
+            }
+        </ul>
+    </li>
+</ul>

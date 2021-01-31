@@ -1,0 +1,112 @@
+@page
+@* @model Examples.Pages.Lesson1.RazorSyntax *@
+
+@{
+    Layout = null;
+}
+
+
+<h2>Implicit Razor expressions</h2>
+
+<p>Current DateTime: @DateTime.Now</p>
+<p>IsLeapYear(2016): @DateTime.IsLeapYear(2016)</p>
+
+<hr>
+
+<h2>Explicit Razor expressions</h2>
+<p>Tomorrow @(DateTime.Now - TimeSpan.FromDays(1))</p>
+
+<hr/>
+
+<h2>Code Block</h2>
+
+@{
+  var x = "Hello World";
+}
+<p>@x</p>
+@{
+    x = "Goodbye";
+}
+<p>@x</p>
+<hr/>
+
+<p>Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))</p>
+
+@{
+    var joe = new Person("Joe", 33);
+}
+
+<p>Age@(joe.Age)</p>
+<hr/>
+
+@{
+    RenderItem("Item 1");
+}
+
+@for(int i = 1; i < 3; i++)
+{
+    RenderItem("Item " +i);
+}
+
+<br>
+<h2>Transitions (from HTML to C# and back)</h2>
+@{
+    var inCSharp = true;
+    <p>Now in HTML, was in C# @inCSharp</p>
+}
+
+@{
+    var people = new Person[]
+    {
+        new Person("Joris", 30),
+        new Person("Martin", 40),
+        new Person("Jos", 50)
+    };
+}
+
+
+@for (var i = 0; i < people.Length; i++)
+{
+    var person = people[i];
+    <p>Name: @person.Name</p>
+}
+
+<hr>
+<h2>Control Structures & looping (if, else, switch, for, foreach, etc)</h2>
+
+@foreach (var person in people)
+{
+    if (person.Name.StartsWith("J"))
+    {
+        <p><b>@person.Name</b></p>
+    }
+    else
+    {
+        <p>@person.Name</p>
+    }
+}
+
+
+@functions {
+    public class Person
+    {
+        public int Age { get; set; }
+        public string Name { get; set; }
+
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+    }
+
+    public string DisplayPerson(Person p)
+    {
+        return $"{p.Name} -- {p.Age}";
+    }
+
+    void RenderItem(string item) {
+        <li>@item</li>
+    }
+}
+

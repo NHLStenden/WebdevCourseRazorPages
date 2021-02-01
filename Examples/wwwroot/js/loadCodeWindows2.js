@@ -94,8 +94,10 @@ $(document).ready(function () {
         });
     }
 
-    $('#displayPageIFrameUrl').keypress(function (e) {
-        handleAddressBar();
+    $('#displayPageIFrameUrl').keypress(function (event) {
+        if(event.keycode === '13') {
+            handleAddressBar();
+        }
     });
 
     $("#displayPageIFrameUrlBtn").on("click", function () {

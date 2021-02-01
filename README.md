@@ -1,4 +1,4 @@
-# Het up to date te houden van het project
+# Het up to date houden van het project
 
 Het is belangrijk om het project up to date te houden. 
 Er zullen ongetwijfeld bugs aanwezig zijn en hopelijk worden deze gemeld om vervolgens opgelost te worden.
@@ -35,8 +35,6 @@ Waar kan je wat vinden:
 Ook staat er vaak al een opzet waarin je de opdrachten moet maken om deze te kunnen testen. 
 * In *Exercises.Tests* staan de testen voor de opdrachten.
 
-
-
 ## Voorbeelden
 
 De voorbeelden in `Exercises` zijn bedoeld om de concepten & technieken uit te leggen, te begrijpen en in isolatie te zien.
@@ -49,6 +47,8 @@ Zorg er dan wel voor dat het *Examples* project start en niet per ongelijk het E
 Als je de webbrowser opent en navigeer naar de [index](https://localhost:5001/) pagina en klik op een voorbeeld, dan zie je het voorbeeld in actie en de code is ook zichtbaar. 
 
 *Opmerking:* we beginnen met week 0 :-).
+
+Voor de voorbeelden die gebruik maken van een database (MySQL)
 
 ## Opdrachten
 
@@ -71,7 +71,8 @@ ASP.NET Core Razor Pages:
 * [LearnRazorPages](https://www.learnrazorpages.com/)
   * Per onderwerp zie: [Table of Content van learnrazorpages](https://www.learnrazorpages.com/table-of-contents)
 * [Kudvenkat Razor Pages Video Tutorials](https://www.youtube.com/watch?v=3F9SpUYTB6Y&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&ab_channel=kudvenkat) - veel video’s over Razor Pages.
-* [Master ASP.NET Core 3.1 Razor Pages](https://learning.oreilly.com/videos/master-asp-net-core/9781800568068/) - ik heb mijn twijfels bij de kwaliteit van deze video’s, hoog truckjes gehalte!
+* [Pluralsight](https://www.pluralsight.com). Is niet gratis. Heeft een aantal kwalitatief goede curssen.
+~~* [Master ASP.NET Core 3.1 Razor Pages](https://learning.oreilly.com/videos/master-asp-net-core/9781800568068/) - ik heb mijn twijfels bij de kwaliteit van deze video’s, hoog truckjes gehalte!~~
 
 Voor Dapper:
 * [Dapper Getting Started](https://dapper-tutorial.net/dapper)
@@ -94,7 +95,15 @@ met `dotnet --version`.
 ### Database MySQL
 
 MySQL is een Relationele Database Management Systeem (DBMS) dat we gebruiken in deze cursus.
-Download en installeer de [MySQL Community Edition](https://dev.mysql.com/downloads/). 
+Download en installeer de [MySQL Community Edition](https://dev.mysql.com/downloads/).
+De scripts om een databases aan te maken en te vullen (tabellen en dummy data) kan je vinden in `Examples/Pages/Lesson3/SQL/MySQL_CreateAndFillTable.sql`, `Exercises/Tests/MysqlCafe.SQL` (Let op: maak zelf de database aan Exercises en Tests) en `DbUtils`.
+Als username gebruik ik `root` en als wachtwoord `Test@1234!`. Gebruik jij iets anders pas dit dan aan in de config bestanden en DBUtils:
+`Examples/appsettings.Development`, `Exercises.Tests`.
+Een connectionstring ziet er vaak zo uit en moet worden aangepast aan jou eigen situatie:
+`WebdevCourseRazorPages.Exercises.MySQL": "Server=127.0.0.1;Port=3306;Database=Exercises;Uid=root;Pwd=Test@1234!;`.
+
+Voor het testen moet je zelf een database (schema) aanmaken met de naam `Tests`.
+
 
 ### IDE's
 Er zijn veel IDE's (ontwikkelomgeving) beschikbaar om ASP.NET Core Razor Pages mee te ontwikkelen, zoals:

@@ -1,6 +1,15 @@
-CREATE DATABASE IF NOT EXISTS Exercises;
+# CREATE DATABASE IF NOT EXISTS Exercises;
+#
+# USE Exercises;
 
-USE Exercises;
+# Dit script wordt ook door de test gebruikt, vandaar dat jezelf een database moet aanmaken,
+# namelijk:  Exercises en Test
+# Dit kan met onderstaande commando's (deze commando's niet toevoegen aan dit script, dan werken de tests niet meer):
+# CREATE DATABASE IF NOT EXISTS Tets;
+# CREATE DATABASE IF NOT EXISTS Exercises;
+#
+# USE Exercises;
+
 
 DROP TABLE IF EXISTS OrderLine;
 DROP TABLE IF EXISTS Category;

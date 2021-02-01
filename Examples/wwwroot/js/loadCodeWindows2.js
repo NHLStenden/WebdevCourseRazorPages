@@ -95,7 +95,7 @@ $(document).ready(function () {
     }
 
     $('#displayPageIFrameUrl').keypress(function (event) {
-        if(event.keycode === '13') {
+        if(event.which === 13) {
             handleAddressBar();
         }
     });

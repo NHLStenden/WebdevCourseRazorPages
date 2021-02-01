@@ -104,6 +104,8 @@ Een connectionstring ziet er vaak zo uit en moet worden aangepast aan jou eigen 
 
 Voor het testen moet je zelf een database (schema) aanmaken met de naam `Tests`.
 
+Een connectionstring kan je testen op de pagina: `http://localhost:5000/Utils/TestConnection`.
+Wil je weten hoe je een connectiestring moet opbouwen: [Connectionstrings - mysql-connector-net-mysqlconnection](https://www.connectionstrings.com/mysql-connector-net-mysqlconnection/).
 
 ### IDE's
 Er zijn veel IDE's (ontwikkelomgeving) beschikbaar om ASP.NET Core Razor Pages mee te ontwikkelen, zoals:

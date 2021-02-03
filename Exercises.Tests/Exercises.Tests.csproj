@@ -12,6 +12,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="5.0.2" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
         <PackageReference Include="NUnit" Version="3.13.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
         <PackageReference Include="ObjectDumper.NET" Version="3.0.20251.1" />
         <PackageReference Include="coverlet.collector" Version="3.0.2">
           <PrivateAssets>all</PrivateAssets>

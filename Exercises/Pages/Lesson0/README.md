@@ -1,3 +1,13 @@
+# Uitleg 
+
+Als je het project (Exercises) runt (Play knop in Visual Studio en Rider, zorg ervoor dat je het juiste project runt) kun je de browser openen (als dat niet automatisch gaat) 
+en de output bekijken per opdracht.
+Dus b.v. `https://localhost:5001/Lesson0/assignment0`.
+
+Wil je nu testen of je een opdracht goed hebt gemaakt. 
+Dan kan je `Exercises.Tests/Lesson0.cs`. Als je rechts klikt in de methode die je wilt testen, als het goed is moet je nu `run unit test` aanklikken. 
+Als het goed is runt je test en krijg je te zien of het goed (groen) of fout (rood) is gegaan. 
+
 # Opdrachten Les 0 - HTTP Request & Response
 
 ## Opdracht 0 - Request & Response

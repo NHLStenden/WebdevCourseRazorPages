@@ -5,8 +5,8 @@ en de output bekijken per opdracht.
 Dus b.v. `https://localhost:5001/Lesson0/assignment0`.
 
 Wil je nu testen of je een opdracht goed hebt gemaakt. 
-Dan kan je `Exercises.Tests/Lesson0.cs`. Als je rechts klikt in de methode die je wilt testen, als het goed is moet je nu `run unit test` aanklikken. 
-Als het goed is runt je test en krijg je te zien of het goed (groen) of fout (rood) is gegaan. 
+Ga dan naar `Exercises.Tests/Lesson0.cs`. Als je rechts klikt in de methode die je wilt testen (b.v. `public async Task Assignment0()`), als het goed is moet je nu `run unit test` aanklikken. 
+Als het goed is runt je de test en krijg je te zien of de opdracht correct is (groen) of fout (rood). 
 
 # Opdrachten Les 0 - HTTP Request & Response
 

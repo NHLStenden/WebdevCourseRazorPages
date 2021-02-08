@@ -1,0 +1,24 @@
+@page "{action?}"
+@model Examples.Pages.Lesson1.PostAndQueryAndRoute
+
+@{
+    Layout = null;
+}
+
+@Model.Message
+<hr>
+<form method="post"
+      action="/Lesson1/PostAndQueryAndRoute/Delete?queryStringValue=Een%20waarde">
+    @* Als je zelf gaat kloten met de action moet je een AntiForgeryToken meesturen,
+    de betere oplossing zijn taghelpers, zie code in commentaar hieronder! *@
+    @Html.AntiForgeryToken()
+
+    @* Zelfde als hierboven alleen met taghelpers, dit is de beter oplossing! *@
+    @*    <form method="post"      *@
+    @*       asp-route-action="Delete" *@
+    @*       asp-route-queryStringValue="Een waarde" > *@
+    @*  uitleg form taghelpers: https://www.learnrazorpages.com/razor-pages/tag-helpers/form-tag-helper *@
+
+    <input type="hidden" name="productId" value="3232">
+    <button type="submit">Delete</button>
+</form>

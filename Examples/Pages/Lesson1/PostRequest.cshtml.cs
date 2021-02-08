@@ -14,7 +14,8 @@ namespace Examples.Pages.Lesson1
 
         public void OnPost()
         {
-            if (Request.Query.ContainsKey("naam") && !string.IsNullOrWhiteSpace(Request.Query["naam"]))
+            if (Request.Form.ContainsKey("naam") &&
+                !string.IsNullOrWhiteSpace(Request.Form["naam"]))
             {
                 Name = Request.Form["naam"].First().ToUpper();
             }

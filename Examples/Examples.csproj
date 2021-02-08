@@ -4,6 +4,10 @@
 <!--    <TargetFramework>netcoreapp3.1</TargetFramework>-->
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>94c3735a-b14b-4bdf-93b1-d1b7545c234e</UserSecretsId>
+    
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants>TRACECOREAPP;LIVESHARP_DISABLE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include=".git" />
@@ -11,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Carter" Version="5.2.0" />
     <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="LiveSharp" Version="1.6.52" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.2" />
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />

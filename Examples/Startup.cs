@@ -30,10 +30,10 @@ namespace Examples
                 options.OpenApi.Enabled = false;
             });
 
-            // services.AddLiveReload(config =>
-            // {
-            //     config.LiveReloadEnabled = true;
-            // });
+            services.AddLiveReload(config =>
+            {
+                config.LiveReloadEnabled = true;
+            });
 
             //doet dit normaal gesproken niet!
             services.AddAntiforgery(options =>
@@ -81,7 +81,7 @@ namespace Examples
             {
                 app.UseDeveloperExceptionPage();
 
-                //app.UseLiveReload();
+                app.UseLiveReload();
                 app.UseBrowserLink();
             }
             else

@@ -30,11 +30,18 @@
                         <h2 class="card-subtitle text-info">@product.Price</h2>
                     }
                     <p class="card-text">@product.Description</p>
+                    <a class="btn btn-primary" asp-page="Details" asp-route-productId="@product.ProductId">
+                        <i class="fas fa-info-circle"></i>&nbsp;Details
+                    </a>
                     <form method="post">
                         <input type="hidden" name="productId" value="@product.ProductId">
-                        <button asp-page-handler="Delete" class="btn btn-primary">Delete</button>
+                        <button asp-page-handler="Delete" class="btn btn-primary">
+                            <i class="fas fa-trash"></i>&nbsp;Delete
+                        </button>
                     </form>
-                    <a asp-page="./Edit" asp-route-id="@product.ProductId" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Edit" asp-route-id="@product.ProductId" class="btn btn-primary">
+                        <i class="fas fa-edit"></i>&nbsp;Edit
+                    </a>
                 </div>
                 <div class="card-footer">
                       <small class="text-muted">@product.Category</small>

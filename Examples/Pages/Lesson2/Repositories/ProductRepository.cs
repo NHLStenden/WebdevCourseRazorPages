@@ -92,5 +92,10 @@ namespace Examples.Pages.Lesson2.Repositories
         {
             return Categories.OrderBy(x => x.Name).ToList();
         }
+
+        public Product GetProductById(int productId)
+        {
+            return Products.FirstOrDefault(x => x.ProductId == productId);
+        }
     }
 }

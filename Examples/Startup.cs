@@ -1,6 +1,8 @@
 using Carter;
+using Examples.Pages.Lesson2.RouteConstraints;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -39,6 +41,11 @@ namespace Examples
             services.AddAntiforgery(options =>
             {
                 options.SuppressXFrameOptionsHeader = true;
+            });
+
+            services.Configure<RouteOptions>(options =>
+            {
+                options.ConstraintMap.Add("productIdExists", typeof(ProductIdExistsConstraint));
             });
             //services.AddDirectoryBrowser();
             //services.AddAntiforgery(options => options.HeaderName = "XSRF-TOKEN");

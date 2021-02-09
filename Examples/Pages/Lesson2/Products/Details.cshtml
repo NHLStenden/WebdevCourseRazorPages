@@ -1,0 +1,26 @@
+@page "{productid:productIdExists}"
+@model Examples.Pages.Lesson2.Products.Details
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <table class="table table-striped">
+        <tr>
+            <td>@Html.DisplayNameFor(_ => Model.Product.Name)</td>
+            <td>@Model.Product.Name</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(_ => Model.Product.Description)</td>
+            <td>@Model.Product.Description</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(_ => Model.Product.Price)</td>
+            <td>@Model.Product.Price</td>
+        </tr>
+    </table>
+</div>
+<div class="row">
+    <a asp-page="Index" class="btn btn-primary">Back</a>
+</div>

@@ -26,7 +26,9 @@ namespace Examples
         {
             services.AddSession();
 
-            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddRazorPages()
+                .AddRazorRuntimeCompilation();
+
             services.AddCarter(options =>
             {
                 options.OpenApi.Enabled = false;

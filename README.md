@@ -69,10 +69,15 @@ Dan zijn dit een aantal bruikbare tips:
 
 Je wilt eigenlijk een aanpassing doen aan je code en meteen het resultaat zien de browser! Helaas duurt het vaak nogal lang. De oplossing is hot reload software.
 Om live te kunnen herladen (hot reload) na het aanpassen van de code zijn er een aantal oplossingen:
-* dotnet watch
+*Geen een oplossing is perfect!* 
+Misschien is iedere keer de webapplicatie opnieuw starten (na updaten van code) de beste oplossing.
+
+* dotnet watch (geen debugger :-()
 * Razor file compilation in ASP.NET Core
 * LiveReload
-* **LiveSharp (mijn keus, kost alleen $)**
+* **LiveSharp (mijn keus, kost alleen $, werkt ook niet in alle omstandigheden goed)**
+* Wachten tot ASP.NET Core versie 6, er wordt aan gewerkt. Dus we moeten nog even geduld hebben. Hopelijk is dit de perfecte oplossing. Fingers crossed.
+Het staat in de [ASP.NET Core 6 Roadmap](https://github.com/dotnet/aspnetcore/issues/27883) en er zijn ook al previews van beschikbaar (of het werkt weet ik niet). 
 
 ###dotnet watch  
 Dit is nogal traag (dus en het is nog steeds vaak relatief lang wachten) en het is lastig om er mee te debuggen (tenminste in Rider, misschien heb je in Visual Studio meer geluk).
@@ -81,19 +86,19 @@ Dit is nogal traag (dus en het is nog steeds vaak relatief lang wachten) en het 
 
 ##Razor file compilation in ASP.NET Core
 Zorgt ervoor dat je cshtml bestanden na een aanpassing opnieuw gecompiled worden, je zult zelf moeten refreshen in de browser.
-Zorgt ervoor dat je cshtml bestanden na een aanpassing opnieuw gecompileerd worden, je zult zelf moeten pagina moeten verversen in de browser. Helaas worden de cs bestanden (o.a. de PageModels) niet meegenomen, wat dit niet heel bruikbaar maakt (mijn mening).
-
 https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-5.0&tabs=visual-studio
 
 ###LiveReload
-Een ander alternatief is LiveReload:  
-Zal helaas alleen de cshtml bestanden updaten. Niet de .cs bestanden, wat ervoor zorgt dat je PageModel ongewijzigd blijft :-(. Werkt alleen in combinatie met de main layout (er wordt een Javascript geïnjecteerd die dit mogelijk maakt).
+LiveReload herlaat de browser na het aanpassen van een cshtml bestand.
+Het aangepast cshtml bestand zal gecompileerd worden door Razor File compilation (zie hierboven).
+De browser update dan automatisch. 
 https://github.com/RickStrahl/Westwind.AspnetCore.LiveReload
 
 ###LiveSharp
 De beste oplossing is die ik tot nu tot heb gevonden is [LiveSharp](https://www.livesharp.net/).
-Dit werkt echt top! Maar is helaas maar 14 dagen gratis. Zeker de moeite waard om eens te proberen. Daarna wil je niet meer anders :-)
+Is helaas maar 14 dagen gratis. Zeker de moeite waard om eens te proberen.
 Wellicht handig om eens te proberen, misschien helpt het je het wachten te verkorten en kan je meer proberen/ontwikkelen in minder tijd!
+Let op sommige dingen werken wel en andere niet (als je b.v. een nieuwe methode toevoegt en deze wilt aanroepen m.b.v. een handler method vanuit een cshmtl bestand dan werkt het niet, waarschijnlijk omdat dit ergens in ASP.NET geregeld wordt).
 
 ## Relevante bronnen
 

@@ -1,0 +1,11 @@
+@page
+@model Examples.Pages.Lesson1.PageCentricSimple
+@{
+    Layout = null;
+}
+<ul>
+@foreach (var name in Model.Names)
+{
+    <li>@name</li>
+}
+</ul>

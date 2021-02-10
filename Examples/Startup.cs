@@ -34,9 +34,12 @@ namespace Examples
                 options.OpenApi.Enabled = false;
             });
 
+
             services.AddLiveReload(config =>
             {
-                config.LiveReloadEnabled = true;
+                //Let op als je dit aanzet. Dan doet de app.UseDeveloperExceptionPage();
+                //Dit betekent dat je geen foutmeldingen te zien krijgt in de browser in geval van een Exception
+                config.LiveReloadEnabled = false;
             });
 
             //doet dit normaal gesproken niet!

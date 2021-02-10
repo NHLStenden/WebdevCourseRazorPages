@@ -5,9 +5,11 @@
     Layout = null;
 }
 
-<h1>Hello @Model.Name</h1>
+<h1>Request.Form["naam"]: @Model.NameRequest</h1>
+<h1>Parameter van OnPost(): @Model.NameParameter</h1>
+<h1>BindProperty: @Model.NameBindProperty</h1>
 <form method="post">
     @* het name attribute is belangrijk, dit wordt gebruikt om bij de waarde te kunnen, b.v. Request.Form["naam"] *@
-    <input type="text" name="naam">
+    Naam: <input type="text" name="naam"> <br>
     <button type="submit">Verzenden</button>
 </form>

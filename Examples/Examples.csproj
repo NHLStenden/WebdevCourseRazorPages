@@ -902,6 +902,8 @@
     <_ContentIncludedByDefault Remove="wwwroot\code\Test\TestHidden.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\code\Test\TestHidden.cshtml.cs" />
     <_ContentIncludedByDefault Remove="Pages\Test\TestHidden.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\LesDemo\TodoList.cshtml" />
+    <_ContentIncludedByDefault Remove="Pages\LesDemo\TodoListDB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Examples\appsettings.Development.json" />

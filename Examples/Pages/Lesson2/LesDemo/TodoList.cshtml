@@ -1,0 +1,37 @@
+@page
+@model Examples.Pages.Lesson2.LesDemo.TodoList
+
+@{
+    Layout = null;
+}
+
+<h1>Todo List</h1>
+<hr>
+
+<ul>
+@foreach (var todo in @Model.Todos)
+{
+    <li>@todo.Description -- @todo.Done
+        <form method="post">
+            <button type="submit" asp-page-handler="Delete" asp-route-todoId="@todo.TodoId">Delete</button>
+            <button type="submit" asp-page-handler="Edit" asp-route-todoId="@todo.TodoId">Edit</button>
+        </form>
+    </li>
+}
+</ul>
+
+<hr>
+@* <form method="post" asp-page-handler="Create"> *@
+@*     Description: <input type="text" name="Description"><br> *@
+@*     Done: <input type="checkbox" name="Done"><br> *@
+@*     <button type="submit">Add</button> *@
+@* </form> *@
+
+<form method="post" asp-page-handler="Create">
+    Description: <input asp-for="NewTodo.Description">
+        <span asp-validation-for="NewTodo.Description"></span>
+    <br>
+    Done: <input type="checkbox" asp-for="NewTodo.Done"><br>
+    <button type="submit">Add</button>
+</form>
+

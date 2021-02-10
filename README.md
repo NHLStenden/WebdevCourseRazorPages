@@ -67,6 +67,8 @@ Dan zijn dit een aantal bruikbare tips:
 
 ## Hot Code Reload
 
+**!!Misschien is het beter onderstaande technieken niet te gebruiken, op eigen risico!!**
+
 Je wilt eigenlijk een aanpassing doen aan je code en meteen het resultaat zien de browser! Helaas duurt het vaak nogal lang. De oplossing is hot reload software.
 Om live te kunnen herladen (hot reload) na het aanpassen van de code zijn er een aantal oplossingen:
 *Geen een oplossing is perfect!* 
@@ -74,7 +76,7 @@ Misschien is iedere keer de webapplicatie opnieuw starten (na updaten van code) 
 
 * dotnet watch (geen debugger :-()
 * Razor file compilation in ASP.NET Core
-* LiveReload
+* LiveReload (maakt error weergave in browser stuk)
 * **LiveSharp (mijn keus, kost alleen $, werkt ook niet in alle omstandigheden goed)**
 * Wachten tot ASP.NET Core versie 6, er wordt aan gewerkt. Dus we moeten nog even geduld hebben. Hopelijk is dit de perfecte oplossing. Fingers crossed.
 Het staat in de [ASP.NET Core 6 Roadmap](https://github.com/dotnet/aspnetcore/issues/27883) en er zijn ook al previews van beschikbaar (of het werkt weet ik niet). 
@@ -91,8 +93,11 @@ https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=asp
 ###LiveReload
 LiveReload herlaat de browser na het aanpassen van een cshtml bestand.
 Het aangepast cshtml bestand zal gecompileerd worden door Razor File compilation (zie hierboven).
-De browser update dan automatisch. 
-https://github.com/RickStrahl/Westwind.AspnetCore.LiveReload
+De browser update dan automatisch.  
+Let op:
+Let op als je dit aanzet. Dan doet de `app.UseDeveloperExceptionPage();` het niet meer.
+Dit betekent dat je geen foutmeldingen te zien krijgt in de browser in geval van een Exception (fout in je code).
+[LiveReload](https://github.com/RickStrahl/Westwind.AspnetCore.LiveReload)
 
 ###LiveSharp
 De beste oplossing is die ik tot nu tot heb gevonden is [LiveSharp](https://www.livesharp.net/).

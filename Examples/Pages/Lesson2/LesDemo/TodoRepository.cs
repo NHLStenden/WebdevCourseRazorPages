@@ -20,7 +20,7 @@ namespace Examples.Pages.Lesson2.LesDemo
             }
         }
 
-        public ICollection<Todo> Get()
+        public IEnumerable<Todo> Get()
         {
             return Todos;
         }

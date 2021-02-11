@@ -6,7 +6,7 @@ namespace Examples.Pages.Lesson2.LesDemo
 {
     public class TodoList : PageModel
     {
-        public ICollection<Todo> Todos { get; set; } = new TodoRepository().Get();
+        public IEnumerable<Todo> Todos { get; set; } = new TodoRepository().Get();
 
         public void OnGet()
         {

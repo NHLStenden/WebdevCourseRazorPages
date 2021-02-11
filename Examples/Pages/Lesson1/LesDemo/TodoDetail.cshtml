@@ -1,0 +1,15 @@
+@page "{todoId:int}"
+@model Examples.Pages.Lesson1.LesDemo.TodoDetail
+
+@{
+    Layout = null;
+}
+
+<table>
+    <tr>
+        <td>Description</td><td>@Model.Todo.Description</td>
+        <td>Done</td><td>@Model.Todo.Done</td>
+        <td>TodoId</td><td>@Model.Todo.TodoId</td>
+    </tr>
+</table>
+

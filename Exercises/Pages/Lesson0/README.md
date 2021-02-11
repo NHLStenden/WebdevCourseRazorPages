@@ -135,13 +135,10 @@ Kijk ook goed naar de testcases om de methode te maken volgens de specificatie (
 
 
 ### Todo: Mogelijk extra opdrachten toevoegen: 
-* Opdracht 2 uitbreiden met meerde query string parameters, voornaam en achteraam
+* Opdracht 2 uitbreiden met meerdere query string parameters, voornaam en achteraam
 * Url segementen (kan ook in volgende les)
 * Opdracht met meerdere buttons toevoegen (voetbal score bord)
   * verschillende methoden 
-
 * Optioneel: rekenmachine met meerdere knoppen
-
 * Redirect van input
-
 * 21 kaartspel

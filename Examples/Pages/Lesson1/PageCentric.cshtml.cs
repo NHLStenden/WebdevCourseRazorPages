@@ -12,7 +12,7 @@ namespace Examples.Pages.Lesson1
             public bool Completed { get; set; }
         }
 
-        public List<Todo> Todos { get; set; }
+        public ICollection<Todo> Todos { get; set; }
 
         public void OnGet()
         {

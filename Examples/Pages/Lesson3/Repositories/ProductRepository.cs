@@ -16,7 +16,7 @@ namespace Examples.Pages.Lesson3.Repositories
             return products;
         }
 
-        public static List<Product> GetProducts()
+        public static ICollection<Product> GetProducts()
         {
             using var db = DbUtils.GetDbConnection();
             var products =
@@ -25,7 +25,7 @@ namespace Examples.Pages.Lesson3.Repositories
             return products;
         }
 
-        public static List<Product> GetProductWithCategories(string category)
+        public static ICollection<Product> GetProductWithCategories(string category)
         {
             //https://www.learndapper.com/relationships
             string sql =

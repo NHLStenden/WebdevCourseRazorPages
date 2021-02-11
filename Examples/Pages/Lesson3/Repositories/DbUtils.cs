@@ -2,6 +2,7 @@ using System.Data;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 
+
 namespace Examples.Pages.Lesson3.Repositories
 {
     public static class DbUtils

@@ -9,7 +9,7 @@ namespace Examples.Pages.Lesson4.ViewComponents
     {
         public IViewComponentResult Invoke(string categoryNameFilter = null)
         {
-            List<CategoryRepository.CategoryInfo> categoryInfos = CategoryRepository.GetCategoryInfos();
+            ICollection<CategoryRepository.CategoryInfo> categoryInfos = CategoryRepository.GetCategoryInfos();
 
             // ReSharper disable once Mvc.ViewComponentViewNotResolved
             return View(new CategoryInfoViewModel()

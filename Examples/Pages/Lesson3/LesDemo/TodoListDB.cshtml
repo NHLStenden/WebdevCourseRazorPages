@@ -1,8 +1,19 @@
 @page
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Hosting
 @model Examples.Pages.Lesson3.LesDemo.TodoListDB
 
 @{
     Layout = null;
+}
+
+@inject IWebHostEnvironment env
+
+@if (env.IsProduction())
+{
+    <h1>Er zit een SQL Injectie voorbeeld in de code, vandaar dat deze niet in productie staat :-)</h1>
+    <h2>Dit voorbeeld kan je bekijken als je het Examples project hebt gedownload van github.</h2>
+    return;
 }
 
 <h1>Todo List</h1>

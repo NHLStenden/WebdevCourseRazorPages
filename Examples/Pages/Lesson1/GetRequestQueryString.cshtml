@@ -1,0 +1,17 @@
+@page
+@model Examples.Pages.Lesson1.GetRequestQueryString
+
+@{
+    Layout = null;
+}
+
+<h1>Request.Query["name"]: @Model.NameFromRequestQuery</h1>
+<h1>OnGet([FromQuery] name): @Model.NameFromParameter</h1>
+<h1>[BindProperty(SupportsGet = true)]: @Model.NameFromPropertyBinding</h1>
+<hr>
+<form method="get">
+    <input name="naam" type="text">
+    <button type="submit">Verzenden</button>
+</form>
+<hr>
+<a href="?naam=Lops">Lops</a>

@@ -11,30 +11,35 @@ namespace Examples.Pages.Lesson3.LesDemo
         private IDbConnection Connect()
         {
             return new MySqlConnection(
-                "Server=127.0.0.1;Port=3306;Database=TodoDBExample;Uid=root;Pwd=Test@1234!;"
+                "Server=127.0.0.1;Port=3306;" +
+                "Database=TodoDBExample;" +
+                "Uid=root;Pwd=Test@1234!;"
             );
         }
 
-        public List<Todo> Get()
+        public IEnumerable<Todo> Get()
         {
-            using var connect =  Connect();
-            var todos = connect.Query<Todo>("SELECT * FROM Todo");
-            return todos.ToList();
+            using var connect = Connect();
+            var todos = connect
+                .Query<Todo>("SELECT * FROM Todo");
+            return todos;
         }
 
         public Todo Get(int todoId)
         {
             using var connect =  Connect();
-            var todo = connect.QuerySingleOrDefault<Todo>("SELECT * FROM Todo WHERE TodoId = @TodoId",
+            var todo = connect.QuerySingleOrDefault<Todo>(
+                "SELECT * FROM Todo WHERE TodoId = @TodoId",
+                
                 new {TodoId = todoId});
             return todo;
         }
 
-        public List<Todo> GetWithSQLInjection(string filter)
+        public IEnumerable<Todo> GetWithSQLInjection(string filter)
         {
-
             using var connect = Connect();
             //Doe dit nooit zelf een querystring in elkaar zetten!
+            //!!!SQL INJECTIE!!! Alle gegevens kunnen gestolen worden, etc :-(
             var todos = connect.Query<Todo>(
                 "SELECT * FROM Todo WHERE Description = " + filter
             );
@@ -47,12 +52,17 @@ namespace Examples.Pages.Lesson3.LesDemo
         {
             using var connect =  Connect();
             int numRowsEffected = connect.Execute(
-                "INSERT INTO Todo (Description, Done) VALUES (@Description, @Done)",
-                new {Description = todo.Description, Done = todo.Done});
+                "INSERT INTO Todo (Description, Done) VALUES (@Description, @Done)"
+                ,new {Description = todo.Description, Done = todo.Done});
 
-            var newTodo = connect.QuerySingle<Todo>(
-                "SELECT * FROM Todo WHERE TodoId = LAST_INSERT_ID()");
-            return newTodo;
+            if (numRowsEffected == 1)
+            {
+                var newTodo = connect.QuerySingle<Todo>(
+                    "SELECT * FROM Todo WHERE TodoId = LAST_INSERT_ID()");
+                return newTodo;    
+            }
+
+            return null;
         }
 
         public bool Delete(int todoId)

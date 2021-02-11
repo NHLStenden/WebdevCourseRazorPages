@@ -26,7 +26,7 @@ namespace Examples.Pages.Lesson3.Repositories
             }
         }
 
-        public static List<CategoryInfo> GetCategoryInfos()
+        public static ICollection<CategoryInfo> GetCategoryInfos()
         {
             using (var db = DbUtils.GetDbConnection())
             {

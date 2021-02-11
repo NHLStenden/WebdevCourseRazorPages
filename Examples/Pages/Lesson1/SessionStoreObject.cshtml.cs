@@ -32,7 +32,7 @@ namespace Examples.Pages.Lesson1
 
     public class ActionCounter
     {
-        public List<string> Actions { get; set; } = new List<string>();
+        public ICollection<string> Actions { get; set; } = new List<string>();
 
         public void AddAction(string action)
         {

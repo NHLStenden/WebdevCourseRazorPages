@@ -1,0 +1,33 @@
+@page
+@model Examples.Pages.Lesson1.LesDemo.TodoList
+
+@{
+    Layout = null;
+}
+
+<h1>Todo List</h1>
+<hr>
+
+<ul>
+@foreach (var todo in @Model.Todos)
+{
+    <li>@todo.Description -- @todo.Done
+        <a href="TodoDetail/@todo.TodoId">Details</a>
+        <form method="post">
+            <input type="hidden" name="todoId" value="@todo.TodoId">
+            <button type="submit" name="action" value="Delete">Delete</button>
+        </form>
+    </li>
+}
+</ul>
+
+<hr>
+
+<form method="post">
+    Description:
+        <input name="description" value="@Model.NewTodo.Description">
+    <br>
+    Done: <input type="checkbox" name="done" value="@Model.NewTodo.Done"><br>
+    <button type="submit" name="action" value="Add">Add</button>
+</form>
+

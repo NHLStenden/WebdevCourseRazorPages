@@ -7,7 +7,7 @@ namespace Exercises.Pages.Lesson3
 {
     public class Overview : PageModel
     {
-        public List<CostObject> CostObjects { get; set; }
+        public ICollection<CostObject> CostObjects { get; set; }
         public List<CostObjectRepository.BillLine> BillLines { get; set; } = null;
         public CostObjectRepository.TotalPrice TotalPrice { get; set; }
 

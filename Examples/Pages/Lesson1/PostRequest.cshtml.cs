@@ -13,13 +13,17 @@ namespace Examples.Pages.Lesson1
         public string NameBindProperty { get; set; }
         //public string Naam { get; set; }
 
-        public void OnGet()
-        {}
+        public IActionResult OnGet()
+        {
+            var page = Page();
+            return page;
+        }
 
-        public void OnPost([FromForm] string naam)
+        public IActionResult OnPost([FromForm] string naam)
         {
             NameRequest = Request.Form["naam"];
             NameParameter = naam;
+            return Page();
         }
     }
 }

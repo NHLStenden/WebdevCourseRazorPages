@@ -6,7 +6,7 @@ namespace Examples.Pages.Lesson3.LesDemo
 {
     public class TodoListDB : PageModel
     {
-        public List<Todo> Todos
+        public IEnumerable<Todo> Todos
         {
             get
             {

@@ -11,7 +11,9 @@ namespace Examples.Pages.Lesson1
         public IEnumerable<string> MiddleNames { get; set; } = new List<string>();
         public string Lastname { get; set; }
 
-        public void OnGet([FromQuery] string firstname, [FromQuery]IEnumerable<string> middleNames, [FromQuery]string lastname)
+        public void OnGet(  [FromQuery]string firstname, 
+                            [FromQuery]IEnumerable<string> middleNames, 
+                            [FromQuery]string lastname)
         {
             Firstname = firstname;
             MiddleNames = middleNames.Where(x => !string.IsNullOrWhiteSpace(x));

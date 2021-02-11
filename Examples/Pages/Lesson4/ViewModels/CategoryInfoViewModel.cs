@@ -6,6 +6,6 @@ namespace Examples.Pages.Lesson4.ViewModels
     public class CategoryInfoViewModel
     {
         public string CategoryNameFilter { get; set; }
-        public List<CategoryRepository.CategoryInfo> CategoryInfos { get; set; }
+        public ICollection<CategoryRepository.CategoryInfo> CategoryInfos { get; set; }
     }
 }

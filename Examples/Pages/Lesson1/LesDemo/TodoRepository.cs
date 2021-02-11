@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Examples.Pages.Lesson2.LesDemo
+namespace Examples.Pages.Lesson1.LesDemo
 {
     public class TodoRepository
     {
@@ -25,10 +25,17 @@ namespace Examples.Pages.Lesson2.LesDemo
             return Todos;
         }
 
+        public ICollection<Todo> Get(string filter)
+        {
+            return Todos.Where(x => x.Description.Contains(filter)).ToList();
+        }
+
         public Todo Get(int todoId)
         {
             return Todos.FirstOrDefault(x => x.TodoId == todoId);
         }
+
+
 
         public void Add(Todo todo)
         {

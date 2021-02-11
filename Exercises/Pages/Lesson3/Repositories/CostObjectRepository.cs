@@ -87,7 +87,7 @@ namespace Exercises.Pages.Lesson3.Repositories
 
         public List<BillLine> GetBillLinesFromOrderLines(int costObjectId)
         {
-            ICollection<OrderLine> orderLines = GetOrderLines(costObjectId);
+            List<OrderLine> orderLines = GetOrderLines(costObjectId);
 
             List<BillLine> result = new List<BillLine>();
             foreach (var orderLine in orderLines)

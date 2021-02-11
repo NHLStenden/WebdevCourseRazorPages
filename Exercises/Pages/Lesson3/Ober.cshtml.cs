@@ -19,8 +19,8 @@ namespace Exercises.Pages.Lesson3
         [BindProperty]
         public int? ProductId { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Product> Products { get; set; }
 
         public List<OrderRepository.TableOrderViewModel> TableOrders { get; set; }
 

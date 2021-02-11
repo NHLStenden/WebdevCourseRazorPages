@@ -76,7 +76,7 @@ namespace Examples.Pages.Lesson2.Repositories
             return Products;
         }
 
-        public ICollection<Product> AddProduct(Product product)
+        public List<Product> AddProduct(Product product)
         {
             int newProductId = Products.Max(x => x.ProductId) + 1;
 

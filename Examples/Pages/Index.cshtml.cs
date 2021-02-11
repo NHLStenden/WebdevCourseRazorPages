@@ -28,7 +28,7 @@ namespace Examples.Pages
 
         private readonly EndpointDataSource _endpointsDataSource;
 
-        public ICollection<BootstrapTreeNode> RouteNodesForTree { get; set; }
+        public List<BootstrapTreeNode> RouteNodesForTree { get; set; }
 
         public IndexModel(EndpointDataSource endpointsDataSource)
         {

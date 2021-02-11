@@ -20,12 +20,12 @@ namespace Examples.Pages.Lesson1.LesDemo
             }
         }
 
-        public ICollection<Todo> Get()
+        public List<Todo> Get()
         {
             return Todos;
         }
 
-        public ICollection<Todo> Get(string filter)
+        public List<Todo> Get(string filter)
         {
             return Todos.Where(x => x.Description.Contains(filter)).ToList();
         }
@@ -34,8 +34,6 @@ namespace Examples.Pages.Lesson1.LesDemo
         {
             return Todos.FirstOrDefault(x => x.TodoId == todoId);
         }
-
-
 
         public void Add(Todo todo)
         {

@@ -31,7 +31,7 @@ namespace Examples.Pages.Lesson2.ViewComponents
                 products = products.Where(x => x.Category.Name == categoryName).ToList();
             }
 
-            ICollection<CategorySummary> categorySummaries = new List<CategorySummary>();
+            List<CategorySummary> categorySummaries = new List<CategorySummary>();
             foreach (var productByGroup in products
                 .GroupBy(x => x.Category))
             {

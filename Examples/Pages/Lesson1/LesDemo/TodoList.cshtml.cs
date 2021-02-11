@@ -6,7 +6,7 @@ namespace Examples.Pages.Lesson1.LesDemo
 {
     public class TodoList : PageModel
     {
-        public ICollection<Todo> Todos { get; set; } = new TodoRepository().Get();
+        public List<Todo> Todos { get; set; } = new TodoRepository().Get();
 
         public void OnGet([FromRoute] string filter)
         {

@@ -10,12 +10,12 @@ namespace Examples.Pages.Lesson4
 {
     public class Index : PageModel
     {
-        private ICollection<Category> _categories;
+        private List<Category> _categories;
 
         [BindProperty(SupportsGet = true)]
         public Product Product { get; set; }
 
-        public ICollection<Category> Categories
+        public List<Category> Categories
         {
             get
             {
@@ -69,7 +69,7 @@ namespace Examples.Pages.Lesson4
 
         public PartialViewResult OnGetCategoryNavigationPartial(string categoryNameFilter = null)
         {
-            ICollection<CategoryRepository.CategoryInfo> categoryInfos = CategoryRepository.GetCategoryInfos();
+            List<CategoryRepository.CategoryInfo> categoryInfos = CategoryRepository.GetCategoryInfos();
 
             return Partial("_CategoryNav", new CategoryInfoViewModel()
             {

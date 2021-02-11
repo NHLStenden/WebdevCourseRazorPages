@@ -8,7 +8,7 @@ namespace Examples.Pages.Lesson3
 {
     public class Index : PageModel
     {
-        public ICollection<Product> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         public void OnGet(string category)
         {

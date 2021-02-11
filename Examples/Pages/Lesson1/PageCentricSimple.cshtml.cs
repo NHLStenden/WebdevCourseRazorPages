@@ -7,7 +7,7 @@ namespace Examples.Pages.Lesson1
 {
     public class PageCentricSimple : PageModel
     {
-        public ICollection<string> Names { get; set; } =
+        public List<string> Names { get; set; } =
             new List<string>() {
                 "Joris", "Jos", "Martin" };
 

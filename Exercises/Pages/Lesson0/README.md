@@ -80,7 +80,7 @@ Het is niet altijd duidelijk of een key een waarde heeft! Dus dit moet je **alti
 `if(Query.ContainsKey("someKey")) { ... }`
 
 Maak een methode die de volgende input en output verwerkt:  
-* http://localhost:5000/assignment3?name=Joris&name=Lops&age=32 => `<ul>Leeftijd: 32 van<li>Joris</li><li>Lops</li></ul>`  
+* http://localhost:5000/Lesson0/assignment3?name=Joris&name=Lops&age=32 => `<ul>Leeftijd: 32 van<li>Joris</li><li>Lops</li></ul>`  
 
 ## Opdracht 4 Beschermen tegen Cross-Site Scripting (XSS) aanvallen.
 

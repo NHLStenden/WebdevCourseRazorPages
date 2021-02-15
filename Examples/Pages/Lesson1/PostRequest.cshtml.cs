@@ -17,6 +17,7 @@ namespace Examples.Pages.Lesson1
         {
             var page = Page();
             return page;
+            
         }
 
         public IActionResult OnPost([FromForm] string naam)

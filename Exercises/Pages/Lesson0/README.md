@@ -109,7 +109,7 @@ En natuurlijk een verzend (submit) knop met als tekst *Verzenden*.
 De textboxen hebben respectievelijk  het name-attribute firstname, lastname, age
 Dus b.v. `<input name='firstname' type='text' />`.
 
-Het formulier is dus als volgt gemaakt worden:
+Het formulier kan dus als volgt gemaakt worden:
 ```c#
 private string FormAssignment5(
     string firstName = "", string lastName = "", string age = "",

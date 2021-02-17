@@ -77,24 +77,19 @@ namespace Exercises.Pages.Lesson0
             //return Task.CompletedTask;
         }
 
-        private string FormAssignment5(string firstName = "", string lastName = "", string age = "",
+        private string FormAssignment5(
+            string firstName = "", string lastName = "", string age = "",
             string firstNameError = "",
             string lastNameError = "", string ageError = "")
         {
-            throw new NotImplementedException();
-
-//             var form = $@"
-//
-//
-//                 ";
-//             return form;
+            var form = $@"
+                <form method='POST'>
+                    Voornaam: <input name='firstname' type='text' value='{firstName}'/>{firstNameError}
+                    Achternaam: <input name='lastname' type='text' value='{lastName}'/>{lastNameError}
+                    Leeftijd: <input name='age' type='text' value='{age}'/>{ageError}
+                    <button type='submit'>Verzenden</button>
+                </form>";
+            return form;
         }
-
-        // private Task Assignment6Get(HttpRequest request, HttpResponse response)
-        // {
-        //
-        // }
-
-
     }
 }

@@ -66,7 +66,7 @@ Code Tips:
 De input (url) en verwachte output staan hieronder beschreven:
 * http://localhost:5001/Lesson0/assignment2?name=Joris  =>   `<h1>Hello Joris</h1>   HttpStatusCode.OK`
 * http://localhost:5000/Lesson0/assignment2             =>   `<h1>Bad Request</h1>   HttpStatusCode.BadRequest`
-* http://localhost:5000/Lesson0/assignment2?name=       =>   `h1>Bad Request</h1>   HttpStatusCode.BadRequest`
+* http://localhost:5000/Lesson0/assignment2?name=       =>   `<h1>Bad Request</h1>   HttpStatusCode.BadRequest`
 
 **Opmerking: gebruik in deze opdracht `QueryString`, het idee is om de `QueryString` zelf uitelkaar te halen.** 
 
@@ -107,7 +107,26 @@ De GET request geeft een formulier weer op het scherm.
 Dit formulier heeft drie textboxen, 1 voor voornaam, 1 voor achternaam, 1 voor leeftijd.
 En natuurlijk een verzend (submit) knop met als tekst *Verzenden*.
 De textboxen hebben respectievelijk  het name-attribute firstname, lastname, age
-Dus b.v. `<input name="firstname" type="text" />`
+Dus b.v. `<input name='firstname' type='text' />`.
+
+Het formulier is dus als volgt gemaakt worden:
+```c#
+private string FormAssignment5(
+    string firstName = "", string lastName = "", string age = "",
+    string firstNameError = "",
+    string lastNameError = "", string ageError = "")
+{
+    var form = $@"
+                <form method='POST'>
+                    Voornaam: <input name='firstname' type='text' value='{firstName}'/>{firstNameError}
+                    Achternaam: <input name='lastname' type='text' value='{lastName}'/>{lastNameError}
+                    Leeftijd: <input name='age' type='text' value='{age}'/>{ageError}
+                    <button type='submit'>Verzenden</button>
+                </form>";
+    return form;
+}
+```
+
 
 Het formulier moet gebruik maken van de POST method, deze roept de Post Handler `Assignment5Post` aan. 
 Deze moet  de input (3 textboxen) van het formulier verwerken.

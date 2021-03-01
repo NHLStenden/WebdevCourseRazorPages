@@ -1,0 +1,36 @@
+@model Examples.Pages.Lesson2.Models.Product
+
+<div class="col-md-4">
+    <div class="card mb-3">
+        <div class="card-header">
+            @Model.Name
+        </div>
+        <img class="card-img-top" src="https://picsum.photos/id/@(Model.ProductId)/200/200" alt="@Model.Name">
+        <div class="card-body">
+            @if (@Model.SalePrice.HasValue)
+            {
+                <h2 class="card-subtitle text-info">@Model.SalePrice <del>@Model.Price</del></h2>
+            }
+            else
+            {
+                <h2 class="card-subtitle text-info">@Model.Price</h2>
+            }
+            <p class="card-text">@Model.Description</p>
+            <a class="btn btn-primary" asp-page="Details" asp-route-productId="@Model.ProductId">
+                <i class="fas fa-info-circle"></i>&nbsp;Details
+            </a>
+            <form method="post">
+                <input type="hidden" name="productId" value="@Model.ProductId">
+                <button asp-page-handler="Delete" class="btn btn-primary">
+                    <i class="fas fa-trash"></i>&nbsp;Delete
+                </button>
+            </form>
+            <a asp-page="./Edit" asp-route-id="@Model.ProductId" class="btn btn-primary">
+                <i class="fas fa-edit"></i>&nbsp;Edit
+            </a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">@Model.Category</small>
+        </div>
+    </div>
+</div>

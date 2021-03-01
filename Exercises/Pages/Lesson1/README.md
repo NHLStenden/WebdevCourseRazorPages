@@ -17,6 +17,7 @@ Eventueel kan je de test bekijken in (`Exercises.Test/Lesson1.cs/Assignment<Assi
 
 Het idee is om een simpel scorebord te maken. 
 De toestand (state) wordt bijgehouden in de QueryString.
+De state in deze opdracht is: `scoreHome` & `scoreAway`.
 
 De cshtml structuur (Content Page) om mee te beginnen staat al voor je klaar. 
 

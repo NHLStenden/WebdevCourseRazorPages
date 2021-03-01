@@ -7,7 +7,6 @@ namespace Examples.Pages.Lesson2.Models
 {
     public class Product
     {
-        [Key]
         public int ProductId { get; set; }
         [Required(ErrorMessage = "Naam mag niet leeg zijn"), MinLength(2), MaxLength(12),
          Display(Name = "Naam", Prompt = "Geef een geldige product naam op")]

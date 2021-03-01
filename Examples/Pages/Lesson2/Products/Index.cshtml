@@ -14,6 +14,9 @@
 <div class="row">
     @foreach (var product in Model.Products)
     {
+        <partial name="_DisplayProduct" model="product"></partial>
+        
+        @* onderstaande code staat in partial page _DisplayProduct
         <div class="col-md-4">
             <div class="card mb-3">
                 <div class="card-header">
@@ -47,6 +50,7 @@
                       <small class="text-muted">@product.Category</small>
                 </div>
             </div>
-        </div>
+        </div> 
+        *@
     }
 </div>

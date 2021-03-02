@@ -67,7 +67,7 @@ namespace Examples.Pages.Lesson3.Repositories
                     CategoryId = product.CategoryId
                 });
             product.ProductId = newProductId;
-            product.Category = CategoryRepository.GetCategoryById(product.CategoryId);
+            product.Category = new CategoryRepository().GetCategoryById(product.CategoryId);
 
             return product;
         }

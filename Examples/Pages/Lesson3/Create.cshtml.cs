@@ -18,7 +18,7 @@ namespace Examples.Pages.Lesson3
 
         public void OnGet()
         {
-            Categories = CategoryRepository.GetCategories();
+            Categories = new CategoryRepository().GetCategories();
         }
 
         public IActionResult OnPost()

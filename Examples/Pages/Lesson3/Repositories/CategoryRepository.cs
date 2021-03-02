@@ -18,7 +18,7 @@ namespace Examples.Pages.Lesson3.Repositories
             public decimal AvgPrice { get; set; }
         }
 
-        public static List<Category> GetCategories()
+        public List<Category> GetCategories()
         {
             using (var db = DbUtils.GetDbConnection())
             {
@@ -26,7 +26,7 @@ namespace Examples.Pages.Lesson3.Repositories
             }
         }
 
-        public static List<CategoryInfo> GetCategoryInfos(string categoryNameFilter = null)
+        public List<CategoryInfo> GetCategoryInfos(string categoryNameFilter = null)
         {
             using (var db = DbUtils.GetDbConnection())
             {
@@ -46,7 +46,7 @@ namespace Examples.Pages.Lesson3.Repositories
             }
         }
 
-        public static Category GetCategoryById(int categoryId)
+        public Category GetCategoryById(int categoryId)
         {
             using (var db = DbUtils.GetDbConnection())
             {

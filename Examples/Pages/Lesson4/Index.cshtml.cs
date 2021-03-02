@@ -19,7 +19,7 @@ namespace Examples.Pages.Lesson4
         {
             get
             {
-                _categories = CategoryRepository.GetCategories();
+                _categories = new CategoryRepository().GetCategories();
                 return _categories;
             }
             set => _categories = value;
@@ -69,7 +69,7 @@ namespace Examples.Pages.Lesson4
 
         public PartialViewResult OnGetCategoryNavigationPartial(string categoryNameFilter = null)
         {
-            List<CategoryRepository.CategoryInfo> categoryInfos = CategoryRepository.GetCategoryInfos();
+            List<CategoryRepository.CategoryInfo> categoryInfos = new CategoryRepository().GetCategoryInfos();
 
             return Partial("_CategoryNav", new CategoryInfoViewModel()
             {

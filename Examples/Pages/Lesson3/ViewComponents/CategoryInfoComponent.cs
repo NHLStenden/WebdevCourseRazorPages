@@ -4,11 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Examples.Pages.Lesson3.ViewComponents
 {
-    public class CategoryInfoComponent3 : ViewComponent
+    public class CategoryInfo3ViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke(string categoryNameFilter = null)
         {
-            List<CategoryRepository.CategoryInfo> categoryInfos = CategoryRepository.GetCategoryInfos(categoryNameFilter);
+            List<CategoryRepository.CategoryInfo> categoryInfos = 
+                new CategoryRepository().GetCategoryInfos(categoryNameFilter);
 
             // ReSharper disable once Mvc.ViewComponentViewNotResolved
             return View(new CategoryInfoComponent3ViewModel()

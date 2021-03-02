@@ -1,3 +1,4 @@
+//_DisplayProduct.cshtml
 @model Examples.Pages.Lesson2.Models.Product
 
 <div class="col-md-4">
@@ -20,8 +21,7 @@
                 <i class="fas fa-info-circle"></i>&nbsp;Details
             </a>
             <form method="post">
-                <input type="hidden" name="productId" value="@Model.ProductId">
-                <button asp-page-handler="Delete" class="btn btn-primary">
+                <button asp-page-handler="Delete" asp-route-productId="@Model.ProductId" class="btn btn-primary">
                     <i class="fas fa-trash"></i>&nbsp;Delete
                 </button>
             </form>

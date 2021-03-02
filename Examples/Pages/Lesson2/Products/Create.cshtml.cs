@@ -32,6 +32,8 @@ namespace Examples.Pages.Lesson2.Products
                 return Page();
             }
 
+            
+            
             _productRepository.AddProduct(Product);
 
             return RedirectToPage("Index");

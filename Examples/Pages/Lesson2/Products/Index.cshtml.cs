@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Examples.Pages.Lesson2.Models;
 using Examples.Pages.Lesson2.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Examples.Pages.Lesson2.Products

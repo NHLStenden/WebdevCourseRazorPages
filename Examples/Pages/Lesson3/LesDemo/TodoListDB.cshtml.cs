@@ -8,10 +8,7 @@ namespace Examples.Pages.Lesson3.LesDemo
     {
         public IEnumerable<Todo> Todos
         {
-            get
-            {
-                return new TodoRepository().Get();
-            }
+            get { return new TodoRepository().Get(); }
         }
 
         public void OnGet()
@@ -23,8 +20,7 @@ namespace Examples.Pages.Lesson3.LesDemo
             new TodoRepository().Delete(todoId);
         }
 
-        [BindProperty]
-        public Todo NewTodo { get; set; }
+        [BindProperty] public Todo NewTodo { get; set; }
 
         public IActionResult OnPostCreate()
         {
@@ -35,7 +31,5 @@ namespace Examples.Pages.Lesson3.LesDemo
 
             return Page();
         }
-
-
     }
 }

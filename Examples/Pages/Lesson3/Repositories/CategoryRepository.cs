@@ -26,7 +26,7 @@ namespace Examples.Pages.Lesson3.Repositories
             }
         }
 
-        public static List<CategoryInfo> GetCategoryInfos()
+        public static List<CategoryInfo> GetCategoryInfos(string categoryNameFilter = null)
         {
             using (var db = DbUtils.GetDbConnection())
             {
@@ -37,9 +37,10 @@ namespace Examples.Pages.Lesson3.Repositories
                            MIN(p.Price) as MinPrice, 
                            ROUND(AVG(p.Price), 2) as AvgPrice
                     FROM Product p JOIN Category c on c.CategoryId = p.CategoryId
+                    WHERE @Category IS NULL OR c.Name = @Category
                     GROUP BY c.Name, c.CategoryId
                     ORDER BY c.Name
-                ").ToList();
+                ", new {Category = categoryNameFilter}).ToList();
 
                 return result;
             }

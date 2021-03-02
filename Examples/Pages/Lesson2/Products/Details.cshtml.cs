@@ -13,7 +13,7 @@ namespace Examples.Pages.Lesson2.Products
         public Product Product { get; set; }
 
 
-        public void OnGet([FromRoute] int productId)
+        public void OnGet(int productId)
         {
             var productsRepository = new ProductsRepository();
             Product = productsRepository.GetProductById(productId);

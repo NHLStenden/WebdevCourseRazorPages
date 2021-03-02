@@ -12,6 +12,10 @@
 <partial name="_ProductCount" model="Model.Products"/>
 
 <div class="row">
+    <a asp-page="Create" class="btn btn-primary">Create</a>
+</div>
+
+<div class="row">
     @foreach (var product in Model.Products)
     {
         <partial name="_DisplayProduct" model="product"></partial>

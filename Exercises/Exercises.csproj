@@ -11,8 +11,4 @@
       <PackageReference Include="MySqlConnector" Version="1.2.1" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Pages\Lesson3\ViewModels" />
-    </ItemGroup>
-
 </Project>

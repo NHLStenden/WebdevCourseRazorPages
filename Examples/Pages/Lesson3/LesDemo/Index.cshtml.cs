@@ -21,7 +21,7 @@ namespace Examples.Pages.Lesson3.LesDemo
         }
 
         [BindProperty] public Todo NewTodo { get; set; }
-
+        
         public IActionResult OnPostCreate()
         {
             if (ModelState.IsValid)
@@ -31,5 +31,7 @@ namespace Examples.Pages.Lesson3.LesDemo
 
             return Page();
         }
+
+        
     }
 }

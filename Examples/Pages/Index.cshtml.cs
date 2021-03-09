@@ -23,7 +23,7 @@ namespace Examples.Pages
             public string RelativePath { get; set; }
             public string RouteName { get; set; }
             public bool SuppressLinkGeneration { get; set; }
-            public string? Text { get; set; }
+            public string Text { get; set; }
         }
 
         private readonly EndpointDataSource _endpointsDataSource;

@@ -45,35 +45,7 @@
 <div class="row">
     @foreach (var product in Model.Products)
     {
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    @product.Name
-                </div>
-                <img class="card-img-top" src="https://picsum.photos/id/@(product.ProductId)/200/200" alt="@product.Name">
-                <div class="card-body">
-                    @if (@product.SalePrice.HasValue)
-                    {
-                        <h2 class="card-subtitle text-info">@product.SalePrice <del>@product.Price</del></h2>
-                    }
-                    else
-                    {
-                        <h2 class="card-subtitle text-info">@product.Price</h2>
-                    }
-                    <p class="card-text">@product.Description</p>
-                        <div class="btn-group" role="group" aria-label="product modification buttons">
-                        <form method="post">
-                            @* <input type="hidden" name="productId" value="@product.ProductId"> *@
-                            <button asp-page-handler="Delete" asp-route-ProductId="@product.ProductId" class="btn btn-primary">Delete</button>
-                        </form>
-                        <a asp-page="./Edit" asp-route-id="@product.ProductId" class="btn btn-primary">Edit</a>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">@product.Category.Name</small>
-                </div>
-            </div>
-        </div>
+        <partial name="_DisplayProduct" model="product"/>
     }
 </div>
 

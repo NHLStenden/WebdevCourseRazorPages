@@ -7,7 +7,7 @@ namespace Examples.Pages.Lesson2.RouteConstraints
 {
     public class ProductIdExistsConstraint : IRouteConstraint
     {
-        public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values,
+        public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values,
             RouteDirection routeDirection)
         {
             var value = values["productid"];

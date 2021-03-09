@@ -19,16 +19,16 @@ namespace Examples.Pages.Lesson3.LesDemo
 
         public IEnumerable<Todo> Get()
         {
-            using var connect = Connect();
-            var todos = connect
+            using var connection = Connect();
+            var todos = connection
                 .Query<Todo>("SELECT * FROM Todo");
             return todos;
         }
 
         public Todo Get(int todoId)
         {
-            using var connect =  Connect();
-            var todo = connect.QuerySingleOrDefault<Todo>(
+            using var connection = Connect();
+            var todo = connection.QuerySingleOrDefault<Todo>(
                 "SELECT * FROM Todo WHERE TodoId = @TodoId",
                 
                 new {TodoId = todoId});
@@ -37,10 +37,10 @@ namespace Examples.Pages.Lesson3.LesDemo
 
         public IEnumerable<Todo> GetWithSQLInjection(string filter)
         {
-            using var connect = Connect();
+            using var connection = Connect();
             //Doe dit nooit zelf een querystring in elkaar zetten!
             //!!!SQL INJECTIE!!! Alle gegevens kunnen gestolen worden, etc :-(
-            var todos = connect.Query<Todo>(
+            var todos = connection.Query<Todo>(
                 "SELECT * FROM Todo WHERE Description = " + filter
             );
 
@@ -50,19 +50,30 @@ namespace Examples.Pages.Lesson3.LesDemo
 
         public Todo Add(Todo todo)
         {
-            using var connect =  Connect();
-            int numRowsEffected = connect.Execute(
-                "INSERT INTO Todo (Description, Done) VALUES (@Description, @Done)"
-                ,new {Description = todo.Description, Done = todo.Done});
+            using var connection = Connect();
+            Todo addedTodo = connection.QuerySingle<Todo>(
+                @"INSERT INTO Todo (Description, Done) VALUES (@Description, @Done); 
+                      SELECT * FROM Todo WHERE TodoId = LAST_INSERT_ID()"
+                ,todo);
+            return addedTodo;    
+        }
 
-            if (numRowsEffected == 1)
-            {
-                var newTodo = connect.QuerySingle<Todo>(
-                    "SELECT * FROM Todo WHERE TodoId = LAST_INSERT_ID()");
-                return newTodo;    
-            }
-
-            return null;
+        public Todo Update(Todo todo)
+        {
+            using var connection = Connect();
+            Todo updatedTodo = connection.QuerySingle<Todo>(@"
+                UPDATE Todo SET Description = @Description, Done = @Done
+                WHERE TodoId = @TodoId; 
+                SELECT * FROM Todo WHERE TodoId = @TodoId", 
+                todo
+            );
+            
+            //Ik had verwacht dat dit zou werken! Maar helaas niet
+            //SELECT * FROM Todo WHERE TodoId = LAST_INSERT_ID()
+            //uit de officiele documentatie blijkt LAST_INSERT_ID() ook alleen te werken met INSERTS
+            //https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id
+            
+            return updatedTodo;
         }
 
         public bool Delete(int todoId)
@@ -72,5 +83,7 @@ namespace Examples.Pages.Lesson3.LesDemo
                 new {TodoId = todoId});
             return numRowsEffected == 1;
         }
+        
+        
     }
 }

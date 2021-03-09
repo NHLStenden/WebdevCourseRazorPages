@@ -14,6 +14,7 @@ namespace Examples.Pages.Lesson3
         {
             //Filter based on category!
             Products = ProductsRepository.GetProductWithCategories(category);
+
         }
 
         public RedirectToPageResult OnPostDelete(int productId)

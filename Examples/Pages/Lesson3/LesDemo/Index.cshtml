@@ -25,8 +25,9 @@
         <li>@todo.Description -- @todo.Done
             <form method="post">
                 <button type="submit" asp-page-handler="Delete" asp-route-todoId="@todo.TodoId">Delete</button>
-                <button type="submit" asp-page-handler="Edit" asp-route-todoId="@todo.TodoId">Edit</button>
+                
             </form>
+            <a asp-page="Update" asp-route-todoId="@todo.TodoId">Edit</a>
         </li>
     }
 </ul>
@@ -43,5 +44,6 @@
     <span asp-validation-for="NewTodo.Description"></span>
     <br>
     Done: <input type="checkbox" asp-for="NewTodo.Done"><br>
+    
     <button type="submit">Add</button>
 </form>

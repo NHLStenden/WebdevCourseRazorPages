@@ -1,0 +1,17 @@
+@page
+@model Examples.Pages.Lesson3.LesDemo.Update
+
+@{
+    Layout = null;
+}
+
+<form method="post" asp-page-handler="Update">
+    <input type="hidden" asp-for="EditTodo.TodoId">
+    
+    Description: <input asp-for="EditTodo.Description">
+    <span asp-validation-for="EditTodo.Description"></span>
+    <br>
+    Done: <input type="checkbox" asp-for="EditTodo.Done"><br>
+
+    <button type="submit">Update</button>
+</form>

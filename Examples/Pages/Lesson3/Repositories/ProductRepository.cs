@@ -58,7 +58,8 @@ namespace Examples.Pages.Lesson3.Repositories
             using var db = DbUtils.GetDbConnection();
             int newProductId = db.ExecuteScalar<int>(
                 @"INSERT INTO Product (Name, Description, Price, SalePrice, CategoryId) 
-                    VALUES (@Name, @Description, @Price, @SalePrice, @CategoryId); select LAST_INSERT_ID();", new
+                    VALUES (@Name, @Description, @Price, @SalePrice, @CategoryId); 
+                    SELECT LAST_INSERT_ID();", new
                 {
                     Name = product.Name,
                     Description = product.Description,

@@ -47,8 +47,17 @@ namespace Examples.Pages.Lesson3.LesDemo
             return todos.ToList();
         }
 
-
-        public Todo Add(Todo todo)
+        public bool AddSimple(Todo todo)
+        {
+            using var connection = Connect();
+            int numRowEffected = connection.Execute(
+                @"INSERT INTO Todo (Description, Done) VALUES (@Description, @Done)"
+                , todo);
+            return numRowEffected == 1;
+        }
+        
+        
+        public Todo AddPlusSelect(Todo todo)
         {
             using var connection = Connect();
             Todo addedTodo = connection.QuerySingle<Todo>(
@@ -67,14 +76,14 @@ namespace Examples.Pages.Lesson3.LesDemo
                 SELECT * FROM Todo WHERE TodoId = @TodoId", 
                 todo
             );
-            
-            //Ik had verwacht dat dit zou werken! Maar helaas niet
-            //SELECT * FROM Todo WHERE TodoId = LAST_INSERT_ID()
-            //uit de officiele documentatie blijkt LAST_INSERT_ID() ook alleen te werken met INSERTS
-            //https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id
-            
+
             return updatedTodo;
         }
+        
+        //Ik had verwacht dat dit zou werken! Maar helaas niet
+        //SELECT * FROM Todo WHERE TodoId = LAST_INSERT_ID()
+        //uit de officiele documentatie blijkt LAST_INSERT_ID() ook alleen te werken met INSERTS
+        //https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id
 
         public bool Delete(int todoId)
         {
@@ -83,7 +92,5 @@ namespace Examples.Pages.Lesson3.LesDemo
                 new {TodoId = todoId});
             return numRowsEffected == 1;
         }
-        
-        
     }
 }

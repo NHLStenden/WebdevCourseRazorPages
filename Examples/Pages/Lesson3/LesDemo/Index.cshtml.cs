@@ -26,7 +26,8 @@ namespace Examples.Pages.Lesson3.LesDemo
         {
             if (ModelState.IsValid)
             {
-                new TodoRepository().Add(NewTodo);
+                var addedTodo = new TodoRepository().AddPlusSelect(NewTodo);
+                //do something useful with addedTodo
             }
 
             return Page();

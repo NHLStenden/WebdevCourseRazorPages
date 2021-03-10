@@ -3,7 +3,7 @@
 Het is belangrijk om het project up to date te houden. 
 Er zullen ongetwijfeld bugs aanwezig zijn en hopelijk worden deze gemeld om vervolgens opgelost te worden.
 Jullie zijn de eerste groep studenten die hiermee bezig gaan dus dit is onvermijdelijk.  
-Om het project up to date te houden is het kan je git gebruiken. Het is natuurlijk ook mogelijk om af en toe een nieuwe versie te downloaden of te klonen als je problemen met git ervaart.
+Om het project up to date te houden kan je git gebruiken. Het is natuurlijk ook mogelijk om af en toe een nieuwe versie te downloaden of te klonen als je problemen met git ervaart.
 
 Met git zijn er aantal mogelijkheden voor het updaten van je project met de "centrale" repository:
 * Normale workflow: 

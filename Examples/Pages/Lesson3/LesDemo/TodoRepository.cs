@@ -13,7 +13,10 @@ namespace Examples.Pages.Lesson3.LesDemo
             return new MySqlConnection(
                 "Server=127.0.0.1;Port=3306;" +
                 "Database=TodoDBExample;" +
-                "Uid=root;Pwd=Test@1234!;"
+                "Uid=root;Pwd=Test@1234!;" +
+                "Allow User Variables=True;"    //anders kan je geen SQL Variabelen (@newPrio) gebruiken, b.v.
+                                                //SET @newPrio = (SELECT Max(Prio) FROM Kado) + 1;
+                                                //INSERT INTO Kado (Description, Prio) VALUES ('Item 1', @newPrio);
             );
         }
 

@@ -32,7 +32,5 @@ namespace Examples.Pages.Lesson3.LesDemo
 
             return Page();
         }
-
-        
     }
 }

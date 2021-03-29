@@ -16,7 +16,7 @@ Als we een HTTP `request` maken, dan krijgen we een HTTP `response` terug.
 We kunnen de `request` en `response` rechtstreeks gebruiken in C#. 
 In de `response` staat een `StatusCode`.
 Deze status codes staan in `HttpStatusCode`.  
-Dit kan als volgt gebruikt worden `response.StatusCode = (int) HttpStatusCode.OK``;
+Dit kan als volgt gebruikt worden `response.StatusCode = (int) HttpStatusCode.OK`;
 
 Ook moet de `ContentType` worden gezet op de `response`, voor deze opdracht text/plain (*meestal text/html*).
 

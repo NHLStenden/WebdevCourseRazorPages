@@ -54,7 +54,7 @@ Voor de voorbeelden die gebruik maken van een database (MySQL)
 
 De opdrachten zijn bedoeld om je de concepten en technieken bij te brengen. Ook zal er worden gewerkt in de opdrachten aan de bruidensite (eindopdracht).
 Je kunt dan per week (met uitzondering van week 0) stappen zetten om je bruidenwebsite te maken. Deze moet eind week 5 al ingeleverd worden, 
-het is dus belangrijk om proberen bij te blijven. In week 6 is er een kort assessment. 
+het is dus belangrijk om proberen bij te blijven. In week 6 is er een assessment. 
 Het gaat er hierbij om dat je snapt en kan uitleggen hoe de concepten en technieken werken! De ervaring leert dat het raadzaam is om de opdrachten zelf te maken omdat je dan beter begrijpt wat er gebeurt en dit dus kunt uitleggeen. 
 Kom je er zelf niet uit, vraag een docenten (atelier uren) of medestudenten om hulp. 
 
@@ -65,46 +65,6 @@ Dan zijn dit een aantal bruikbare tips:
 2. Het kan ook raadzaam zijn om de testcode te bekijken om een gevoel te krijgen van wat er verwacht wordt. Komt dit overeen met wat jouw code oplevert of de interpretatie van de opdracht?
 3. Het is niet ondenkbaar dat een test ook fouten kan bevatten! Kom je een fout tegen, zou je dit mij s.v.p. willen laten weten dan kan ik het proberen te fixen.
 
-## Hot Code Reload
-
-**!!Misschien is het beter onderstaande technieken niet te gebruiken, op eigen risico!!**
-
-Je wilt eigenlijk een aanpassing doen aan je code en meteen het resultaat zien de browser! Helaas duurt het vaak nogal lang. De oplossing is hot reload software.
-Om live te kunnen herladen (hot reload) na het aanpassen van de code zijn er een aantal oplossingen:
-*Geen een oplossing is perfect!* 
-Misschien is iedere keer de webapplicatie opnieuw starten (na updaten van code) de beste oplossing.
-
-* dotnet watch (geen debugger :-()
-* Razor file compilation in ASP.NET Core
-* LiveReload (maakt error weergave in browser stuk)
-* **LiveSharp (mijn keus, kost alleen $, werkt ook niet in alle omstandigheden goed)**
-* Wachten tot ASP.NET Core versie 6, er wordt aan gewerkt. Dus we moeten nog even geduld hebben. Hopelijk is dit de perfecte oplossing. Fingers crossed.
-Het staat in de [ASP.NET Core 6 Roadmap](https://github.com/dotnet/aspnetcore/issues/27883) en er zijn ook al previews van beschikbaar (of het werkt weet ik niet). 
-
-###dotnet watch  
-Dit is nogal traag (dus en het is nog steeds vaak relatief lang wachten) en het is lastig om er mee te debuggen (tenminste in Rider, misschien heb je in Visual Studio meer geluk).
-* https://dotnetcoretutorials.com/2020/01/01/live-coding-net-core-using-dotnet-watch/
-* https://docs.microsoft.com/en-us/aspnet/core/tutorials/dotnet-watch?view=aspnetcore-5.0
-
-##Razor file compilation in ASP.NET Core
-Zorgt ervoor dat je cshtml bestanden na een aanpassing opnieuw gecompiled worden, je zult zelf moeten refreshen in de browser.
-https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-5.0&tabs=visual-studio
-
-###LiveReload
-LiveReload herlaat de browser na het aanpassen van een cshtml bestand.
-Het aangepast cshtml bestand zal gecompileerd worden door Razor File compilation (zie hierboven).
-De browser update dan automatisch.  
-Let op:
-Let op als je dit aanzet. Dan doet de `app.UseDeveloperExceptionPage();` het niet meer.
-Dit betekent dat je geen foutmeldingen te zien krijgt in de browser in geval van een Exception (fout in je code).
-[LiveReload](https://github.com/RickStrahl/Westwind.AspnetCore.LiveReload)
-
-###LiveSharp
-De beste oplossing is die ik tot nu tot heb gevonden is [LiveSharp](https://www.livesharp.net/).
-Is helaas maar 14 dagen gratis. Zeker de moeite waard om eens te proberen.
-Wellicht handig om eens te proberen, misschien helpt het je het wachten te verkorten en kan je meer proberen/ontwikkelen in minder tijd!
-Let op sommige dingen werken wel en andere niet (als je b.v. een nieuwe methode toevoegt en deze wilt aanroepen m.b.v. een handler method vanuit een cshmtl bestand dan werkt het niet, waarschijnlijk omdat dit ergens in ASP.NET geregeld wordt).
-
 ## Relevante bronnen
 
 ASP.NET Core Razor Pages: 
@@ -112,7 +72,7 @@ ASP.NET Core Razor Pages:
   * Per onderwerp zie: [Table of Content van learnrazorpages](https://www.learnrazorpages.com/table-of-contents)
 * [Kudvenkat Razor Pages Video Tutorials](https://www.youtube.com/watch?v=3F9SpUYTB6Y&list=PL6n9fhu94yhX6J31qad0wSO1N_rgGbOPV&ab_channel=kudvenkat) - veel video’s over Razor Pages.
 * [Pluralsight](https://www.pluralsight.com). Is niet gratis. Heeft een aantal kwalitatief goede curssen.
-~~* [Master ASP.NET Core 3.1 Razor Pages](https://learning.oreilly.com/videos/master-asp-net-core/9781800568068/) - ik heb mijn twijfels bij de kwaliteit van deze video’s, hoog truckjes gehalte!~~
+* [~~Master ASP.NET Core 3.1 Razor Pages~~](https://learning.oreilly.com/videos/master-asp-net-core/9781800568068/) - ~~ik heb mijn twijfels bij de kwaliteit van deze video’s, hoog truckjes gehalte!~~
 
 Voor Dapper:
 * [Dapper Getting Started](https://dapper-tutorial.net/dapper)
@@ -125,7 +85,7 @@ Voor Dapper:
 Hieronder staat de benodigde software beschreven die noodzakelijk is om ASP.NET Razor Pages te kunnen ontwikkelen. 
 Deze software moet je downloaden en installeren. 
 
-### .NET Core
+### .NET ~~~Core~~~
 
 * [.NET ~~Core~~](https://dotnet.microsoft.com/download) (download & installeer minimaal versie 5.x).
 Vanaf versie vijf wordt niet meer de naam ".NET Core"  gebruikt, maar heet het .NET. Versie 4 is overgeslagen.   

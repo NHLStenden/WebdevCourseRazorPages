@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Westwind.AspNetCore.LiveReload;
 
 namespace Examples
 {
@@ -32,14 +31,6 @@ namespace Examples
             services.AddCarter(options =>
             {
                 options.OpenApi.Enabled = false;
-            });
-
-
-            services.AddLiveReload(config =>
-            {
-                //Let op als je dit aanzet. Dan doet de app.UseDeveloperExceptionPage();
-                //Dit betekent dat je geen foutmeldingen te zien krijgt in de browser in geval van een Exception
-                config.LiveReloadEnabled = false;
             });
 
             //doet dit normaal gesproken niet!
@@ -92,8 +83,6 @@ namespace Examples
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                app.UseLiveReload();
                 app.UseBrowserLink();
             }
             else

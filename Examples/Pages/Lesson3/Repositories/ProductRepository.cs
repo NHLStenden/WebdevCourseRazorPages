@@ -81,10 +81,10 @@ namespace Examples.Pages.Lesson3.Repositories
             }
 
             using var db = DbUtils.GetDbConnection();
-            int rowCount = db.QuerySingle<int>("SELECT COUNT(1) FROM Product WHERE Name = @Name", new
-            {
-                Name = productName
-            });
+            int rowCount = db.ExecuteScalar<int>(
+                "SELECT COUNT(1) FROM Product WHERE Name = @Name", 
+                new { Name = productName}
+            );
 
             return rowCount < 1;
         }

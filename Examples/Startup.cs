@@ -43,6 +43,7 @@ namespace Examples
             {
                 options.ConstraintMap.Add("productIdExists", typeof(ProductIdExistsConstraint));
             });
+            
             //services.AddDirectoryBrowser();
             //services.AddAntiforgery(options => options.HeaderName = "XSRF-TOKEN");
         }
@@ -102,7 +103,7 @@ namespace Examples
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

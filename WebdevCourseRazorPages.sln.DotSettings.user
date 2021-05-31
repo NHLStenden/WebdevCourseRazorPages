@@ -9,16 +9,18 @@
     &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::.NETCoreApp,Version=v3.1::Exercises.Tests.Lesson1.Assignment5CookieObject&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6a60b8d6_002Daf58_002D4e01_002D8eda_002D57b2107577e3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Pay_TableNr" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6a60b8d6_002Daf58_002D4e01_002D8eda_002D57b2107577e3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Pay_TableNr" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson0.Assignment0&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.OrderRepositoryTests.GetCategories_ShouldReturnListOfCategoriesOrderByName&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson1.Assignment1&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b1ce4cf8_002D0990_002D4b7e_002D9875_002Dfd6729566b8d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Assignment5CookieObject" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b1ce4cf8_002D0990_002D4b7e_002D9875_002Dfd6729566b8d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Assignment5CookieObject" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson0.Assignment0&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.OrderRepositoryTests.GetCategories_ShouldReturnListOfCategoriesOrderByName&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson0.Assignment1&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson1.Assignment1&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

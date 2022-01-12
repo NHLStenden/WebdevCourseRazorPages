@@ -4,4 +4,11 @@
 @{
     Layout = null;
 }
-<h1>Hello World</h1>
+
+<h1>Hello @Model.Name.ToUpper()</h1>
+<form method="get">
+    <input name="name" type="text">
+    <button type="submit">Verzenden</button>
+</form>
+<hr>
+<a href="?naam=Lops">Lops</a>

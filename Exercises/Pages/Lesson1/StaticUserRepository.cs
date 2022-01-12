@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Exercises.Pages.Lesson1
 {
-    public static class StaticWeddingRepository
+    public static class StaticUserRepository
     {
-        static List<WeddingCouple> _users = new List<WeddingCouple>();
+        static List<CafeUser> _users = new List<CafeUser>();
 
         public enum AddUserResult
         {
@@ -15,9 +15,9 @@ namespace Exercises.Pages.Lesson1
             Success
         }
 
-        public static AddUserResult AddUser(Guid guid, WeddingCouple weddingCouple)
+        public static AddUserResult AddUser(Guid guid, CafeUser cafeUser)
         {
-            if (_users.Count(u => String.Equals(u.UserName, weddingCouple.UserName, StringComparison.CurrentCultureIgnoreCase)) > 0)
+            if (_users.Count(u => String.Equals(u.UserName, cafeUser.UserName, StringComparison.CurrentCultureIgnoreCase)) > 0)
             {
                 return AddUserResult.UserNameIsNotUnique;
             }
@@ -27,17 +27,17 @@ namespace Exercises.Pages.Lesson1
                 return AddUserResult.GuidIsNotUnique;
             }
 
-            _users.Add(weddingCouple);
+            _users.Add(cafeUser);
             return AddUserResult.Success;
         }
 
-        public static WeddingCouple GetUser(Guid guid)
+        public static CafeUser GetUser(Guid guid)
         {
             return _users.SingleOrDefault(x => x.UniqueGuid == guid);
         }
     }
 
-    public class WeddingCouple
+    public class CafeUser
     {
         public Guid UniqueGuid { get; set; }
         public string UserName { get; set; }

@@ -1,0 +1,17 @@
+@page
+@model Exercises.Pages.Lesson3.Categories.Create
+
+@{
+    Layout = null;
+}
+<h1>Create Category</h1>
+<form method="post">
+    <div>
+        <label asp-for="Category.Name"></label>
+        <input asp-for="Category.Name"/>
+        <span asp-validation-for="Category.Name"></span>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+</form>

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Exercises.Pages.Lesson1
@@ -11,8 +13,11 @@ namespace Exercises.Pages.Lesson1
             Left, Right, Forward, Backward
         }
 
-        public void OnGet()
+        public void OnGet([FromQuery] List<Direction> directions)
         {
+            Directions = directions;
         }
+
+        public List<Direction> Directions { get; set; }
     }
 }

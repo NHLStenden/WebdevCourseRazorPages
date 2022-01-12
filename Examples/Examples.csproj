@@ -2,8 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
 <!--    <TargetFramework>netcoreapp3.1</TargetFramework>-->
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>94c3735a-b14b-4bdf-93b1-d1b7545c234e</UserSecretsId>
+    <LangVersion>10</LangVersion>
     
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

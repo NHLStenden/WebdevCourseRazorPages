@@ -6,23 +6,35 @@
 }
 
 @{
-
+    string url = "?" + string.Join("&", Model.Directions.Select(x => $"directions={x}"));
 }
 
-<a href="###">Left</a>
-<a href="###">Right</a>
-<a href="###">Forward</a>
-<a href="###">Backward</a>
+<a href="@url&directions=Left">Left</a>
+<a href="@url&directions=Right">Right</a>
+<a href="@url&directions=Forward">Forward</a>
+<a href="@url&directions=Backward">Backward</a>
 
 <hr>
-<a href="###">Clear</a>
-
+<a href="?">Clear</a>
 <hr>
 
 <ul id="route">
-    <!-- geeft de route weer, met onderstaande -->
-    <li>Left</li>
-    <li>Right</li>
-    <li>Forward</li>
-    <li>Backward</li>
+    @foreach (var direction in Model.Directions)
+    {
+        switch(direction)
+        {
+            case Exercise2.Direction.Left: 
+                <li>Left</li> 
+            break;
+            case Exercise2.Direction.Right: 
+                <li>Right</li> 
+            break;
+            case Exercise2.Direction.Forward: 
+                <li>Forward</li> 
+            break;
+            case Exercise2.Direction.Backward: 
+                <li>Backward</li> 
+            break;
+        } 
+    }
 </ul>

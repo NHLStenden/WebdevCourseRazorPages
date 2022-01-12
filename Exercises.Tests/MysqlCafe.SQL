@@ -1,19 +1,16 @@
-# CREATE DATABASE IF NOT EXISTS Exercises;
+CREATE DATABASE IF NOT EXISTS Cafe;
 #
-# USE Exercises;
+USE Cafe;
 
 # Dit script wordt ook door de test gebruikt, vandaar dat jezelf een database moet aanmaken,
 # namelijk:  Exercises en Test
 # Dit kan met onderstaande commando's (deze commando's niet toevoegen aan dit script, dan werken de tests niet meer):
-# CREATE DATABASE IF NOT EXISTS Tets;
-# CREATE DATABASE IF NOT EXISTS Exercises;
+# CREATE DATABASE IF NOT EXISTS Cafe;
+# CREATE DATABASE IF NOT EXISTS Cafe;
 #
 # USE Exercises;
 
-
-DROP TABLE IF EXISTS OrderLine;
 DROP TABLE IF EXISTS Category;
-DROP TABLE IF EXISTS CostObject;
 DROP TABLE IF EXISTS Product;
 
 
@@ -29,32 +26,6 @@ CREATE TABLE Product
     Name        NVARCHAR(128)   NOT NULL UNIQUE,
     CategoryId  INTEGER         NOT NULL,
     Price       DECIMAL(10,2)   NOT NULL CHECK (price > 0)
-);
-
-CREATE TABLE CostObject
-(
-    CostObjectId INTEGER AUTO_INCREMENT PRIMARY KEY,
-    Name NVARCHAR(128) NOT NULL UNIQUE,
-    Budget DECIMAL(10,2) NOT NULL,
-    Email NVARCHAR(128) NOT NULL,
-    TelNr NVARCHAR(128) NULL
-);
-
-CREATE TABLE OrderLine
-(
-    TableNr         INTEGER NOT NULL,
-    ProductId       INTEGER NOT NULL,
-    Amount          INTEGER NOT NULL,
-    CostObjectId    INTEGER NULL, #Let op NULL: dit betekent 0 of 1 associatie/relatie
-    CONSTRAINT PK_OrderLine PRIMARY KEY (TableNr, ProductId),
-
-    CONSTRAINT FK_OrderLine_Product
-        FOREIGN KEY (ProductId)
-            REFERENCES Product (ProductId),
-
-    CONSTRAINT FK_OrderLine_CostObject
-        FOREIGN KEY (CostObjectId)
-            REFERENCES CostObject (CostObjectId)
 );
 
 INSERT INTO Category (Name) VALUES ('Frisdranken');
@@ -113,33 +84,10 @@ INSERT INTO Product (Name, CategoryId, Price) VALUES ('Espresso' , (SELECT Categ
 INSERT INTO Product (Name, CategoryId, Price) VALUES ('Warme chocomel' , (SELECT CategoryId FROM Category WHERE Name = 'Warme dranken'), 3.00);
 INSERT INTO Product (Name, CategoryId, Price) VALUES ('Warme chocomel met slagroom' , (SELECT CategoryId FROM Category WHERE Name = 'Warme dranken'), 3.50);
 
-INSERT INTO CostObject (Name, Budget, Email, TelNr) VALUES ('HBO-ICT Kerst Borrel', 100, 'info@hbo-ict.com', '058-2131313');
-INSERT INTO CostObject (Name, Budget, Email, TelNr) VALUES ('HBO-ICT Uitje', 100, 'info@hbo-ict.com', '058-2131313');
-INSERT INTO CostObject (Name, Budget, Email, TelNr) VALUES ('HBO-ICT Viering 100 jarig bestaan', 1000, 'info@hbo-ict.com', '058-2131313');
-
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (1, (SELECT ProductId FROM Product WHERE Name = 'Cappuccino'), 3, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Kerst Borrel'));
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (1, (SELECT ProductId FROM Product WHERE Name = 'Latte Macchiato'), 2, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Kerst Borrel'));
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (1, (SELECT ProductId FROM Product WHERE Name = 'Warme chocomel met slagroom'), 4, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Kerst Borrel'));
-
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (2, (SELECT ProductId FROM Product WHERE Name = 'Thee (Lipton)'), 4, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Kerst Borrel'));
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (2, (SELECT ProductId FROM Product WHERE Name = 'Koffie verkeerd'), 4, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Kerst Borrel'));
-
-
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (1, (SELECT ProductId FROM Product WHERE Name = 'Biestheuvel blond 6%'), 3, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Uitje'));
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (1, (SELECT ProductId FROM Product WHERE Name = 'Dommelsch 0.50'), 2, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Uitje'));
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (1, (SELECT ProductId FROM Product WHERE Name = 'Huiswijnen Rood'), 4, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Uitje'));
-
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (2, (SELECT ProductId FROM Product WHERE Name = 'Biestheuvel blond 6%'), 4, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Uitje'));
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (2, (SELECT ProductId FROM Product WHERE Name = 'Dommelsch 0.50'), 4, (SELECT CostObjectId FROM CostObject WHERE Name = 'HBO-ICT Uitje'));
-
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (6, (SELECT ProductId FROM Product WHERE Name = 'Cappuccino'), 4, NULL);
-INSERT INTO OrderLine (TableNr, ProductId, Amount, CostObjectId) VALUES (6, (SELECT ProductId FROM Product WHERE Name = 'Dommelsch 0.50'), 4, NULL);
-
-SELECT CO.Name, SUM(p.Price * OL.Amount) as 'Spend'
- FROM OrderLine OL
-     JOIN Product P on OL.ProductId = P.ProductId
-        JOIN CostObject CO on CO.CostObjectId = OL.CostObjectId
-GROUP BY CO.CostObjectId, CO.Name
+SELECT * 
+FROM Product as P
+    JOIN Category C on P.CategoryId = C.CategoryId
+    
 
 
 

@@ -1,0 +1,17 @@
+@page
+@model Exercises.Pages.Lesson3.Categories.Index
+
+@{
+    Layout = null;
+}
+
+<a asp-page="@nameof(Create)">Add Category</a>
+<hr>
+<table>
+    @foreach (var category in Model.Categories)
+    {
+        <tr>
+            <td>@category.Name</td>
+        </tr>
+    }
+</table>

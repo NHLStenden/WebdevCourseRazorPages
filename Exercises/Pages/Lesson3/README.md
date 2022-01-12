@@ -6,24 +6,22 @@ Dapper wordt ook wel een Micro ORM genoemd.
 * [Dapper Getting Started](https://dapper-tutorial.net/dapper)
 * [Learn Dapper](https://www.learndapper.com/)
 
-Tip: schrijf eerst je SQL queries en probeer deze uit. 
-Tip: bekijk de voorbeelden.
+Tip: schrijf eerst je SQL queries en probeer deze uit, voordat je ze gebruik i.c.m. Dapper. Dan kun je al een hoop fouten voorkomen.
+Tip: Als je in Rider (van JetBrains) verbinding maakt met je Database dan helpt Rider je met code completion voor SQL en als je fouten hebt in je SQL code laat hij dit ook zien, 
+zelfs als de SQL tussen C# code staat. Visual Studio heeft bij mijn weten deze hulp (helaas) niet.  
+Tip: bekijk de voorbeelden (zie directory Examples/Lesson3).
 
-## Opdracht 1 CRUD (C=Create, R=Read, U=Update, D=Delete) van CostObject
+## Opdracht 1 NHLStenden Café
 
-Het NHLStenden café wil een simpele webapplicatie, waarmee het mogelijk is om bestellingen te registeren.
-Vaak (niet altijd) worden bestellingen gedaan op een kostenplaats/kostendrager, b.v. `Afdeling HBO-ICT Kerstborrel`. 
-Omdat het dan hard gaat met de drankjes bij een dergelijke borrel en het budget niet onbeperkt is moet er per kostenplaats/kostendrager een budget worden bijgehouden.
-De klasse `CostObject` is al gemaakt voor je en staat in de map 'Models'.
-Ook de andere klasse die van belang zijn staan in deze map, namelijk:
-* `Product` drankjes die besteld kunnen worden in het café.
+Het NHLStenden Café wil een webapplicatie, waarmee het mogelijk is om bestellingen te registeren.
+ 
+Er zijn al een aantal klassen aangemaakt (deze mag je gebruiken, hoeft niet per se), namelijk:
+* `Product` o.a. drankjes die besteld kunnen worden in het café.
 * `Category` ieder drankje heeft 1 category, dus `Product` heeft een verwijzing (associatie/reference) naar `Category` (en de database dus een foreign key).
-* `OrderLine` is een bestelregel waarbij het aantal (`Amount`) producten (`Product`) wordt bijgehouden voor een bepaalde tafel (TableNr) dat besteld is. 
-`OrderLine` heeft optioneel een verwijzing (associatie/reference) naar `CostObject`.  
 
 ![Klasse diagram van Model](Models/classdiagram.png)    
   
-* Maak een database aan met de volgende naam: `Exercises`, voer het `MysqlCafe.sql` script uit, deze staat in de directory `Exercises.Tests`.
+* Maak een database aan met de volgende naam: `Cafe`, voer het `MysqlCafe.sql` script uit, deze staat in de directory `Exercises.Tests`.
 `MysqlCafe.sql` niet aanpassen, dan werken de test niet meer!
 Deze maakt tabellen die overeenkomen met de klassen in de `Models` map en vult de database met dummy data.
 

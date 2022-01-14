@@ -14,7 +14,6 @@
     <Folder Include=".git" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Carter" Version="5.2.0" />
     <PackageReference Include="Dapper" Version="2.0.78" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.4" />
     <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />

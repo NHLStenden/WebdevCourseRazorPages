@@ -7,6 +7,7 @@ namespace Examples.Pages.Lesson1
     {
         public static void Set<T>(this ISession session, string key, T value)
         {
+            string json = JsonSerializer.Serialize(value);
             session.SetString(key, JsonSerializer.Serialize(value));
         }
 

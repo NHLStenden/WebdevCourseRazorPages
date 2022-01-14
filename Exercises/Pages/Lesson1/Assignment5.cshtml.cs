@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace Exercises.Pages.Lesson1
 {
@@ -12,6 +13,7 @@ namespace Exercises.Pages.Lesson1
 
         public void OnGet()
         {
+            
         }
     }
 }

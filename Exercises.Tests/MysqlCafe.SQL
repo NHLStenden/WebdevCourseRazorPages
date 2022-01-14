@@ -1,22 +1,13 @@
-CREATE DATABASE IF NOT EXISTS Cafe;
-#
-USE Cafe;
+CREATE DATABASE IF NOT EXISTS Exercises;
 
-# Dit script wordt ook door de test gebruikt, vandaar dat jezelf een database moet aanmaken,
-# namelijk:  Exercises en Test
-# Dit kan met onderstaande commando's (deze commando's niet toevoegen aan dit script, dan werken de tests niet meer):
-# CREATE DATABASE IF NOT EXISTS Cafe;
-# CREATE DATABASE IF NOT EXISTS Cafe;
-#
-# USE Exercises;
+USE Exercises;
 
-DROP TABLE IF EXISTS Category;
-DROP TABLE IF EXISTS Product;
+DROP TABLE IF EXISTS Category, Product CASCADE ;
 
 
 CREATE TABLE Category
 (
-    CategoryId integer AUTO_INCREMENT PRIMARY KEY,
+    CategoryId  integer AUTO_INCREMENT PRIMARY KEY,
     Name        varchar(128) NOT NULL
 );
 
@@ -25,7 +16,9 @@ CREATE TABLE Product
     ProductId   INTEGER         AUTO_INCREMENT PRIMARY KEY,
     Name        NVARCHAR(128)   NOT NULL UNIQUE,
     CategoryId  INTEGER         NOT NULL,
-    Price       DECIMAL(10,2)   NOT NULL CHECK (price > 0)
+    Price       DECIMAL(10,2)   NOT NULL CHECK (price > 0),
+
+    CONSTRAINT FK_ProductCategory FOREIGN KEY (CategoryId) REFERENCES Category (CategoryId)
 );
 
 INSERT INTO Category (Name) VALUES ('Frisdranken');
@@ -85,8 +78,9 @@ INSERT INTO Product (Name, CategoryId, Price) VALUES ('Warme chocomel' , (SELECT
 INSERT INTO Product (Name, CategoryId, Price) VALUES ('Warme chocomel met slagroom' , (SELECT CategoryId FROM Category WHERE Name = 'Warme dranken'), 3.50);
 
 SELECT * 
-FROM Product as P
-    JOIN Category C on P.CategoryId = C.CategoryId
+FROM Product as p
+    JOIN Category c on p.CategoryId = c.CategoryId
+ORDER BY c.Name, p.Name, p.Price
     
 
 

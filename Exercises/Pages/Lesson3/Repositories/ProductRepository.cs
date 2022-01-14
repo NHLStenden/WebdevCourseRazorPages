@@ -38,7 +38,7 @@ namespace Exercises.Pages.Lesson3.Repositories
                 SELECT * FROM Category WHERE CategoryId = LAST_INSERT_ID()";
             
             using var connection = GetConnection();
-            var addedCategory = connection.QuerySingle<Category>(sql);
+            var addedCategory = connection.QuerySingle<Category>(sql, category);
             return addedCategory;
         }
 
@@ -56,12 +56,12 @@ namespace Exercises.Pages.Lesson3.Repositories
             string sql = @"
                 UPDATE Category SET 
                     Name = @Name 
-                WHERE @CategoryId = @CategoryId;
+                WHERE CategoryId = @CategoryId;
                 SELECT * FROM Category WHERE CategoryId = @CategoryId";
             
             using var connection = GetConnection();
-            var addedCategory = connection.QuerySingle<Category>(sql);
-            return addedCategory;
+            var updatedCategory = connection.QuerySingle<Category>(sql, category);
+            return updatedCategory;
         }
     }
 }

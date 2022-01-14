@@ -25,4 +25,9 @@ public class Update : PageModel
 
         return RedirectToPage(nameof(Index));
     }
+
+    public IActionResult OnPostCancel()
+    {
+        return RedirectToPage(nameof(Index));
+    }
 }

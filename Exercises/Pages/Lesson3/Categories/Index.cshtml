@@ -5,13 +5,19 @@
     Layout = null;
 }
 
-<a asp-page="@nameof(Create)">Add Category</a>
-<hr>
+<h1>Display Categories</h1>
+
 <table>
+    <tbody>
     @foreach (var category in Model.Categories)
     {
         <tr>
             <td>@category.Name</td>
+            <td>
+                <a asp-page="@nameof(Delete)" asp-route-categoryId="@category.CategoryId">Delete</a> | 
+                <a asp-page="@nameof(Update)" asp-route-categoryId="@category.CategoryId">Update</a> 
+            </td>
         </tr>
     }
+    </tbody>
 </table>

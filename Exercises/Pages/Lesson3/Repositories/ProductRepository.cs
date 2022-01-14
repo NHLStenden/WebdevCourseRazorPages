@@ -5,63 +5,63 @@ using Exercises.Pages.Lesson3.Models;
 
 namespace Exercises.Pages.Lesson3.Repositories
 {
-    public class ProductRepository
+    public class CategoryRepository
     {
         private IDbConnection GetConnection()
         {
             return new DbUtils().GetDbConnection();
         }
 
-        public Product Get(int productId)
+        public Category Get(int categoryId)
         {
-            string sql = "SELECT * FROM Product WHERE ProductId = @productId";
+            string sql = "SELECT * FROM Category WHERE CategoryId = @categoryId";
             
             using var connection = GetConnection();
-            var product = connection.QuerySingle<Product>(sql, new {productId});
-            return product;
+            var category = connection.QuerySingle<Category>(sql, new { categoryId });
+            return category;
         }
 
-        public IEnumerable<Product> Get()
+        public IEnumerable<Category> Get()
         {
-            string sql = "SELECT * FROM Product ORDER BY Name, Price";
+            string sql = "SELECT * FROM Category ORDER BY Name";
             
             using var connection = GetConnection();
-            var products = connection.Query<Product>(sql);
-            return products;
+            var categories = connection.Query<Category>(sql);
+            return categories;
         }
 
-        public Product Add(Product product)
+        public Category Add(Category category)
         {
             string sql = @"
-                INSERT INTO Product (Name, CategoryId, Price) 
-                VALUES (@Name, @CategoryId, @Price); 
-                SELECT * FROM Product WHERE ProductId = LAST_INSERT_ID()";
+                INSERT INTO Category (Name) 
+                VALUES (@Name); 
+                SELECT * FROM Category WHERE CategoryId = LAST_INSERT_ID()";
             
             using var connection = GetConnection();
-            var addedProduct = connection.QuerySingle<Product>(sql);
-            return addedProduct;
+            var addedCategory = connection.QuerySingle<Category>(sql);
+            return addedCategory;
         }
 
-        public bool Delete(int productId)
+        public bool Delete(int categoryId)
         {
-            string sql = @"DELETE FROM Product WHERE ProductId = @productId";
+            string sql = @"DELETE FROM Category WHERE CategoryId = @categoryId";
             
             using var connection = GetConnection();
-            int numOfEffectedRows = connection.Execute(sql, new { productId });
+            int numOfEffectedRows = connection.Execute(sql, new { categoryId });
             return numOfEffectedRows == 1;
         }
 
-        public Product Update(Product product)
+        public Category Update(Category category)
         {
             string sql = @"
-                UPDATE Product SET 
-                    Name = @Name, CategoryId = @CategoryId, @Price = @Price 
-                WHERE @ProductId = @ProductId;
-                SELECT * FROM Product WHERE ProductId = @ProductId";
+                UPDATE Category SET 
+                    Name = @Name 
+                WHERE @CategoryId = @CategoryId;
+                SELECT * FROM Category WHERE CategoryId = @CategoryId";
             
             using var connection = GetConnection();
-            var addedProduct = connection.QuerySingle<Product>(sql);
-            return addedProduct;
+            var addedCategory = connection.QuerySingle<Category>(sql);
+            return addedCategory;
         }
     }
 }

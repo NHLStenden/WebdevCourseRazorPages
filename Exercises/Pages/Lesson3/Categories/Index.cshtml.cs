@@ -1,20 +1,17 @@
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Dapper;
 using Exercises.Pages.Lesson3.Models;
+using Exercises.Pages.Lesson3.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Exercises.Pages.Lesson3.Categories
+namespace Exercises.Pages.Lesson3.Categories;
+
+public class Index : PageModel
 {
-    public class Index : PageModel
+    public IEnumerable<Category> Categories { get; set; }
+    
+    public void OnGet()
     {
-        public IEnumerable<Category> Categories { get; set; }
-        
-        public void OnGet()
-        {
-            var connection = new DbUtils().GetDbConnection();
-            string sql = "SELECT * FROM Category";
-            Categories = connection.Query<Category>(sql);
-        }
+        Categories = new CategoryRepository().Get();
     }
 }

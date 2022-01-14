@@ -1,0 +1,14 @@
+@page "{categoryId:int}"
+@using Exercises.Pages.Lesson3.Models
+@model Exercises.Pages.Lesson3.Categories.Delete
+
+@{
+    Layout = null;
+}
+
+<h1>Are you sure to delete Category @(Model.Category.Name)?</h1>
+
+<form method="POST">
+    <button asp-page-handler="Delete">Yes</button>
+    <button asp-page-handler="Cancel">Cancel</button>
+</form>

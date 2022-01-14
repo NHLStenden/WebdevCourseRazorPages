@@ -5,19 +5,23 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Exercises.Pages.Lesson3.Categories;
 
-public class Create : PageModel
+public class Update : PageModel
 {
-    [BindProperty]
     public Category Category { get; set; }
     
-    public IActionResult OnGet()
+    public void OnGet([FromQuery]int categoryId)
+    {
+        Category = new CategoryRepository().Get(categoryId);
+    }
+
+    public IActionResult OnPost(Category category)
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        var createdCategory = new CategoryRepository().Add(Category);
+        var updatedCategory = new CategoryRepository().Update(category);
 
         return RedirectToPage(nameof(Index));
     }

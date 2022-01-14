@@ -1,4 +1,3 @@
-using Carter;
 using Examples.Pages.Lesson2.RouteConstraints;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,11 +26,6 @@ namespace Examples
 
             services.AddRazorPages()
                 .AddRazorRuntimeCompilation();
-
-            services.AddCarter(options =>
-            {
-                options.OpenApi.Enabled = false;
-            });
 
             //doet dit normaal gesproken niet!
             services.AddAntiforgery(options =>
@@ -108,7 +102,6 @@ namespace Examples
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapCarter();
             });
         }
     }

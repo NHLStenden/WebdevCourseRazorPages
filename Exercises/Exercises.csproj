@@ -11,4 +11,10 @@
       <PackageReference Include="MySqlConnector" Version="1.2.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Lesson3\Categories\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Lesson3\Categories\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Lesson3\Products\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

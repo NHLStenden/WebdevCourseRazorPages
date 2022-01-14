@@ -18,7 +18,7 @@ CREATE TABLE Product
     CategoryId  INTEGER         NOT NULL,
     Price       DECIMAL(10,2)   NOT NULL CHECK (price > 0),
 
-    CONSTRAINT FK_ProductCategory FOREIGN KEY (CategoryId) REFERENCES Category (CategoryId)
+    CONSTRAINT FK_ProductCategory FOREIGN KEY (CategoryId) REFERENCES Category (CategoryId) ON DELETE CASCADE 
 );
 
 INSERT INTO Category (Name) VALUES ('Frisdranken');

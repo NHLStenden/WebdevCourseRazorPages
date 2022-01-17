@@ -149,7 +149,7 @@ De MoodCounter instantie platgeslagen (serialize) als JSON ziet er zo uit:
 Relevante voorbeelden: - Cookies
 Off-topic: Tracking cookies zijn speciale cookies die worden gebruikt door meedere website, dit wordt o.a. gebruikt voor het aanmaken van een profiel van de gebruiker zodat bedrijven gericht reclame kunnen sturen. Mocht je het intressant vinden om te weten hoe dit werkt, zie How cookies can track you (Simply Explained).
 
-## NHLStenden Café - Sessies
+## Opdracht 6 - NHLStenden Café - Login & Registratie voor obers m.b.v. sessie.
 Voor deze eindopdracht (NHL Café) is het handig om een nieuwe Razor applicatie aan te maken *zonder authenticatie*.
 
 Hier wordt uitgelegd hoe je een Razor Pages project kan aanmaken:  

@@ -5,16 +5,16 @@ namespace Examples.Pages.Lesson1
 {
     public class GetRequest : PageModel
     {
-        public string Name { get; set; } = "";
+        public string Firstname { get; set; } = "";
 
-        public void OnGet([FromQuery] string name)
+        public void OnGet([FromQuery] string firstname)
         {
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(firstname))
             {
-                name = "";
+                firstname = "";
             }
             
-            Name = name;
+            Firstname = firstname;
         }
     }
 }

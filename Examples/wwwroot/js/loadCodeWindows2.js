@@ -87,6 +87,7 @@ $(document).ready(function () {
     } else {
         $('.treeview-animated').mdbTreeview();
 
+        //node in the thee is clicked (selected)
         $('.page').click(function () {
             const newUrl = new URL(url.href+"?pageUrl=" + $(this).data("page-url"));
             loadCodeWindows(newUrl);
@@ -100,12 +101,24 @@ $(document).ready(function () {
         }
     });
 
+    //Go Button clicked
     $("#displayPageIFrameUrlBtn").on("click", function () {
         handleAddressBar();
+    });
+    
+    $("#btnDisplayPagePopup").on("click", function () {
+        debugger;
+        handlePopUp();    
     });
 
     registerButtons();
 });
+
+function handlePopUp() {
+    const urlAddressBar = $("#displayPageIFrameUrl").val();
+    const newUrl = new URL(window.location.origin + urlAddressBar);
+    window.open(newUrl,'popup','width=600,height=600');
+}
 
 function handleAddressBar() {
     const urlAddressBar = $("#displayPageIFrameUrl").val();

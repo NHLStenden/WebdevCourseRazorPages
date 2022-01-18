@@ -33,10 +33,10 @@ class MyCodeEditor extends HTMLElement {
     connectedCallback() {
     }
 
-    static observedAttributes = ['title', 'code', 'theme', 'mode']
+    // static observedAttributes = 
 
     static get observedAttributes() {
-        return observedAttributes;
+        return ['title', 'code', 'theme', 'mode'];
     }
 
     attributeChangedCallback(name, oldValue, newValue) {

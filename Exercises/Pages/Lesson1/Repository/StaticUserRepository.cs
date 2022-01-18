@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Exercises.Pages.Lesson1.Models;
 
-namespace Exercises.Pages.Lesson1
+namespace Exercises.Pages.Lesson1.Repository
 {
     public static class StaticUserRepository
     {
@@ -15,18 +16,26 @@ namespace Exercises.Pages.Lesson1
             Success
         }
 
-        public static AddUserResult AddUser(Guid guid, CafeUser cafeUser)
+        public static AddUserResult AddUser(CafeUser cafeUser)
         {
-            if (_users.Count(u => String.Equals(u.UserName, cafeUser.UserName, StringComparison.CurrentCultureIgnoreCase)) > 0)
+            if (cafeUser.UniqueGuid == default(Guid))
             {
-                return AddUserResult.UserNameIsNotUnique;
+                cafeUser.UniqueGuid = new Guid();
             }
-
-            if (_users.Count(u => u.UniqueGuid == guid) > 0)
+            
+            if (_users.Find(x => x.UniqueGuid == cafeUser.UniqueGuid) != null)
             {
                 return AddUserResult.GuidIsNotUnique;
             }
 
+            if (_users.Find(x =>
+                    x.UserName.Equals(cafeUser.UserName, StringComparison.InvariantCultureIgnoreCase)) != null)
+            {
+                return AddUserResult.UserNameIsNotUnique;
+            }
+
+            
+            
             _users.Add(cafeUser);
             return AddUserResult.Success;
         }
@@ -35,15 +44,5 @@ namespace Exercises.Pages.Lesson1
         {
             return _users.SingleOrDefault(x => x.UniqueGuid == guid);
         }
-    }
-
-    public class CafeUser
-    {
-        public Guid UniqueGuid { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-
-        public string Location { get; set; }
-        public DateTime Date { get; set; }
     }
 }

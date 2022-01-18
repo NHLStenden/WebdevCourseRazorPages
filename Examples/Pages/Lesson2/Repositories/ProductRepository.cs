@@ -5,6 +5,7 @@ using Examples.Pages.Lesson2.Models;
 
 namespace Examples.Pages.Lesson2.Repositories
 {
+    //Todo: split ProductsRepository into two repo's (Category & Product) 
     public class ProductsRepository
     {
         private static List<Product> Products { get; set; }

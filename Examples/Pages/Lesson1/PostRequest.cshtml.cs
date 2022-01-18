@@ -22,7 +22,7 @@ namespace Examples.Pages.Lesson1
 
         public IActionResult OnPost([FromForm] string naam)
         {
-            NameRequest = Request.Form["naam"];
+            NameRequest = Request.Form["naam"]; //liever niet gebruiken
             NameParameter = naam;
             return Page();
         }

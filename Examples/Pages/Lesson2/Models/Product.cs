@@ -28,12 +28,4 @@ namespace Examples.Pages.Lesson2.Models
         public Category Category { get; set; }
 
     }
-
-    public class Category
-    {
-        [Key]
-        public int CategoryId { get; set; }
-
-        public string Name { get; set; }
-    }
 }

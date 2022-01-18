@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -6,7 +8,8 @@ namespace Examples.Pages.Lesson1
     public class Redirect : PageModel
     {
         public int Count { get; set; } = 0;
-
+        
+        
         public IActionResult OnGet(int? countParameter)
         {
             if (countParameter != null)
@@ -22,7 +25,7 @@ namespace Examples.Pages.Lesson1
                 {
                     countParameter = Count
                 });
-            }
+            } 
             else
             {
                 return Page();

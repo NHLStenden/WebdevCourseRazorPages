@@ -1,4 +1,3 @@
-using Carter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,10 +27,6 @@ namespace Exercises
             {
                 //options.ConstraintMap.Add("categoryConstraint", typeof(CategoryConstraint));
             });
-            services.AddCarter(options =>
-            {
-                options.OpenApi.Enabled = false;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +53,6 @@ namespace Exercises
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapCarter();
             });
         }
     }

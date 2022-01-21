@@ -107,7 +107,6 @@ $(document).ready(function () {
     });
     
     $("#btnDisplayPagePopup").on("click", function () {
-        debugger;
         handlePopUp();    
     });
 
@@ -116,8 +115,8 @@ $(document).ready(function () {
 
 function handlePopUp() {
     const urlAddressBar = $("#displayPageIFrameUrl").val();
-    const newUrl = new URL(window.location.origin + urlAddressBar);
-    window.open(newUrl,'popup','width=600,height=600');
+    const newUrl = new URL(window.location.origin + "/DisplayExamples?pageUrl=" + urlAddressBar);
+    window.open(newUrl,'popup',"width="+screen.availWidth+",height="+screen.availHeight);
 }
 
 function handleAddressBar() {
@@ -184,10 +183,10 @@ function loadCodeWindows(url, pageUrlFromTree = null) {
     if(codeFileUrl.startsWith("/Lesson0"))
     {
         ajax1 = loadCode("code", "#pageContentContainer", "/code/Pages" + codeFileUrl + ".cs.txt", 'ace/mode/csharp', "Content Page");
-        ajax2 = loadCode("not available", "#pageModelContainer", "/code/Pages" + codeFileUrl + ".cshtml.cs" + ".txt", 'ace/mode/csharp', "PageModel");
+        ajax2 = loadCode("not available", "#pageModelContainer", "/code/Pages" + codeFileUrl + ".cshtml.cs" + ".txt", 'ace/mode/csharp', "Page Model");
     } else {
         ajax1 = loadCode("contentPage", "#pageContentContainer", "/code/Pages" + codeFileUrl + ".cshtml" + ".txt", 'ace/mode/razor', "Content Page");
-        ajax2 = loadCode("pageModel", "#pageModelContainer", "/code/Pages" + codeFileUrl + ".cshtml.cs" + ".txt", 'ace/mode/csharp', "PageModel");
+        ajax2 = loadCode("pageModel", "#pageModelContainer", "/code/Pages" + codeFileUrl + ".cshtml.cs" + ".txt", 'ace/mode/csharp', "Page Model");
     }
 
     Promise.all([ajax1, ajax2]).then(() => {

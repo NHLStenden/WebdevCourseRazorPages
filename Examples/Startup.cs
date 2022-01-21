@@ -24,8 +24,7 @@ namespace Examples
         {
             services.AddSession();
 
-            services.AddRazorPages()
-                .AddRazorRuntimeCompilation();
+            services.AddRazorPages();
 
             //doet dit normaal gesproken niet!
             services.AddAntiforgery(options =>
@@ -78,7 +77,6 @@ namespace Examples
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
             }
             else
             {

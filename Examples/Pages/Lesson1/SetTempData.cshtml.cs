@@ -8,7 +8,7 @@ namespace Examples.Pages.Lesson1
         public void OnGet() {
         }
 
-        public RedirectToPageResult OnPost(int lievelingsgetal)
+        public RedirectToPageResult OnPost([FromForm]int lievelingsgetal)
         {
             TempData["Lievelingsgetal"] = lievelingsgetal.ToString();
             return RedirectToPage("ShowTempData");

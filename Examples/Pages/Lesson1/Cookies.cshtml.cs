@@ -1,3 +1,5 @@
+using System;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Examples.Pages.Lesson1
@@ -13,7 +15,11 @@ namespace Examples.Pages.Lesson1
             string counterStr = Request.Cookies["counter"];
             if (counterStr == null) //cookie is not set (first time request or after reset)
             {
-                Response.Cookies.Append("counter", Counter.ToString());
+                Response.Cookies.Append("counter", Counter.ToString(), new CookieOptions()
+                {
+                    Expires = DateTimeOffset.Now.AddDays(30)
+                });
+                //Response.Cookies.Append("counter", Counter.ToString());
             }
             else
             {

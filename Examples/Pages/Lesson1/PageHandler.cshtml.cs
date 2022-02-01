@@ -14,16 +14,16 @@ namespace Examples.Pages.Lesson1
 
         }
 
-        public void OnPostIncrement()
+        public void OnPostIncrement([FromForm] int count)
         {
-            Counter = Convert.ToInt32(Request.Form["count"].First());
+            Counter = count;
 
             Counter++;
         }
 
-        public void OnPostDecrement()
+        public void OnPostDecrement([FromForm] int count)
         {
-            Counter = Convert.ToInt32(Request.Form["count"].First());
+            Counter = count;
 
             Counter--;
         }

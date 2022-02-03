@@ -87,7 +87,7 @@ Deze software moet je downloaden en installeren.
 
 ### .NET ~~~Core~~~
 
-* [.NET ~~Core~~](https://dotnet.microsoft.com/download) (download & installeer minimaal versie 5.x).
+* [.NET ~~Core~~](https://dotnet.microsoft.com/download) (download & installeer de nieuwste versie).
 Vanaf versie vijf wordt niet meer de naam ".NET Core"  gebruikt, maar heet het .NET. Versie 4 is overgeslagen.   
 Je kunt controleren of je de juiste versie hebt (grote kans dat het al geïnstalleerd is) in je console/terminal, 
 met `dotnet --version`.
@@ -95,7 +95,7 @@ met `dotnet --version`.
 ### Database MySQL
 
 MySQL is een Relationele Database Management Systeem (DBMS) dat we gebruiken in deze cursus.
-Download en installeer de [MySQL Community Edition](https://dev.mysql.com/downloads/).
+Download en installeer de [MySQL Community Server](https://dev.mysql.com/downloads/mysql/).
 De scripts om een databases aan te maken en te vullen (tabellen en dummy data) kan je vinden in `Examples/Pages/Lesson3/SQL/MySQL_CreateAndFillTable.sql`, `Exercises/Tests/MysqlCafe.SQL` (Let op: maak zelf de database aan Exercises en Tests) en `DbUtils`.
 Als username gebruik ik `root` en als wachtwoord `Test@1234!`. Gebruik jij iets anders pas dit dan aan in de config bestanden en DBUtils:
 `Examples/appsettings.Development`, `Exercises.Tests`.

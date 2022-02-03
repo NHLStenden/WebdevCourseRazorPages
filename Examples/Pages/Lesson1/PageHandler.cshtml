@@ -17,7 +17,7 @@
     <button type="submit">+</button>
 </form>
 
-<form method="post" asp-page-handler="Decrement" asp-route="@Model.Counter">
+<form method="post" asp-page-handler="Decrement" asp-route-count="@Model.Counter">
     @* <input type="hidden" name="count" value="@Model.Counter" > *@
     <button type="submit">-</button>
 </form>
@@ -30,3 +30,9 @@
 <hr>
 <a asp-page-handler="Increment" asp-route-count="@Model.Counter">+</a>
 <a asp-page-handler="Decrement" asp-route-count="@Model.Counter">-</a>
+<hr/>
+<h1><b>Werkt Niet!!!</b> Get Forms, asp-page-handler on the button tag </h1>
+<form  method="post" asp-page-handler="Increment">
+    <input type="hidden" name="count" value="@Model.Counter"/>
+    <button type="submit">++</button>
+</form>

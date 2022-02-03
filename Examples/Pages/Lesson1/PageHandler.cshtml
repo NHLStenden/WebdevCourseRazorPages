@@ -32,7 +32,8 @@
 <a asp-page-handler="Decrement" asp-route-count="@Model.Counter">-</a>
 <hr/>
 <h1><b>Werkt Niet!!!</b> Get Forms, asp-page-handler on the button tag </h1>
-<form  method="post" asp-page-handler="Increment">
+<h2><a href="https://stackoverflow.com/questions/50815280/razor-pages-form-page-handler-not-working-with-get-method">Stackoverflow antwoord</a></h2>
+<form  method="get" asp-page-handler="Increment">
     <input type="hidden" name="count" value="@Model.Counter"/>
     <button type="submit">++</button>
 </form>

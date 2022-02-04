@@ -24,7 +24,7 @@ In de Content Page (view) gebruiken we Razor. Razor is C# gecombineerd met HTML.
 
 Overal waar ``###`` moet Razor en/of html code komen te staan.
 Voor de meeste testen staat al een Content Page (.cshtml) i.c.m een Page Model (.cs.cshtml) klaar die aangevuld moet worden.
-Eventueel kan je de test bekijken in (`Exercises.Test/Lesson1.cs/Assignment<AssignmentNumber>`). 
+Eventueel kan je de test bekijken in de directory: `Exercises.Test/Lesson1/Assignment<AssignmentNumber>.cs`. 
 Het nadeel van tests is dat je code exacte moet en precies het resultaat oplevert wat de test verwacht, je kan ook gewoon proberen de opdracht te maken (zonder al te veel de testen te gebruiken).
 Het gaat er tenslotte om dat je de technieken leert! En niet per se de test laat werken!
 

@@ -5,25 +5,27 @@
     Layout = null;
 }
 
-@Model.Counter
+<h1>Counter @Model.Counter</h1>
+
 
 
 @* https://www.learnrazorpages.com/razor-pages/handler-methods *@
 @* Take a look at the generated HTML (__RequestVerificationToken)  *@
 
 <h1>Multiple forms, asp-page-handler on the form tag</h1>
-<form method="post" asp-page-handler="Increment" asp-route-count="@Model.Counter">
-    @* <input type="hidden" name="count" value="@Model.Counter" > *@
+<form method="post" asp-page-handler="Increment">
+    <input type="hidden" name="count" value="@Model.Counter" >
     <button type="submit">+</button>
 </form>
 
-<form method="post" asp-page-handler="Decrement" asp-route-count="@Model.Counter">
-    @* <input type="hidden" name="count" value="@Model.Counter" > *@
+<form method="post" asp-page-handler="Decrement">
+    <input type="hidden" name="count" value="@Model.Counter" >
     <button type="submit">-</button>
 </form>
 <hr>
 <h1>Single form, asp-page-handler on the button tag</h1>
-<form method="post" asp-route-count="@Model.Counter">
+<form method="post">
+    <input type="hidden" name="count" value="@Model.Counter"/>
     <button type="submit" asp-page-handler="Increment">+</button>
     <button type="submit" asp-page-handler="Decrement">-</button>
 </form>
@@ -31,9 +33,10 @@
 <a asp-page-handler="Increment" asp-route-count="@Model.Counter">+</a>
 <a asp-page-handler="Decrement" asp-route-count="@Model.Counter">-</a>
 <hr/>
-<h1><b>Werkt Niet!!!</b> Get Forms, asp-page-handler on the button tag </h1>
+<h1><b>Werkt Niet!!!</b> Get in Form, asp-page-handler on the button tag </h1>
 <h2><a href="https://stackoverflow.com/questions/50815280/razor-pages-form-page-handler-not-working-with-get-method">Stackoverflow</a></h2>
-<form  method="get" asp-page-handler="Increment">
+<form method="get" asp-page-handler="Increment">
+    @* <input type="hidden" name="handler" value="Increment"/> *@
     <input type="hidden" name="count" value="@Model.Counter"/>
     <button type="submit">++</button>
 </form>

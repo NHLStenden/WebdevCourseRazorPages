@@ -185,6 +185,19 @@ Een truc is een `static variabele` te gebruiken, dan blijven de gegevens bestaan
 Om dit te faciliteren is er de klasse `StaticUserRepopository` gemaakt (zie `Exercises\Pages\Lesson1\StaticUserRepository.cs`, die je kan gebruiken! 
 Een ober (CafeUser) toevoegen kan als volgt: `StaticUserRepopository.AddUser(user)`.
 
+Er wordt een Guid als unieke identificatie van de `CafeUser` m.b.v. de property `UniqueGuid`.
+In het onderstaande voorbeeld is te zien hoe je een `Guid` kan gebruiken. Een `Guid` kan je zien als een "getal" dat altijd uniek is!
+```C#
+    //create new Guid
+    var guid = Guid.NewGuid();
+    
+    //convert Guid to String
+    var guisAsString = guid.ToString();
+    
+    //convert string to Guid
+    var guidFromSTring = new Guid(guidAsString);
+```
+
 - Login.cshtml - Inlog Pagina.  
 Als een gebruiker een correcte username & password combinatie invult dan wordt hij ingelogd.
 Deze pagina zet de userid sessie dan, als je succesvol bent ingelogd word je doorverwezen ([redirect](https://www.learnrazorpages.com/razor-pages/action-results)) naar de AccountOverview.cshtml pagina.

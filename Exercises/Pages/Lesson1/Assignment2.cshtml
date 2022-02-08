@@ -7,6 +7,18 @@
 
 @{
     string url = "?" + string.Join("&", Model.Directions.Select(x => $"directions={x}"));
+    //!!!!zelfde als onderstaande code!!!!
+    
+    // string url = "?";
+    // int directionsCount = Model.Directions.Count;
+    // for (int i = 0; i < directionsCount; i++)
+    // {
+    //     url += "directions=" + Model.Directions[i];
+    //     if (i + 1 < directionsCount)
+    //     {
+    //         url += "&";
+    //     }
+    // }
 }
 
 <a href="@url&directions=Left">Left</a>

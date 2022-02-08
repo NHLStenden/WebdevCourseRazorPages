@@ -6,25 +6,12 @@
 }
 
 @{
-    string url = "?" + string.Join("&", Model.Directions.Select(x => $"directions={x}"));
-    //!!!!zelfde als onderstaande code!!!!
-    
-    // string url = "?";
-    // int directionsCount = Model.Directions.Count;
-    // for (int i = 0; i < directionsCount; i++)
-    // {
-    //     url += "directions=" + Model.Directions[i];
-    //     if (i + 1 < directionsCount)
-    //     {
-    //         url += "&";
-    //     }
-    // }
+    string url = "?";
+    //maak hier de juiste url
 }
 
 <a href="@url&directions=Left">Left</a>
-<a href="@url&directions=Right">Right</a>
-<a href="@url&directions=Forward">Forward</a>
-<a href="@url&directions=Backward">Backward</a>
+<!-- voeg zelf de andere richtingen toe -->
 
 <hr>
 <a href="?">Clear</a>
@@ -38,15 +25,7 @@
             case Exercise2.Direction.Left: 
                 <li>Left</li> 
             break;
-            case Exercise2.Direction.Right: 
-                <li>Right</li> 
-            break;
-            case Exercise2.Direction.Forward: 
-                <li>Forward</li> 
-            break;
-            case Exercise2.Direction.Backward: 
-                <li>Backward</li> 
-            break;
+            //voeg de andere richtingen toe!
         } 
     }
 </ul>

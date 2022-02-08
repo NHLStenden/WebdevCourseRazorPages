@@ -183,7 +183,9 @@ Maak de volgende webpagina's (Razor Pages):
 Een ober (CafeUser) kunnen we opslaan in een database, echter dit hebben we nog niet behandeld.
 Een truc is een `static variabele` te gebruiken, dan blijven de gegevens bestaan zolang de server draait.
 Om dit te faciliteren is er de klasse `StaticUserRepopository` gemaakt (zie `Exercises\Pages\Lesson1\StaticUserRepository.cs`, die je kan gebruiken! 
-Een ober (CafeUser) toevoegen kan als volgt: `StaticUserRepopository.AddUser(user)`.
+Een ober (CafeUser) toevoegen kan als volgt: `StaticUserRepopository.AddUser(user)`. Dit is handig voor het registeren.
+Om in te loggen kan de volgende methode worden aangeroepen `StaticUserRepopository.GetUser(username, password)`.
+Als de username en password combinatie niet bestaat of ongeldig is, dan wordt er `null` geretourneerd.
 
 Er wordt een Guid als unieke identificatie van de `CafeUser` m.b.v. de property `UniqueGuid`.
 In het onderstaande voorbeeld is te zien hoe je een `Guid` kan gebruiken. Een `Guid` kan je zien als een "getal" dat altijd uniek is!

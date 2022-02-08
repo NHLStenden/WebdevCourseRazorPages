@@ -15,7 +15,7 @@ namespace Exercises.Pages.Lesson1.Repository
             GuidIsNotUnique, //zou nooit moeten voorkomen
             Success
         }
-
+        
         public static AddUserResult AddUser(CafeUser cafeUser)
         {
             if (cafeUser.UniqueGuid == default(Guid))
@@ -33,11 +33,16 @@ namespace Exercises.Pages.Lesson1.Repository
             {
                 return AddUserResult.UserNameIsNotUnique;
             }
-
-            
             
             _users.Add(cafeUser);
             return AddUserResult.Success;
+        }
+
+        public static CafeUser GetUser(string username, string password)
+        {
+            return _users.FirstOrDefault(x =>
+                x.UserName.Equals(username, StringComparison.OrdinalIgnoreCase) &&
+                x.Password.Equals(password));
         }
 
         public static CafeUser GetUser(Guid guid)

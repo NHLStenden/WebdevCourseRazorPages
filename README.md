@@ -1,3 +1,10 @@
+# Het project clone
+
+Op het project te klonen kan je het volgende git command gebruiken:
+```bash
+  git clone https://github.com/NHLStenden/WebdevCourseRazorPages.git
+```
+
 # Het up to date houden van het project
 
 Het is belangrijk om het project up to date te houden. 

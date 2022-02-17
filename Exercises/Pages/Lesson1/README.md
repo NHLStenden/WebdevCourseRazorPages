@@ -43,7 +43,7 @@ Er zijn drie manier om te werken met querystring in Razor Pages, pas elke manier
 public void OnGet([FromQuery] int scoreHome, [FromQuery] int scoreAway) { ... }`
 ```  
 Het is niet per se noodzakelijk om het `[FromQuery]` attribuut (annotatie) te gebruiken, maar het geeft wel duidelijk de intentie weer!  
-3. Het gebruik van het `[BindProperty]` attribuut (annotatie). Let op: als je een GET request doet, moet `SupportGet = true` staan in het attribute.
+3. Het gebruik van het `[BindProperty]` attribuut (annotatie). Let op: als je een GET request doet, moet `SupportsGet = true` staan in het attribute.
 ```c#
 [BindProperty(SupportsGet = true, Name = "awayScore")]
 public int Away { get; set; }

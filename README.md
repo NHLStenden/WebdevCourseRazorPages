@@ -105,7 +105,7 @@ MySQL is een Relationele Database Management Systeem (DBMS) dat we gebruiken in 
 Download en installeer de [MySQL Community Server](https://dev.mysql.com/downloads/mysql/).
 De scripts om een databases aan te maken en te vullen (tabellen en dummy data) kan je vinden in `Examples/Pages/Lesson3/SQL/MySQL_CreateAndFillTable.sql`, `Exercises/Tests/MysqlCafe.SQL` (Let op: maak zelf de database aan Exercises en Tests) en `DbUtils`.
 Als username gebruik ik `root` en als wachtwoord `Test@1234!`. Gebruik jij iets anders pas dit dan aan in de config bestanden en DBUtils:
-`Examples/appsettings.Development`, `Exercises.Tests`.
+`Examples/appsettings.Developmen.jsont`, `Exercises.Tests`.
 Een connectionstring ziet er vaak zo uit en moet worden aangepast aan jou eigen situatie:
 `WebdevCourseRazorPages.Exercises.MySQL": "Server=127.0.0.1;Port=3306;Database=Exercises;Uid=root;Pwd=Test@1234!;`.
 

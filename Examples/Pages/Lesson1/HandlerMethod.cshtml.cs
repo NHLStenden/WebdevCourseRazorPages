@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Examples.Pages.Lesson1
 {
-    public class PageHandler : PageModel
+    public class HandlerMethod : PageModel
     {
         public int Counter { get; set; } = 0;
 

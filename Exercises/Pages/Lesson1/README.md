@@ -30,6 +30,9 @@ Het gaat er tenslotte om dat je de technieken leert! En niet per se de test laat
 
 ## Opdracht 1 QueryString - Scorebord 
 
+YouTube video's:
+* [QueryString Parameters](https://www.youtube.com/watch?v=DjoHMY_f5S8&list=PLQ3zAu75nbTGDqP-jmu0JURMEG9dLiX9I&index=7)
+
 Het idee is om een simpel scorebord te maken. 
 De toestand (state) wordt bijgehouden in de QueryString.
 De state in deze opdracht is: `scoreHome` & `scoreAway`.
@@ -50,11 +53,15 @@ public int Away { get; set; }
 ```
 
 Relevante voorbeelden:  
-1. QueryStringsRequest  
+1. QueryStringsRequest.cshtml 
 2. QueryStringsMethodParameter.cshtml.cs  
-3. QueryStringsRequest.cshtml.cs  
+3. QueryStringsRequest.cshtml.cs
+
 
 ## Opdracht 2 QueryString - Gaan we Links of gaan we Rechts
+
+YouTube video's:
+* [Multiple QueryString Parameters](https://www.youtube.com/watch?v=qCbP2qZ0ThQ&list=PLQ3zAu75nbTGDqP-jmu0JURMEG9dLiX9I&index=7)
 
 Het idee is dat we een route gaan bijhouden die we hebben afgelegd. 
 Iedere keer als we afslaan klikken we op de desbetreffende link.
@@ -67,14 +74,17 @@ Er staat al een Page Model (cs.cshtml) en Content Page (.cshtml) voor je klaar a
 Relevante voorbeelden:
 Zelfde als van de vorige opdracht.
 
-
 ## Opdracht 3 Rekenmachine
+
+YouTube video's:
+* [Hidden Input](https://www.youtube.com/watch?v=EzP-s3Wc8Lg&list=PLQ3zAu75nbTGDqP-jmu0JURMEG9dLiX9I&index=9)
+* [Handler Methods (Page Handlers)](https://www.youtube.com/watch?v=h6KAFvD8xW0&list=PLQ3zAu75nbTGDqP-jmu0JURMEG9dLiX9I&index=10)
 
 Maak een simpele rekenmachine. Dit keer gaan we een form met `method="POST"` gebruiken, met daarin een hidden input om het tussenresultaat te onthouden.   
 Een rekenmachine heeft meerdere knoppen daarvoor zijn handlers handig in gebruikt.
 
 - [Hidden form fields](https://www.learnrazorpages.com/razor-pages/state-management#hidden-form-fields)    
-- [Handlers](https://www.learnrazorpages.com/razor-pages/handler-methods)  
+- [Handler Methods](https://www.learnrazorpages.com/razor-pages/handler-methods)  
 
 *Let op*, een mogelijke valkuil is dat `[BindProperty]` gebruik maakt van Model Binding, 
 en het aanpassen van de waarde in de Page Model heeft dan geen effect in een POST! 
@@ -90,10 +100,14 @@ Indien we delen door 0 willen we een ``BadRequest("Delen door nul is niet toeges
 
 Relavante voorbeelden:  
 - HiddenFormFields  
-- PageHandler  
+- HandlerMethod  
 - PostRequest
 
+
 ## Opdracht 4 - Route Data 
+
+YouTube video's:
+* Nog niet gemaakt.
 
 We kunnen gegevens meegeven als Route Data.
 We willen een pagina kunnen aanroepen met de volgende url structuur: `/category/subcategory/productId`.  
@@ -112,6 +126,9 @@ Relevante voorbeelden:
 - Lesson2/RouteConstraints/ProductExistsConstraint
 
 ## Opdracht 5 - Cookies
+
+YouTube video's:
+* [Cookies](https://www.youtube.com/watch?v=ZiGLeWHmFJw&list=PLQ3zAu75nbTGDqP-jmu0JURMEG9dLiX9I&index=12)
 
 Er zijn drie soorten knoppen die een gebruiker kan indrukken die zijn gemoedstoestand representeren, namelijk: blij, teleurgesteld, boos. Hoe vaak een bepaalde knop is ingedrukt willen we graag bijhouden in een Cookie en natuurlijk weergeven aan de gebruiker.
 Uitleg over cookies: 
@@ -145,12 +162,18 @@ De MoodCounter instantie platgeslagen (serialize) als JSON ziet er zo uit:
 }
 ```
 
+In de video over sessie (volgende opdracht) laat ik zien hoe het serialisatie en deserialisatie proces werkt.
+
 Relevante voorbeelden:   
 - Cookies
 
 *Off-topic:* Tracking cookies zijn speciale cookies die worden gebruikt door meerdere website, dit wordt o.a. gebruikt voor het aanmaken van een profiel van de gebruikers zodat bedrijven gericht reclame kunnen sturen. Mocht je het interessant vinden om te weten hoe dit werkt, zie [How cookies can track you (Simply Explained)](https://www.youtube.com/watch?v=QWw7Wd2gUJk).
 
 ## Opdracht 6 - NHLStenden Café - Login & Registratie voor obers m.b.v. sessie.
+
+YouTube video's:
+* [Sessies](https://www.youtube.com/watch?v=ClPteZ12mAw&list=PLQ3zAu75nbTGDqP-jmu0JURMEG9dLiX9I&index=14))
+
 Voor deze eindopdracht (NHLStenden Café) is het handig om een nieuwe Razor applicatie aan te maken *zonder authenticatie*.
 
 Hier wordt uitgelegd hoe je een Razor Pages project kan aanmaken:  

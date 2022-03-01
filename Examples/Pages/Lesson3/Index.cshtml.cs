@@ -19,7 +19,7 @@ namespace Examples.Pages.Lesson3
 
         public RedirectToPageResult OnPostDelete(int productId)
         {
-            bool deleted = ProductsRepository.DeleteProduct(productId);
+            bool deleted = new ProductsRepository().DeleteProduct(productId);
 
             if (deleted)
             {

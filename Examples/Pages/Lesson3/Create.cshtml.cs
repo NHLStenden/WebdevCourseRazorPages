@@ -28,7 +28,7 @@ namespace Examples.Pages.Lesson3
                 return Page();
             }
 
-            var addProduct = ProductsRepository.AddProduct(Product);
+            var addProduct = new ProductsRepository().AddProduct(Product);
 
             ProductMessage = $"Het volgende product is toegevoegd : {addProduct.Name}";
 

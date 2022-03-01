@@ -5,9 +5,9 @@ using Examples.Pages.Lesson3.Models;
 
 namespace Examples.Pages.Lesson3.Repositories
 {
-    public static class ProductsRepository
+    public class ProductsRepository
     {
-        public static Product GetProductById(int id)
+        public Product GetProductById(int id)
         {
             using var db = DbUtils.GetDbConnection();
             var products =
@@ -16,7 +16,7 @@ namespace Examples.Pages.Lesson3.Repositories
             return products;
         }
 
-        public static List<Product> GetProducts()
+        public List<Product> GetProducts()
         {
             using var db = DbUtils.GetDbConnection();
             var products =
@@ -43,7 +43,7 @@ namespace Examples.Pages.Lesson3.Repositories
             return products;
         }
 
-        public static bool DeleteProduct(int productId)
+        public bool DeleteProduct(int productId)
         {
             using var db = DbUtils.GetDbConnection();
             var result = db.Execute("DELETE FROM Product WHERE ProductId = @ProductId", new
@@ -53,7 +53,7 @@ namespace Examples.Pages.Lesson3.Repositories
             return result == 1;
         }
 
-        public static Product AddProduct(Product product)
+        public Product AddProduct(Product product)
         {
             using var db = DbUtils.GetDbConnection();
             int newProductId = db.ExecuteScalar<int>(
@@ -73,7 +73,7 @@ namespace Examples.Pages.Lesson3.Repositories
             return product;
         }
 
-        public static bool ProductNameNotExists(string productName)
+        public bool ProductNameNotExists(string productName)
         {
             if (!string.IsNullOrWhiteSpace(productName))
             {

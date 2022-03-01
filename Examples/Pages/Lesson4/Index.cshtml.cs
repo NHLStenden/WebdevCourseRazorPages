@@ -47,7 +47,7 @@ namespace Examples.Pages.Lesson4
 
         public JsonResult OnPostDelete(int productId)
         {
-            bool deleted = ProductsRepository.DeleteProduct(productId);
+            bool deleted = new ProductsRepository().DeleteProduct(productId);
             return new JsonResult(deleted);
         }
 
@@ -60,7 +60,7 @@ namespace Examples.Pages.Lesson4
 
             if (ModelState.IsValid)
             {
-                var addProduct = ProductsRepository.AddProduct(Product);
+                var addProduct = new ProductsRepository().AddProduct(Product);
                 return new JsonResult(addProduct);
             }
 
@@ -82,7 +82,7 @@ namespace Examples.Pages.Lesson4
         //See the PageRemote annotation in Product class
         public JsonResult OnGetCheckProductName()
         {
-            bool productNameExists = ProductsRepository.ProductNameNotExists(Product.Name);
+            bool productNameExists = new ProductsRepository().ProductNameNotExists(Product.Name);
 
             return new JsonResult(productNameExists);
         }

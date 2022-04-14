@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS Examples;
 
 USE Examples;
 
-# DROP TABLE IF EXISTS Category, Product CASCADE;
+DROP TABLE IF EXISTS Category, Product CASCADE;
 
 CREATE TABLE IF NOT EXISTS Category
 (
@@ -27,39 +27,38 @@ CREATE TABLE IF NOT EXISTS Product
     CONSTRAINT FK_ProductCategory FOREIGN KEY (CategoryId) REFERENCES Category (CategoryId)
 );
 
+INSERT INTO Category (name) VALUES ('Category 1');
+INSERT INTO Category (name) VALUES ('Category 2');
+INSERT INTO Category (name) VALUES ('Category 3');
 
-INSERT INTO category (name) VALUES ('Category 1');
-INSERT INTO category (name) VALUES ('Category 2');
-INSERT INTO category (name) VALUES ('Category 3');
-
-INSERT INTO product (name, description, price, Saleprice, categoryid)
+INSERT INTO Product (name, description, price, Saleprice, categoryid)
 VALUES ('Product 1', 'Product 1 Desc', 100, 80,
-        (SELECT categoryid FROM category WHERE category.name = 'Category 1')
+        (SELECT categoryid FROM Category WHERE Category.name = 'Category 1')
        );
 
-INSERT INTO product (name, description, price, Saleprice, categoryid)
+INSERT INTO Product (name, description, price, Saleprice, categoryid)
 VALUES ('Product 2', 'Product 2 Desc', 80, 70,
-        (SELECT categoryid FROM category WHERE category.name = 'Category 1')
+        (SELECT categoryid FROM Category WHERE Category.name = 'Category 1')
        );
 
-INSERT INTO product (name, description, price, Saleprice, categoryid)
+INSERT INTO Product (name, description, price, Saleprice, categoryid)
 VALUES ('Product 3', 'Product 3 Desc', 100, 80,
-        (SELECT categoryid FROM category WHERE category.name = 'Category 2')
+        (SELECT categoryid FROM Category WHERE Category.name = 'Category 2')
        );
 
-INSERT INTO product (name, description, price, Saleprice, categoryid)
+INSERT INTO Product (name, description, price, Saleprice, categoryid)
 VALUES ('Product 4', 'Product 4 Desc', 80, 70,
-        (SELECT categoryid FROM category WHERE category.name = 'Category 2')
+        (SELECT categoryid FROM Category WHERE Category.name = 'Category 2')
        );
 
-INSERT INTO product (name, description, price, Saleprice, categoryid)
+INSERT INTO Product (name, description, price, Saleprice, categoryid)
 VALUES ('Product 5', 'Product 5 Desc', 100, 80,
-        (SELECT categoryid FROM category WHERE category.name = 'Category 3')
+        (SELECT categoryid FROM Category WHERE Category.name = 'Category 3')
        );
 
-INSERT INTO product (name, description, price, Saleprice, categoryid)
+INSERT INTO Product (name, description, price, Saleprice, categoryid)
 VALUES ('Product 6', 'Product 6 Desc', 80, 70,
-        (SELECT categoryid FROM category WHERE category.name = 'Category 3')
+        (SELECT categoryid FROM Category WHERE Category.name = 'Category 3')
        );
 
 # JOIN Product with Categories to load all products and related category (see ProductRepository.GetProductWithCategories() method)
@@ -70,3 +69,19 @@ FROM Product p JOIN Category c on c.CategoryId = p.CategoryId;
 SELECT c.Name, count(1) as 'NumProductsInCategory', max(p.Price) as MaxPrice, min(p.Price) as MinPrice, round(avg(p.Price), 2) as 'AveragePrice'
 FROM Product p JOIN Category c on c.CategoryId = p.CategoryId
 GROUP BY c.CategoryId;
+
+
+# -----------------------------------------------------
+# -----------------------------------------------------
+
+CREATE DATABASE IF NOT EXISTS TodoDBExample;
+USE TodoDBExample;
+CREATE TABLE Todo (
+    TodoId INT PRIMARY KEY AUTO_INCREMENT,
+    Description VARCHAR(20) NOT NULL,
+    Done BOOLEAN DEFAULT FALSE
+);
+
+INSERT INTO Todo (Description, Done) VALUES ('Item 1', FALSE);
+INSERT INTO Todo (Description, Done) VALUES ('Item 2', TRUE);
+SELECT * FROM Todo;

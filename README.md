@@ -51,11 +51,13 @@ Daarnaast staan er in de opdrachten vaak relevante bronnen die betrekking hebben
 
 De voorbeelden kan je ook live proberen: start hiervoor het project (play knop). 
 Zorg er dan wel voor dat het *Examples* project start en niet per ongelijk het Exercises project. 
-Als je de webbrowser opent en navigeer naar de [index](https://localhost:5001/) pagina en klik op een voorbeeld, dan zie je het voorbeeld in actie en de code is ook zichtbaar. 
+Als je de webbrowser opent en navigeer naar de [index](https://localhost:5001/) pagina en klik op een voorbeeld, dan zie je het voorbeeld in actie en de code is ook zichtbaar.
 
-*Opmerking:* we beginnen met week 0 :-).
-
-Voor de voorbeelden die gebruik maken van een database (MySQL)
+Om de database voorbeelden te gebruiken, ben je een database server nodig. 
+Download de [MySQl Community Edition](https://dev.mysql.com/downloads/mysql/) en installeer deze.
+Vervolgens kan je met een b.v. Rider of Visual Studio (zie [deze](https://dev.mysql.com/doc/visual-studio/en/visual-studio-connection-server-explorer.html) uitleg) verbinding maken met je database server. 
+Voer het SQL Script uit dat staat in `Examples/Pages/Lesson3/MySQL_CreateAndFillTables.sql`.
+Als het goed is moeten nu de voorbeelden in Lesson3 en Lesson4 nu ook werken.
 
 ## Opdrachten
 

@@ -120,9 +120,6 @@ namespace Examples.Pages
             return result;
         }
         
-        IEnumerable<BootstrapTreeNode> Flatten(IEnumerable<BootstrapTreeNode> e) =>
-            e.SelectMany(c => Flatten(c.Nodes)).Concat(e);
-
         [DataContract]
         public class BootstrapTreeNode
         {

@@ -80,19 +80,31 @@ let outerContainer = null;
 $(document).ready(function () {
     let url = new URL(window.location);
     let pageUrl = url.searchParams.get("pageUrl");
-
+    
     outerContainer = $("#codeWindowMainContainer");
     if (pageUrl !== null) {
         loadCodeWindows(url);
     } else {
-        $('.treeview-animated').mdbTreeview();
-
-        //node in the thee is clicked (selected)
-        $('.page').click(function () {
-            const newUrl = new URL(url.href+"?pageUrl=" + $(this).data("page-url"));
-            loadCodeWindows(newUrl);
-            $("#mainContentContainer").show();
-        });
+        const treeView = $('#treeview').dxTreeView({
+            items: tree,
+            // width: 500,
+            searchEnabled: true,
+            onItemClick(e) {
+                const item = e.itemData;
+                const newUrl = new URL(url.href+"?pageUrl=" + item.url);
+                loadCodeWindows(newUrl);
+                $("#mainContentContainer").show();
+            }
+        }).dxTreeView('instance');
+        
+        // $('.treeview-animated').mdbTreeview();
+        //
+        // //node in the thee is clicked (selected)
+        // $('.page').click(function () {
+        //     const newUrl = new URL(url.href+"?pageUrl=" + $(this).data("page-url"));
+        //     loadCodeWindows(newUrl);
+        //     $("#mainContentContainer").show();
+        // });
     }
 
     $('#displayPageIFrameUrl').keypress(function (event) {

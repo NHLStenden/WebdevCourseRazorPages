@@ -12,207 +12,95 @@
         background-repeat: no-repeat;
         background-position-y: center;
     }
+    
+    #treeview {
+      height: 100%;
+    }
+    
+    .demo-container {
+      height: 100%;
+    }
+    
+    .dx-text-editor-container {
+      height: 34px;
+    }
+    
+    .options {
+      padding: 20px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 260px;
+      top: 0;
+      background-color: #f5f5f5;
+    }
+    
+    .caption {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    
+    .option {
+      margin-top: 10px;
+    }
+    
+    .dx-treeview-search {
+      height: 34px;
+    }
+    
+    .option > .dx-selectbox {
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 350px;
+      width: 100%;
+      height: 32px;
+      margin-top: 5px;
+    }
+
 </style>
 
-
-
-@functions
-{
-    private void MakeTree(List<IndexModel.BootstrapTreeNode> nodes)
-    {
-        @foreach (var node in nodes)
-        {
-            if (node.Nodes != null && node.Nodes.Any())
-            {
-                <li class="treeview-animated-items">
-                    <a class="closed">
-                        <i class="fas fa-angle-right"></i>
-                        <span>
-                            <i class="far fa-folder-open ic-w mx-1"></i>
-                             @node.Text
-
-                             @node.Methods
-                        </span>
-                    </a>
-                    <ul class="nested">
-                        @{
-                            MakeTree(node.Nodes);
-                        }
-                    </ul>
-                </li>
-            }
-            else
-            {
-                <li>
-                    <div class="treeview-animated-element page" id="@node.Id"
-                         data-page-url="@node.Url"
-                         data-page-source="@node.PageSource"
-                         data-page-model-source="@node.PageModelSource">
-                        <i class="far fa-file-code ic-w mr-1"></i>@node.Text
-                            @if (node.Methods != null)
-                            {
-                                @foreach (var method in node.Methods)
-                                {
-                                    <span class="badge badge-secondary">@method</span>
-                                }
-                            }
-                    </div>
-                </li>
-            }
-        }
-    }
-}
 
 
 <div class="row">
     <!-- Start your project here-->
 
     <div class="col-3">
-        <div class="treeview-animated border">
-            <h6 class="pt-3 pl-3">Examples</h6>
-            <hr>
-            <ul class="treeview-animated-list mb-3" id="treeContainer">
-                @{
-                    MakeTree(Model.RouteNodesForTree);
-                }
-            </ul>
-        </div>
+      <div class="dx-viewport demo-container">
+        <div id="treeview"></div>
+      </div>
     </div>
     <partial name="_ExampleWindow"/>
 </div>
 
-<div id="tree">
-    
-</div>
-
-
 @section Scripts {
-    @* <script src="lib/jquery/dist/jquery.js"></script> *@
-    <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" crossorigin="anonymous" integrity="sha256-Q9hnBpgBFstzZOr+OKFOWZWfcF5nFXO8Qz48Nmndo6U="></script>
-    <script src="https://pagecdn.io/lib/ace/1.4.12/theme-monokai.js" crossorigin="anonymous"></script>
-    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/csharp.js" crossorigin="anonymous"></script>
-    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/razor.js" crossorigin="anonymous"></script>
-    <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/html.js" crossorigin="anonymous"></script>
+  @* <script src="lib/jquery/dist/jquery.js"></script> *@
+  <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" crossorigin="anonymous" integrity="sha256-Q9hnBpgBFstzZOr+OKFOWZWfcF5nFXO8Qz48Nmndo6U="></script>
+  <script src="https://pagecdn.io/lib/ace/1.4.12/theme-monokai.js" crossorigin="anonymous"></script>
+  <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/csharp.js" crossorigin="anonymous"></script>
+  <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/razor.js" crossorigin="anonymous"></script>
+  <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/html.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
 
-    <script src="js/loadCodeWindows2.js"></script>
-    <script>
+  <script src="js/loadCodeWindows2.js"></script>
+  <script>
         $(document).ready(function () {
             $("#mainContentContainer").hide();
         });
     </script>
 
-    <!-- Required Javascript -->
-    <script src="lib/bootstrap-treeview-1.2.0/src/js/bootstrap-treeview.js"></script>
-    <link href="lib/bootstrap-treeview-1.2.0/src/css/bootstrap-treeview.css" rel="stylesheet"/>
-    <script>
-        function getTree() {
-            var tree = [
-              {
-                text: "Parent 1",
-                nodes: [
-                  {
-                    text: "Child 1",
-                    nodes: [
-                      {
-                        text: "Grandchild 1"
-                      },
-                      {
-                        text: "Grandchild 2"
-                      }
-                    ]
-                  },
-                  {
-                    text: "Child 2"
-                  }
-                ]
-              },
-              {
-                text: "Parent 2"
-              },
-              {
-                text: "Parent 3"
-              },
-              {
-                text: "Parent 4"
-              },
-              {
-                text: "Parent 5"
-              }
-            ];
-            return tree;
-        }
-        
-        
-        const treeNodesAsJson = @Html.Raw(Model.RouteNodesForTreeAsJson);
-        let tree = $("#tree").treeview({data: treeNodesAsJson, levels: 1});
-        $('#tree').treeview('expandAll', { levels: 99, silent: true });
-        
-        
 
-function filterTree(array, text) {
-    const getNodes = (result, object) => {
-        if (object.Text === text) {
-            result.push(object);
-            return result;
-        }
-        if (Array.isArray(object.Nodes)) {
-            const nodes = object.Nodes.reduce(getNodes, []);
-            if (nodes.length) result.push({ ...object, nodes });
-        }
-        return result;
-    };
+  <!-- DevExtreme theme -->
+  <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css">
+  <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css">
 
-    return array.reduce(getNodes, []);
-}
-    //    
-    //     const treeNodesAsJson = @* @Html.Raw(Model.RouteNodesForTreeAsJson); *@
-    //             
-    //     let treeContainer = $("#treeContainer");
-    //    
-    //     let filter = "Cookies";
-    //    
-    //     let filterNodes = filterTree(treeNodesAsJson, filter);
-    //    
-    //    
-    //     makeTree(filterNodes, treeContainer)
-    //    
-    //     function makeTree(nodes, rootElem) {
-    //         for(let node of nodes) {
-    //             if (node.Nodes != null) {
-    //                 let newNode = $(`<li class="treeview-animated-items">
-    //                     <a class="closed">
-    //                         <i class="fas fa-angle-right"></i>
-    //                         <span>
-    //                             <i class="far fa-folder-open ic-w mx-1"></i>
-    //                              ${node.Text}
-    //                         </span>
-    //                     </a>
-    //                     <ul class="nested">
-    //                     </ul>
-    //                 </li>`);
-    //                
-    //                 rootElem.append(newNode);
-    //                
-    //                 makeTree(node.Nodes, $(".nested", newNode));
-    //             } else {
-    //             
-    //                 let li = $(`<li>
-    //                      <div class="treeview-animated-element page" id="${node.Id}"
-    //                           data-page-url="${node.Url}"
-    //                           data-page-source="${node.PageSource}"
-    //                           data-page-model-source="${node.PageModelSource}">
-    //                          <i class="far fa-file-code ic-w mr-1"></i>${node.Text}
-    //                             ${node.Methods != null ? node.Methods.map(x => {
-    //                                 `<span class="badge badge-secondary">${x}</span>`
-    //                             }) : ""}
-    //                     </div>
-    //                 </li>`);
-    //                
-    //                 rootElem.append(li);       
-    //            }
-    //         }
-    //     }
-    </script>
+  <!-- DevExtreme library -->
+  <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.2.7/js/dx.all.js"></script>
+  
+  @* <script src="js/loadCodeWindows2.js"></script> *@
+
+  <script>
+      const tree = @Html.Raw(Model.RouteNodesForTreeAsJson);
+  </script>
+
 }

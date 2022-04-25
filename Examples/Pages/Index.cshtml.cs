@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Web;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -44,6 +45,8 @@ namespace Examples.Pages
 
             RouteNodesForTree = CreateBootstrapTreeNodes(routeMetaDatas);
 
+            // var flatten = Flatten(RouteNodesForTree).ToList();
+            
             var serializeOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -72,7 +75,7 @@ namespace Examples.Pages
                     var node = new BootstrapTreeNode()
                     {
                         Text = HttpUtility.UrlDecode(x.Key),
-                        Id = x.First().Id,
+                        Id = Guid.NewGuid().ToString(), // x.First().Id,
                         Url = x.First().PageRoute,
                         PageSource = x.First().RelativePath,
                         PageModelSource = x.First().RelativePath + ".cs"
@@ -116,14 +119,17 @@ namespace Examples.Pages
 
             return result;
         }
-
+        
+        IEnumerable<BootstrapTreeNode> Flatten(IEnumerable<BootstrapTreeNode> e) =>
+            e.SelectMany(c => Flatten(c.Nodes)).Concat(e);
 
         [DataContract]
         public class BootstrapTreeNode
         {
-            [DataMember(Name = "text")] public string Text { get; set; }
+            public string Text { get; set; }
 
-            [DataMember(Name = "nodes")] public List<BootstrapTreeNode> Nodes { get; set; }
+            [JsonPropertyName("items")]
+            public List<BootstrapTreeNode> Nodes { get; set; } = new List<BootstrapTreeNode>();
 
             public string Id { get; set; }
             public string Url { get; set; }

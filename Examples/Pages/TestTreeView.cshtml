@@ -1,0 +1,81 @@
+@page
+@model Examples.Pages.TestTreeView
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+<style id="treeview1-style"> 
+.treeview .list-group-item{cursor:pointer}.treeview span.indent{margin-left:10px;margin-right:10px}.treeview span.icon{width:12px;margin-right:5px}.treeview .node-disabled{color:silver;cursor:not-allowed}.node-treeview1{}.node-treeview1:not(.node-disabled):hover{background-color:#F5F5F5;} 
+</style>
+
+<div id="treeview1" class="treeview">
+  
+</div>
+
+@section Scripts
+{
+  <script src="lib/bootstrap-treeview-1.2.0/src/js/bootstrap-treeview.js"></script>
+
+  <script>
+     var defaultData = [
+               {
+                 text: 'Parent 1',
+                 href: '#parent1',
+                 tags: ['4'],
+                 nodes: [
+                   {
+                     text: 'Child 1',
+                     href: '#child1',
+                     tags: ['2'],
+                     nodes: [
+                       {
+                         text: 'Grandchild 1',
+                         href: '#grandchild1',
+                         tags: ['0']
+                       },
+                       {
+                         text: 'Grandchild 2',
+                         href: '#grandchild2',
+                         tags: ['0']
+                       }
+                     ]
+                   },
+                   {
+                     text: 'Child 2',
+                     href: '#child2',
+                     tags: ['0']
+                   }
+                 ]
+               },
+               {
+                 text: 'Parent 2',
+                 href: '#parent2',
+                 tags: ['0']
+               },
+               {
+                 text: 'Parent 3',
+                 href: '#parent3',
+                  tags: ['0']
+               },
+               {
+                 text: 'Parent 4',
+                 href: '#parent4',
+                 tags: ['0']
+               },
+               {
+                 text: 'Parent 5',
+                 href: '#parent5'  ,
+                 tags: ['0']
+               }
+             ];
+     
+     $(document).ready(function () {
+          $("#treeview1").treeview({
+           data: defaultData
+          });
+     })
+     
+     
+    </script>
+}

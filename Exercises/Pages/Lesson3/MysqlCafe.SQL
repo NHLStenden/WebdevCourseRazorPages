@@ -81,7 +81,3 @@ SELECT *
 FROM Product as p
     JOIN Category c on p.CategoryId = c.CategoryId
 ORDER BY c.Name, p.Name, p.Price
-    
-
-
-

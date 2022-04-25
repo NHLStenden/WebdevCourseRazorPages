@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Examples.Pages.Lesson3.Models;
 using Examples.Pages.Lesson3.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -20,7 +21,7 @@ namespace Examples.Pages.Lesson3
         {
             Categories = new CategoryRepository().GetCategories();
         }
-
+        
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)

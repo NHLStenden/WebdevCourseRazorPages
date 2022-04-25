@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+skinparam classAttributeIconSize 0
+
+class Product {
+    +Name :string
+    +Price :decimal
+}
+
+class Category {
+    +Name :string
+}
+
+class RTable {
+    +Name : string
+}
+
+class OrderLine {
+    +Amount :int
+    +AmountPaid :int
+}
+note right: Denk goed na over de PK!
+
+Category "1" -- "*" Product : heeft <
+Product "*" -- "*" RTable
+(Product, RTable) .. OrderLine
+
+@enduml

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Text.Json;
 using System.Web;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -29,6 +30,8 @@ namespace Examples.Pages
         private readonly EndpointDataSource _endpointsDataSource;
 
         public List<BootstrapTreeNode> RouteNodesForTree { get; set; }
+        
+        public string RouteNodesForTreeAsJson { get; set; }
 
         public IndexModel(EndpointDataSource endpointsDataSource)
         {
@@ -40,7 +43,17 @@ namespace Examples.Pages
             var routeMetaDatas = GetRouteMetaData();
 
             RouteNodesForTree = CreateBootstrapTreeNodes(routeMetaDatas);
+
+            var serializeOptions = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+
+            RouteNodesForTreeAsJson = JsonSerializer.Serialize(RouteNodesForTree, serializeOptions);
         }
+
+        
 
         private List<BootstrapTreeNode> CreateBootstrapTreeNodes(List<RouteMetaData> routeMetaDatas,
             int segmentIndex = 1)
@@ -65,6 +78,10 @@ namespace Examples.Pages
                         PageModelSource = x.First().RelativePath + ".cs"
                     };
 
+                    
+
+                    
+                    
                     var children =
                         x.Where(w => !string.IsNullOrEmpty(w.PageRoute))
                             .Where(w => new Uri("file://" + w.PageRoute).Segments.Length - 1 > segmentIndex).ToList();

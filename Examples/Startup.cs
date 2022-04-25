@@ -1,4 +1,5 @@
 using Examples.Pages.Lesson2.RouteConstraints;
+using Examples.Pages.Lesson3.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -36,7 +37,9 @@ namespace Examples
             {
                 options.ConstraintMap.Add("productIdExists", typeof(ProductIdExistsConstraint));
             });
-            
+
+            services.AddScoped<CategoryRepository>();
+
             //services.AddDirectoryBrowser();
             //services.AddAntiforgery(options => options.HeaderName = "XSRF-TOKEN");
         }

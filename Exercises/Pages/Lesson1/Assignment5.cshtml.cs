@@ -1,4 +1,3 @@
-using Exercises.Pages.Lesson1.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Exercises.Pages.Lesson1

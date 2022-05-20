@@ -1,0 +1,26 @@
+@page
+
+@model Index
+
+@{
+    Layout = null;
+}
+
+<h1>Display Categories</h1>
+
+<a asp-page="@nameof(Create)">Create New Category</a>
+
+<table>
+    <tbody>
+    @foreach (var category in Model.Categories)
+    {
+        <tr>
+            <td>@category.Name</td>
+            <td>
+                <a asp-page="@nameof(Delete)" asp-route-categoryId="@category.CategoryId">Delete</a> | 
+                <a asp-page="@nameof(Update)" asp-route-categoryId="@category.CategoryId">Update</a> 
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

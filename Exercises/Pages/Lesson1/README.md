@@ -1,7 +1,7 @@
 # Algemene uitleg van de opdrachten
 
 **Voor alle opdrachten geldt kijk goed naar de voorbeelden, uitleg, de bronnen (er staan linkjes naar deze bronnen in de opdrachten) & de [sheets](https://slides.com/jorislops/corerazorpages).** 
-Mijn voorbeelden van de technieken zijn te vinden in de directory: Examples\Pages\Lesson1.
+Mijn voorbeelden van de technieken zijn te vinden in de directory: Examples\Pages\Lesson1. 
 
 Als je het Examples project start dan kun je de voorbeelden in je browser proberen. Per techniek/concept zijn er voorbeelden. Onderaan de opdracht staan de relevante voorbeelden, maar wees vrij om gerust eens door de voorbeelden te grasduinen. Tip: plaats breakpoints zodat je kunt zien wat er gebeurt.
 
@@ -171,72 +171,4 @@ Relevante voorbeelden:
 
 ## Opdracht 6 - NHLStenden Café - Login & Registratie voor obers m.b.v. sessie.
 
-YouTube video's:
-* [Sessies](https://www.youtube.com/watch?v=ClPteZ12mAw&list=PLQ3zAu75nbTGDqP-jmu0JURMEG9dLiX9I&index=14))
-
-Voor deze eindopdracht (NHLStenden Café) is het handig om een nieuwe Razor applicatie aan te maken *zonder authenticatie*.
-
-Hier wordt uitgelegd hoe je een Razor Pages project kan aanmaken:  
-- [Learnrazorpages - First Look](https://www.learnrazorpages.com/first-look)  
-- [Razor Pages for ASP.NET Core - Full Course (.NET 6)](https://www.youtube.com/watch?v=eru2emiqow0), zie tijdstip 14:50.  
-
-Controleer eerst of je de juiste versie hebt van .NET met `dotnet --version`, 6 of hoger. 
-De commando's voor het aanmaken van een nieuw project vanuit de console (terminal):
-
-```
-dotnet --version 
-mkdir NHLCafe
-cd NHLCafe
-dotnet new razor --au none
-```
-
-Het idee is om een simpel login systeem te maken, voor de eindopdracht (NHLStenden Café).
-Een ober moet kunnen inloggen. Daarna kan hij pas bestellingen opnemen.
- 
-Het idee is dat we een Sessie aanmaken met daarin de userid die een unieke code bevat.  
-Voor uitleg wat een sessie is, zie [Life Cycle Of A Session (HTTP Session)](https://www.youtube.com/watch?v=mzEwSlKMxzw).
-We gaan uit van een type gebruiker, namelijk de ober. 
-
-**Opmerking: gebruik niet de klasse User! User is in b.v. de database een gereserveerd keyword en kan veel problemen opleveren!**
-
-Het idee is om gebruik te maken van een session state (sessie), zie [Session State in Razor Pages](https://www.learnrazorpages.com/razor-pages/session-state).
-
-Maak de volgende webpagina's (Razor Pages):  
-
-- Register.cshtml - Registratie pagina (username, password). 
-Een ober (CafeUser) kunnen we opslaan in een database, echter dit hebben we nog niet behandeld.
-Een truc is een `static variabele` te gebruiken, dan blijven de gegevens bestaan zolang de server draait.
-Om dit te faciliteren is er de klasse `StaticUserRepopository` gemaakt (zie `Exercises\Pages\Lesson1\StaticUserRepository.cs`, die je kan gebruiken! 
-Een ober (CafeUser) toevoegen kan als volgt: `StaticUserRepopository.AddUser(user)`. Dit is handig voor het registeren.
-Om in te loggen kan de volgende methode worden aangeroepen `StaticUserRepopository.GetUser(username, password)`.
-Als de username en password combinatie niet bestaat of ongeldig is, dan wordt er `null` geretourneerd.
-
-Er wordt een Guid als unieke identificatie van de `CafeUser` m.b.v. de property `UniqueGuid`.
-In het onderstaande voorbeeld is te zien hoe je een `Guid` kan gebruiken. Een `Guid` kan je zien als een "getal" dat altijd uniek is!
-```C#
-    //create new Guid
-    var guid = Guid.NewGuid();
-    
-    //convert Guid to String
-    var guisAsString = guid.ToString();
-    
-    //convert string to Guid
-    var guidFromSTring = new Guid(guidAsString);
-```
-
-- Login.cshtml - Inlog Pagina.  
-Als een gebruiker een correcte username & password combinatie invult dan wordt hij ingelogd.
-Deze pagina zet de userid sessie dan, als je succesvol bent ingelogd word je doorverwezen ([redirect](https://www.learnrazorpages.com/razor-pages/action-results)) naar de AccountOverview.cshtml pagina.
-
-- Logout.cshtml - Uitlog Pagina.  
- Deze verwijdert de sessie en laat zien dat het uitloggen succesvol is gelukt.
-
-- AccountOverview.cshtml - Overzichtspagina van Account.  
-    Hier kan je de username afdrukken van de ingelogde ober.
-    Als je niet bent ingelogd moet de gebruiker worden doorverwezen ([redirect](https://www.learnrazorpages.com/razor-pages/action-results))  naar de Login.cshtml pagina, dit kan b.v. met van de `RedirectToPage(...)` of `Redirect(...)` methode. 
-    Ophalen van de gebruikersgegevens kan als volgt: `StaticUserRepo.GetUser(userid)`.
-
-Relevante voorbeelden:  
-- Redirect  
-- Sessions  
-- SessionStoreObject  
+Deze opdracht staat in `NHLStendenCafe\Les1.md`. 

@@ -1,0 +1,19 @@
+version: '3.5'
+
+services: 
+  mysql: 
+    container_name: mysql
+    image: mysql
+    #mac arm (m1) gebruikers moeten onderstaande image gebruiken!
+    #image: arm64v8/mysql:oracle 
+    environment:
+      MYSQL_ROOT_PASSWORD: Test@1234!
+    ports:
+      - "3306:3306"
+  
+  adminer:
+    #image: adminer 
+    image: arm64v8/adminer
+    ports:
+      - "8080:8080"
+        

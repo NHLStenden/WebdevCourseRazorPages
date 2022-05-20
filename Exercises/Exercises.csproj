@@ -14,6 +14,17 @@
       <_ContentIncludedByDefault Remove="Pages\Lesson3\Categories\Create.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Lesson3\Categories\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Lesson3\Products\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Lesson3\Categories\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Lesson3\Categories\Update.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\Lesson3\Categories\Create.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\Lesson1\Models" />
+      <Folder Include="Pages\Lesson1\Repository" />
     </ItemGroup>
 
 </Project>

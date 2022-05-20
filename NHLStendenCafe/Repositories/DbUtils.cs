@@ -3,18 +3,13 @@ using MySql.Data.MySqlClient;
 
 namespace NHLStendenCafe.Repositories
 {
-    public class DbUtils : IDbUtils
+    public static class DbUtils
     {
         public static string ConnectionSting { get; set; }
         
-        public IDbConnection GetDbConnection()
+        public static IDbConnection GetDbConnection()
         {
             return new MySqlConnection(ConnectionSting);
         }
-    }
-
-    public interface IDbUtils
-    {
-        IDbConnection GetDbConnection();
     }
 }

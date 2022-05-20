@@ -27,4 +27,9 @@
       <Folder Include="Pages\Lesson1\Repository" />
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="Exercises.Tests" />
+    </ItemGroup>
+
+
 </Project>

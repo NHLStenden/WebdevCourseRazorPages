@@ -1,26 +1,9 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/CodeInspection/Highlighting/SweaWarningsMode/@EntryValue">ShowAndRun</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=37d075a8_002Dbaa4_002D4228_002D9514_002Db8ee48648407/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Assignment0" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::E25CA169-A565-4A56-A400-19847FF7006F::.NETCoreApp,Version=v3.1::Exercises.Tests.Lesson0.Assignment0&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::.NETCoreApp,Version=v3.1::Exercises.Tests.CostObjectRepositoryTests&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::.NETCoreApp,Version=v3.1::Exercises.Tests.OrderRepositoryTests.Pay_TableNr&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::.NETCoreApp,Version=v3.1::Exercises.Tests.Lesson0&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::.NETCoreApp,Version=v3.1::Exercises.Tests.Lesson1.Assignment5CookieObject&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6a60b8d6_002Daf58_002D4e01_002D8eda_002D57b2107577e3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Pay_TableNr" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson0.Assignment0&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.OrderRepositoryTests.GetCategories_ShouldReturnListOfCategoriesOrderByName&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson1.Assignment1&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
+	
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b1ce4cf8_002D0990_002D4b7e_002D9875_002Dfd6729566b8d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Assignment5CookieObject" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson0.Assignment0&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.OrderRepositoryTests.GetCategories_ShouldReturnListOfCategoriesOrderByName&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson0.Assignment1&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net5.0::Exercises.Tests.Lesson1.Assignment1&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::E25CA169-A565-4A56-A400-19847FF7006F::net6.0::Exercises.Tests.Lesson1.Assignment1&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

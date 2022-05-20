@@ -1180,9 +1180,6 @@
     <Compile Include="wwwroot\Pages\Privacy.cshtml.cs" />
     <Compile Include="wwwroot\Pages\Test\TestHidden.cshtml.cs" />
     <Compile Remove="wwwroot\Pages\**" />
-    <Compile Update="Startup.cs">
-      <DependentUpon>Program.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Remove="Examples\.gitignore" />

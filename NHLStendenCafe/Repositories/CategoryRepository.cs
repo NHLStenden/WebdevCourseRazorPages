@@ -6,16 +6,12 @@ namespace NHLStendenCafe.Repositories
 {
     public class CategoryRepository
     {
-        private IDbConnection GetConnection()
-        {
-            return new DbUtils().GetDbConnection();
-        }
 
         public Category Get(int categoryId)
         {
             string sql = "SELECT * FROM Category WHERE CategoryId = @categoryId";
             
-            using var connection = GetConnection();
+            using var connection = DbUtils.GetDbConnection();
             var category = connection.QuerySingle<Category>(sql, new { categoryId });
             return category;
         }
@@ -24,7 +20,7 @@ namespace NHLStendenCafe.Repositories
         {
             string sql = "SELECT * FROM Category ORDER BY Name";
             
-            using var connection = GetConnection();
+            using var connection = DbUtils.GetDbConnection();
             var categories = connection.Query<Category>(sql);
             return categories;
         }
@@ -36,7 +32,7 @@ namespace NHLStendenCafe.Repositories
                 VALUES (@Name); 
                 SELECT * FROM Category WHERE CategoryId = LAST_INSERT_ID()";
             
-            using var connection = GetConnection();
+            using var connection = DbUtils.GetDbConnection();
             var addedCategory = connection.QuerySingle<Category>(sql, category);
             return addedCategory;
         }
@@ -45,7 +41,7 @@ namespace NHLStendenCafe.Repositories
         {
             string sql = @"DELETE FROM Category WHERE CategoryId = @categoryId";
             
-            using var connection = GetConnection();
+            using var connection = DbUtils.GetDbConnection();
             int numOfEffectedRows = connection.Execute(sql, new { categoryId });
             return numOfEffectedRows == 1;
         }
@@ -58,7 +54,7 @@ namespace NHLStendenCafe.Repositories
                 WHERE CategoryId = @CategoryId;
                 SELECT * FROM Category WHERE CategoryId = @CategoryId";
             
-            using var connection = GetConnection();
+            using var connection = DbUtils.GetDbConnection();
             var updatedCategory = connection.QuerySingle<Category>(sql, category);
             return updatedCategory;
         }

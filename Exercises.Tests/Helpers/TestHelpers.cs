@@ -8,7 +8,7 @@ namespace Exercises.Tests.Helpers
     {
         public static async Task<IHtmlDocument> RequestHtmlDocumentAsync(string requestUri)
         {
-            var factory = new WebApplicationFactory<Startup>();
+            var factory = new WebApplicationFactory<Program>();
 
             var client = factory.CreateClient();
             var response = await client.GetAsync(requestUri);
@@ -19,7 +19,7 @@ namespace Exercises.Tests.Helpers
 
         public static async Task<IHtmlDocument> RequestHtmlDocumentWithPostAsync(IHtmlFormElement form, IHtmlButtonElement submitBtn)
         {
-            var factory = new WebApplicationFactory<Startup>();
+            var factory = new WebApplicationFactory<Program>();
 
             var client = factory.CreateClient();
             var response = await client.SendAsync(form, submitBtn);

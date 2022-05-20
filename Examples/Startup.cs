@@ -23,6 +23,8 @@ namespace Examples
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            DbUtils.ConnectionSting = Configuration.GetConnectionString("WebdevCourseRazorPages.Example.MySQL");
+            
             services.AddSession();
 
             services.AddRazorPages();
@@ -37,46 +39,11 @@ namespace Examples
             {
                 options.ConstraintMap.Add("productIdExists", typeof(ProductIdExistsConstraint));
             });
-
-            services.AddScoped<CategoryRepository>();
-
-            //services.AddDirectoryBrowser();
-            //services.AddAntiforgery(options => options.HeaderName = "XSRF-TOKEN");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // //middleware A
-            // app.Use(async (context, next) =>
-            // {
-            //     if (context.Request.Path.Value
-            //         .StartsWith("/lesson0/getRequestPipelineExample",
-            //             StringComparison.OrdinalIgnoreCase))
-            //     {
-            //         //Write to the context.Response.Body
-            //         await context.Response.WriteAsync("<h1>Hello World</h1>");
-            //         context.Response.Headers.Add("Content-Type", "text/html");
-            //         context.Response.StatusCode = (int)HttpStatusCode.OK; //HttpStatusCode.OK == 200
-            //     }
-            //     else
-            //     {
-            //         await next.Invoke();
-            //     }
-            // });
-            //
-            // //middleware B
-            // // app.Use(async (context, next) =>
-            // // {
-            // //     ...
-            // //     await next.Invoke();
-            // // });
-            //
-            // app.Run(async context =>
-            // {
-            //     await context.Response.WriteAsync("<h1>Page Not Found</h1>");
-            // });
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

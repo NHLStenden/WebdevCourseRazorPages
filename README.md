@@ -1,4 +1,4 @@
-# Het project clone
+# Het project klonen (clone)
 
 Op het project te klonen kan je het volgende git command gebruiken:
 ```bash

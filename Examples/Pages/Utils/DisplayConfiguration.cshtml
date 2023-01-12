@@ -16,16 +16,16 @@
 
 <hr>
 <ul>
-@if (!Model.HostEnvironment.IsProduction())
-{
+@* @if (!Model.HostEnvironment.IsProduction()) *@
+@* { *@
     <h1>Het tonen van onderstaande gegevens in een Productieomgeving is een potentieel beveilingsrisico!!</h1>
     @foreach (var x in Model.Configuration.AsEnumerable())
     {
         <li>@x.Key -- @x.Value</li>
     }
-}
-else
-{
-    <h1>Om in productie setting te zien, zet de if in commentaar (of haal weg)</h1>
-}
+@* } *@
+@* else *@
+@* { *@
+@*     <h1>Om in productie setting te zien, zet de if in commentaar (of haal weg)</h1> *@
+@* } *@
 </ul>

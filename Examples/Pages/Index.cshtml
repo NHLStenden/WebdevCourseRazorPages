@@ -74,11 +74,11 @@
 
 @section Scripts {
   @* <script src="lib/jquery/dist/jquery.js"></script> *@
-  <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" crossorigin="anonymous" integrity="sha256-Q9hnBpgBFstzZOr+OKFOWZWfcF5nFXO8Qz48Nmndo6U="></script>
-  <script src="https://pagecdn.io/lib/ace/1.4.12/theme-monokai.js" crossorigin="anonymous"></script>
-  <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/csharp.js" crossorigin="anonymous"></script>
-  <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/razor.js" crossorigin="anonymous"></script>
-  <script src="https://pagecdn.io/lib/ace/1.4.12/snippets/html.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.14.0/src-noconflict/ace.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.14.0/src-noconflict/theme-monokai.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.14.0/src-noconflict/snippets/csharp.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.14.0/src-noconflict/snippets/razor.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.14.0/src-noconflict/snippets/html.js" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
 
@@ -87,9 +87,8 @@
         $(document).ready(function () {
             $("#mainContentContainer").hide();
         });
-    </script>
-
-
+  </script>
+  
   <!-- DevExtreme theme -->
   <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css">
   <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css">
@@ -101,6 +100,7 @@
 
   <script>
       const tree = @Html.Raw(Model.RouteNodesForTreeAsJson);
+      
   </script>
 
 }

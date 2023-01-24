@@ -41,8 +41,8 @@ Maak nu zelf een Repository voor `Product`. Zorg ervoor dat je de relatie tussen
 Maak daarvoor een nieuwe directory `Products` aan waarin je de code zet. Tip: gebruik als inspiratie mijn voorbeeld van `Categories`.
 
 De volgende pagina's dienen gerealiseerd te worden:
-- `Index.cshtml` - Read - Dit is de drankenkaart. Op deze pagina staat een `<h1>` per categorie (gesorteerd op naam), met daaronder een lijst (of tabel) met daarin de producten (gesoort op naam, prijs) van de desbetreffende categorie.
-Stel we hebben N categorieën dan zouden we 1 query nodig hebben om de categorieën op te halen en 1 query per category (N query's). Dit is niet wenselijk omdat we dan te maken hebben met het N+1 probleem.
+- `Index.cshtml` - Read - Dit is de drankenkaart. Op deze pagina staat een `<h1>` per categorie (gesorteerd op naam), met daaronder een lijst `<ul>` (of tabel `<table>`) met daarin de producten `Product` (gesoort op naam, prijs) van de desbetreffende categorie.
+Stel we hebben N categorieën dan zouden we 1 query nodig hebben om de categorieën op te halen en 1 query per category (N query's). Dit is niet wenselijk omdat we dan te maken hebben met het [N+1 probleem](https://www.youtube.com/shorts/3w2g50NojVQ).
 De oplossing is dat we gebruik maken van een join query. We hebben dan slecht 1 query nodig i.p.v. N+1 query's. Hoe je gebruik kan maken van relaties (joins) in Dapper wordt hier uitgelegd:
 [Managing Relationships With Dapper](https://www.learndapper.com/relationships). Dit voorkomt het N+1 probleem.
 Vanuit de drankenkaart moet je naar onderstaande pagina's kunnen navigeren, deze functionaliteit moet alleen beschikbaar zijn voor ingelogde obers.

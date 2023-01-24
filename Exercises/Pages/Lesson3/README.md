@@ -13,7 +13,7 @@ Tip: bekijk de voorbeelden (zie directory Examples/Lesson3).
 
 ## Opdracht 1 NHLStenden Café - Drankenkaart (Product CRUD)
 
-Jullie gaan verder de eindopdracht.  
+Jullie gaan verder met de eindopdracht.  
  
 Er zijn al een aantal klassen aangemaakt (deze mag je gebruiken, hoeft niet per se), namelijk:  
 - `Product` o.a. drankjes die besteld kunnen worden in het café.

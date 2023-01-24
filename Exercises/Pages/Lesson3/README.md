@@ -38,7 +38,7 @@ Het installeren van de driver alsook het maken van een conenctionstring en verbi
 In de directory `Categories` staan CRUD-pagina's (Read = Index.cshtml, Create = Create.cshtml, etc).
 In de directory `Repository` staat de klasse `CategoryRepository`. 
 Maak nu zelf een Repository voor `Product`. Zorg ervoor dat je de relatie tussen `Product` en `Category` kan aanmaken en aanpassen.
-Maak daarvoor een nieuwe directory `Products` aan weaarin je de code zet. Tip: gebruik als inspiratie mijn voorbeeld van `Categories`.
+Maak daarvoor een nieuwe directory `Products` aan waarin je de code zet. Tip: gebruik als inspiratie mijn voorbeeld van `Categories`.
 
 De volgende pagina's dienen gerealiseerd te worden:
 - `Index.cshtml` - Read - Dit is de drankenkaart. Op deze pagina staat een `<h1>` per categorie (gesorteerd op naam), met daaronder een lijst (of tabel) met daarin de producten (gesoort op naam, prijs) van de desbetreffende categorie.

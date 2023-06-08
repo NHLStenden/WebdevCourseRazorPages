@@ -218,10 +218,10 @@ In het onderstaande voorbeeld is te zien hoe je een `Guid` kan gebruiken. Een `G
     var guid = Guid.NewGuid();
     
     //convert Guid to String
-    var guisAsString = guid.ToString();
+    var guidAsString = guid.ToString();
     
     //convert string to Guid
-    var guidFromSTring = new Guid(guidAsString);
+    var guidFromString = new Guid(guidAsString);
 ```
 
 - Login.cshtml - Inlog Pagina.  

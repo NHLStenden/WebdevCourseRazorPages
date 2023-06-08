@@ -25,7 +25,7 @@ git stash
 git pull
 git stash pop
 ```
-* Een alternatief is dat je gewoon opnieuw het repostipry kloont en verder werkt in deze directory. 
+* Een alternatief is dat je gewoon opnieuw het repository kloont en verder werkt in deze directory. 
 ```bash 
 git clone https://github.com/jorislops/WebdevCourseRazorPages.git <newDirectory>
 ```

@@ -20,7 +20,7 @@ namespace Exercises.Pages.Lesson1.Repository
         {
             if (cafeUser.UniqueGuid == default(Guid))
             {
-                cafeUser.UniqueGuid = new Guid();
+                cafeUser.UniqueGuid = Guid.NewGuid();
             }
             
             if (_users.Find(x => x.UniqueGuid == cafeUser.UniqueGuid) != null)
